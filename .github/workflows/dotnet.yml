@@ -27,4 +27,4 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Generate Docs
-      run: /home/theexiledcat/simplerest/gendocs.sh
+      run: ../../gendocs.sh
