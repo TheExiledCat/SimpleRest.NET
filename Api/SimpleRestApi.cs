@@ -10,7 +10,7 @@ class SimpleRestApi
     ISimpleRestLogger m_Logger;
     ISimpleRestContentTypeParser m_ResponseTypeParser;
     HttpListener m_Listener;
-    Dictionary<string, List<Tuple<SimpleRestMethod?, ApiMiddleWare>>> m_Middleware = [];
+    List<SimpleRestMap> m_Middleware = [];
 
     int m_Port;
     public SimpleRestApi(int port, ISimpleRestLogger? logger = null, ISimpleRestContentTypeParser? responseParser = null)
@@ -23,48 +23,46 @@ class SimpleRestApi
 
 
     }
-    List<Tuple<SimpleRestMethod?, ApiMiddleWare>> FindOrCreateEndpoint(string endpoint)
-    {
-        if (!m_Middleware.ContainsKey(endpoint))
-        {
-            m_Middleware[endpoint] = [];
 
-        }
-        return m_Middleware[endpoint];
-    }
     public void Map(string endpoint, ApiMiddleWare middleWare)
     {
-        FindOrCreateEndpoint(endpoint).Add(new Tuple<SimpleRestMethod?, ApiMiddleWare>(SimpleRestMethod.ANY, middleWare));
+        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.ANY, middleWare));
     }
 
 
     public void Get(string endpoint, ApiMiddleWare middleWare)
     {
-        FindOrCreateEndpoint(endpoint).Add(new Tuple<SimpleRestMethod?, ApiMiddleWare>(SimpleRestMethod.GET, middleWare));
+        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.GET, middleWare));
+
     }
     public void Post(string endpoint, ApiMiddleWare middleWare)
     {
-        FindOrCreateEndpoint(endpoint).Add(new Tuple<SimpleRestMethod?, ApiMiddleWare>(SimpleRestMethod.POST, middleWare));
+        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.POST, middleWare));
+
 
     }
     public void Put(string endpoint, ApiMiddleWare middleWare)
     {
-        FindOrCreateEndpoint(endpoint).Add(new Tuple<SimpleRestMethod?, ApiMiddleWare>(SimpleRestMethod.PUT, middleWare));
+        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.PUT, middleWare));
+
 
     }
     public void Patch(string endpoint, ApiMiddleWare middleWare)
     {
-        FindOrCreateEndpoint(endpoint).Add(new Tuple<SimpleRestMethod?, ApiMiddleWare>(SimpleRestMethod.PATCH, middleWare));
+        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.PATCH, middleWare));
+
 
     }
     public void Delete(string endpoint, ApiMiddleWare middleWare)
     {
-        FindOrCreateEndpoint(endpoint).Add(new Tuple<SimpleRestMethod?, ApiMiddleWare>(SimpleRestMethod.DELETE, middleWare));
+        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.DELETE, middleWare));
+
 
     }
     public void Head(string endpoint, ApiMiddleWare middleWare)
     {
-        FindOrCreateEndpoint(endpoint).Add(new Tuple<SimpleRestMethod?, ApiMiddleWare>(SimpleRestMethod.HEAD, middleWare));
+        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.HEAD, middleWare));
+
 
     }
     public async Task Start(Action<int>? OnStartup = null)
@@ -73,6 +71,7 @@ class SimpleRestApi
         {
             m_Listener.Start();
             OnStartup?.Invoke(m_Port);
+            m_Middleware.Dump();
             while (true)
             {
                 try
@@ -101,13 +100,15 @@ class SimpleRestApi
     }
     async Task RunMiddleWare(SimpleRestRequest request, SimpleRestResponse response)
     {
-
-        foreach (Tuple<SimpleRestMethod?, ApiMiddleWare> middlewareMap in m_Middleware[request.Endpoint])
+        SimpleRestMap[] matches = m_Middleware.Where(m => m.Pattern.Match(request.Endpoint).Success).ToArray();
+        matches.ToList().ForEach(m => m.Pattern.GetGroupNames().Dump());
+        foreach (SimpleRestMap map in matches)
         {
             if (response.HasCompleted)
                 return;
-            if (middlewareMap.Item1 == SimpleRestMethod.ANY || middlewareMap.Item1 == request.Method)
-                await middlewareMap.Item2.Invoke(request, response);
+
+            if (map.Method == SimpleRestMethod.ANY || map.Method == request.Method)
+                await map.Middleware.Invoke(request, response);
         }
     }
     public void Stop()
