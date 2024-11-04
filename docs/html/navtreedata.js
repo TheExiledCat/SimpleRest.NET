@@ -28,10 +28,10 @@ var NAVTREE =
     [ "SimpleREST.Net", "index.html#autotoc_md0", [
       [ "Getting Started", "index.html#autotoc_md1", null ]
     ] ],
-    [ "installation", "md_guides_2installation.html", [
-      [ "Installation", "md_guides_2installation.html#autotoc_md2", [
-        [ "Using NuGet:", "md_guides_2installation.html#autotoc_md4", null ],
-        [ "Or using git", "md_guides_2installation.html#autotoc_md5", null ]
+    [ "installation", "d8/d93/md_guides_2installation.html", [
+      [ "Installation", "d8/d93/md_guides_2installation.html#autotoc_md2", [
+        [ "Using NuGet:", "d8/d93/md_guides_2installation.html#autotoc_md4", null ],
+        [ "Or using git", "d8/d93/md_guides_2installation.html#autotoc_md5", null ]
       ] ]
     ] ],
     [ "Packages", "namespaces.html", [
@@ -64,7 +64,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"Debug_2net8_80_2SimpleRest_8AssemblyInfo_8cs.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

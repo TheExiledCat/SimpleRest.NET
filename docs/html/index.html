@@ -120,19 +120,23 @@ SimpleREST.Net</h1>
 <p><em>The simplest Rest Api framework for .Net</em></p>
 <h2><a class="anchor" id="autotoc_md1"></a>
 Getting Started</h2>
-<p>To create a basic rest api and serve it on a host and port number all you need to do is add <code>using <a class="el" href="namespaceSimpleRest.html">SimpleRest</a>;</code> and the following:</p>
+<p>To create a basic rest api and serve it on a host and port number all you need to do is add <code>using <a class="el" href="df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</code> and the following code to your program:</p>
 <div class="fragment"><div class="line"><span class="keyword">static</span> async Task Main(<span class="keywordtype">string</span>[] args)</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">//Create the api</span></div>
 <div class="line">    SimpleRestApi api = <span class="keyword">new</span> SimpleRestApi(3000);</div>
-<div class="line">    <span class="comment">//Map some middleware, using the request and response objects optionally to change the data before the HTTP Methods get called on them</span></div>
-<div class="line">    api.Map(<span class="stringliteral">&quot;/&quot;</span>,(req,res)=&gt;{</div>
+<div class="line">    <span class="comment">//Map some middleware, using the request and response objects optionally to change the data before the HTTP Middleware Methods get called on them</span></div>
+<div class="line">    api.Map(<span class="stringliteral">&quot;/&quot;</span>,async (req,res)=&gt;{</div>
 <div class="line">        req.Query[<span class="stringliteral">&quot;name&quot;</span>] = req.Query[<span class="stringliteral">&quot;name&quot;</span>].ToUpper()</div>
 <div class="line">     })</div>
 <div class="line">    <span class="comment">//Map an HTTP method as a middleware</span></div>
-<div class="line">    api.Get(<span class="stringliteral">&quot;/&quot;</span>,(req,res)=&gt;{</div>
+<div class="line">    api.Get(<span class="stringliteral">&quot;/&quot;</span>,async (req,res)=&gt;{</div>
 <div class="line">        <span class="comment">//send object and terminate the connection and middleware chain</span></div>
 <div class="line">        res.Send(<span class="stringliteral">&quot;Hello World&quot;</span>);</div>
+<div class="line">    })</div>
+<div class="line">    <span class="comment">//create a 404 handler if none of the middleware is called to terminate the connection</span></div>
+<div class="line">    api.Map(<span class="stringliteral">&quot;*&quot;</span>,async (req,res)=&gt;{</div>
+<div class="line">        res.send(<span class="stringliteral">&quot;Route not found&quot;</span>);</div>
 <div class="line">    })</div>
 <div class="line">    <span class="comment">//Start the server on given port with a callback to call before continuing with the rest of the server functions</span></div>
 <div class="line">    await api.Start((<span class="keywordtype">int</span> port) =&gt;</div>

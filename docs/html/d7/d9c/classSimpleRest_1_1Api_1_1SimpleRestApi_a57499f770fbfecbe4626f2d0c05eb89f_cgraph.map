@@ -1,0 +1,7 @@
+<map id="SimpleRest.Api.SimpleRestApi.Start" name="SimpleRest.Api.SimpleRestApi.Start">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,204,77"/>
+<area shape="rect" id="Node000002" href="$d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a871cc9213366958473155404893e1ce6" title=" " alt="" coords="252,5,495,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,43,238,39,238,44,205,48"/>
+<area shape="rect" id="Node000003" href="$de/d5d/interfaceSimpleRest_1_1Api_1_1ISimpleRestLogger.html#a36c03d7ca20a63362a6e91fbea143577" title=" " alt="" coords="272,69,475,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,67,259,73,258,78,204,72"/>
+</map>

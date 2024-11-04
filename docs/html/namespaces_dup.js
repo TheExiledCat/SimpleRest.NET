@@ -1,4 +1,4 @@
 var namespaces_dup =
 [
-    [ "SimpleRest", "namespaceSimpleRest.html", "namespaceSimpleRest" ]
+    [ "SimpleRest", "d7/d86/namespaceSimpleRest.html", "d7/d86/namespaceSimpleRest" ]
 ];

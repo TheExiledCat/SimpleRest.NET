@@ -6,5 +6,5 @@ var files_dup =
     [ "guides", "dir_bab070cd7a7fc8ee263021126279254f.html", null ],
     [ "Interfaces", "dir_d7a24015de3ad3397ba9b230e38f5b53.html", "dir_d7a24015de3ad3397ba9b230e38f5b53" ],
     [ "obj", "dir_43724e81dd40e09f32417973865cdd64.html", "dir_43724e81dd40e09f32417973865cdd64" ],
-    [ "Program.cs", "Program_8cs.html", "Program_8cs" ]
+    [ "Program.cs", "d8/d7a/Program_8cs.html", "d8/d7a/Program_8cs" ]
 ];
