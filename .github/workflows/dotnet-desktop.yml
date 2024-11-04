@@ -114,4 +114,4 @@ jobs:
         name: MSIX Package
         path: ${{ env.Wap_Project_Directory }}\AppPackages
     - name: Generate Docs
-      run: "/home/theexiledcat/simplerest.net/gendocs.sh
+      run: "/home/theexiledcat/simplerest.net/gendocs.sh"
