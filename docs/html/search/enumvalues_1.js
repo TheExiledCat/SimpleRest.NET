@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['get_0',['GET',['../namespaceSimpleRest_1_1Api.html#ada4eac4d8de31c19a9aa2abd91c5a909a7528035a93ee69cedb1dbddb2f0bfcc8',1,'SimpleRest::Api']]]
+  ['debug_0',['DEBUG',['../Enums_8cs.html#abefb130a1e9ce5f7764648705edcf427adc30ec20708ef7b0f641ef78b7880a15',1,'Enums.cs']]],
+  ['delete_1',['DELETE',['../Enums_8cs.html#add67cc5901cc761e7e9870b90ee26be2a32f68a60cef40faedbc6af20298c1a1e',1,'Enums.cs']]]
 ];

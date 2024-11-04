@@ -1,10 +1,13 @@
 var classSimpleRest_1_1Api_1_1SimpleRestApi =
 [
-    [ "SimpleRestApi", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a23f0f0b619306286c46bf338a62c80a3", null ],
-    [ "ApiMiddleWare", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#acd64fafd6f733ccd211313b01cdb0bad", null ],
-    [ "Close", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a78c4e8f69b4a6db5dffa202846a9b03c", null ],
-    [ "Map", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a211026ac5ae810cbdd83349ddb408268", null ],
-    [ "RunMiddleWare", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a5e727748e443a76fa43a929a8c72f410", null ],
+    [ "SimpleRestApi", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a5f842e0243ee35f43b0043fbb4c95764", null ],
+    [ "Delete", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a9c2e0a6248ff7f3a9d85d6315e72346f", null ],
+    [ "Get", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c", null ],
+    [ "Head", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a4f468b38d7bd34fdb0382a8cdeeecf11", null ],
+    [ "Map", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a0e70e5629089887d23a2d21ae42074ac", null ],
+    [ "Patch", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a54361e917676657b188107284d776768", null ],
+    [ "Post", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a237fc8068e75e79b7fba21ec9a15d8c1", null ],
+    [ "Put", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a01589c4a5572747350a117fe98b64156", null ],
     [ "Start", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#a57499f770fbfecbe4626f2d0c05eb89f", null ],
-    [ "m_Middleware", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#ab43705d3e5cdb07cdeb5588dd234be76", null ]
+    [ "Stop", "classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8", null ]
 ];

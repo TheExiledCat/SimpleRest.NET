@@ -102,6 +102,7 @@ $(function(){initNavTree('classSimpleRest_1_1Api_1_1SimpleRestResponse.html','')
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
+<a href="#events">Events</a> &#124;
 <a href="classSimpleRest_1_1Api_1_1SimpleRestResponse-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SimpleRest.Api.SimpleRestResponse Class Reference</div></div>
 </div><!--header-->
@@ -109,20 +110,74 @@ $(function(){initNavTree('classSimpleRest_1_1Api_1_1SimpleRestResponse.html','')
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a9633bca41e4d89c56765a944e6a9780b" id="r_a9633bca41e4d89c56765a944e6a9780b"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9633bca41e4d89c56765a944e6a9780b">Result</a> (string result)</td></tr>
+<tr class="separator:a9633bca41e4d89c56765a944e6a9780b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9563f112131314ee40a7856eeb593317" id="r_a9563f112131314ee40a7856eeb593317"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9563f112131314ee40a7856eeb593317">SimpleRestResponse</a> (HttpListenerResponse response, <a class="el" href="interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser.html">ISimpleRestContentTypeParser</a> parser)</td></tr>
+<tr class="separator:a9563f112131314ee40a7856eeb593317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab26dac9792d76da8b036507b6cbc087f" id="r_ab26dac9792d76da8b036507b6cbc087f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab26dac9792d76da8b036507b6cbc087f">Send&lt; T &gt;</a> (T result)</td></tr>
 <tr class="separator:ab26dac9792d76da8b036507b6cbc087f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a52757222d1ef6cb5546fe41404b7eeef" id="r_a52757222d1ef6cb5546fe41404b7eeef"><td class="memItemLeft" align="right" valign="top">HttpListenerResponse?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52757222d1ef6cb5546fe41404b7eeef">Response</a><code> [get]</code></td></tr>
-<tr class="separator:a52757222d1ef6cb5546fe41404b7eeef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56af843be05e19d766aba08d027ded1a" id="r_a56af843be05e19d766aba08d027ded1a"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56af843be05e19d766aba08d027ded1a">ContentType</a><code> [get, set]</code></td></tr>
-<tr class="separator:a56af843be05e19d766aba08d027ded1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9801537d19f71dc18580f13a13c9f6c6" id="r_a9801537d19f71dc18580f13a13c9f6c6"><td class="memItemLeft" align="right" valign="top">HttpListenerResponse&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9801537d19f71dc18580f13a13c9f6c6">Response</a><code> [get]</code></td></tr>
+<tr class="separator:a9801537d19f71dc18580f13a13c9f6c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55389ee63100e7bda9c6877137429375" id="r_a55389ee63100e7bda9c6877137429375"><td class="memItemLeft" align="right" valign="top">string?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55389ee63100e7bda9c6877137429375">ContentType</a><code> [get]</code></td></tr>
+<tr class="separator:a55389ee63100e7bda9c6877137429375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad70801b4a0e5d9815fe23449a745a19b" id="r_ad70801b4a0e5d9815fe23449a745a19b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad70801b4a0e5d9815fe23449a745a19b">HasCompleted</a><code> [get]</code></td></tr>
+<tr class="separator:ad70801b4a0e5d9815fe23449a745a19b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad112d935fe8e36a33ece30261a1808e7" id="r_ad112d935fe8e36a33ece30261a1808e7"><td class="memItemLeft" align="right" valign="top">ushort&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad112d935fe8e36a33ece30261a1808e7">StatusCode</a><code> [get, set]</code></td></tr>
+<tr class="separator:ad112d935fe8e36a33ece30261a1808e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="events" name="events"></a>
+Events</h2></td></tr>
+<tr class="memitem:a868c364f726ce2bce8e93ca3d9e0ea17" id="r_a868c364f726ce2bce8e93ca3d9e0ea17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a9633bca41e4d89c56765a944e6a9780b">Result</a>?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a868c364f726ce2bce8e93ca3d9e0ea17">OnSend</a></td></tr>
+<tr class="separator:a868c364f726ce2bce8e93ca3d9e0ea17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Program_8cs_source.html#l00220">220</a> of file <a class="el" href="Program_8cs_source.html">Program.cs</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="SimpleRestResponse_8cs_source.html#l00006">6</a> of file <a class="el" href="SimpleRestResponse_8cs_source.html">SimpleRestResponse.cs</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9563f112131314ee40a7856eeb593317" name="a9563f112131314ee40a7856eeb593317"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9563f112131314ee40a7856eeb593317">&#9670;&#160;</a></span>SimpleRestResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SimpleRest.Api.SimpleRestResponse.SimpleRestResponse </td>
+          <td>(</td>
+          <td class="paramtype">HttpListenerResponse</td>          <td class="paramname"><span class="paramname"><em>response</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser.html">ISimpleRestContentTypeParser</a></td>          <td class="paramname"><span class="paramname"><em>parser</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SimpleRestResponse_8cs_source.html#l00015">15</a> of file <a class="el" href="SimpleRestResponse_8cs_source.html">SimpleRestResponse.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9633bca41e4d89c56765a944e6a9780b" name="a9633bca41e4d89c56765a944e6a9780b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9633bca41e4d89c56765a944e6a9780b">&#9670;&#160;</a></span>Result()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void SimpleRest.Api.SimpleRestResponse.Result </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>result</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab26dac9792d76da8b036507b6cbc087f" name="ab26dac9792d76da8b036507b6cbc087f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab26dac9792d76da8b036507b6cbc087f">&#9670;&#160;</a></span>Send&lt; T &gt;()</h2>
 
@@ -138,13 +193,13 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Program_8cs_source.html#l00225">225</a> of file <a class="el" href="Program_8cs_source.html">Program.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SimpleRestResponse_8cs_source.html#l00020">20</a> of file <a class="el" href="SimpleRestResponse_8cs_source.html">SimpleRestResponse.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
-<a id="a56af843be05e19d766aba08d027ded1a" name="a56af843be05e19d766aba08d027ded1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56af843be05e19d766aba08d027ded1a">&#9670;&#160;</a></span>ContentType</h2>
+<a id="a55389ee63100e7bda9c6877137429375" name="a55389ee63100e7bda9c6877137429375"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55389ee63100e7bda9c6877137429375">&#9670;&#160;</a></span>ContentType</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,31 +208,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string SimpleRest.Api.SimpleRestResponse.ContentType</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Program_8cs_source.html#l00223">223</a> of file <a class="el" href="Program_8cs_source.html">Program.cs</a>.</p>
-
-</div>
-</div>
-<a id="a52757222d1ef6cb5546fe41404b7eeef" name="a52757222d1ef6cb5546fe41404b7eeef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52757222d1ef6cb5546fe41404b7eeef">&#9670;&#160;</a></span>Response</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">HttpListenerResponse? SimpleRest.Api.SimpleRestResponse.Response</td>
+          <td class="memname">string? SimpleRest.Api.SimpleRestResponse.ContentType</td>
         </tr>
       </table>
   </td>
@@ -187,12 +218,101 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Program_8cs_source.html#l00222">222</a> of file <a class="el" href="Program_8cs_source.html">Program.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SimpleRestResponse_8cs_source.html#l00011">11</a> of file <a class="el" href="SimpleRestResponse_8cs_source.html">SimpleRestResponse.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad70801b4a0e5d9815fe23449a745a19b" name="ad70801b4a0e5d9815fe23449a745a19b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad70801b4a0e5d9815fe23449a745a19b">&#9670;&#160;</a></span>HasCompleted</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SimpleRest.Api.SimpleRestResponse.HasCompleted</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SimpleRestResponse_8cs_source.html#l00013">13</a> of file <a class="el" href="SimpleRestResponse_8cs_source.html">SimpleRestResponse.cs</a>.</p>
+
+</div>
+</div>
+<a id="a9801537d19f71dc18580f13a13c9f6c6" name="a9801537d19f71dc18580f13a13c9f6c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9801537d19f71dc18580f13a13c9f6c6">&#9670;&#160;</a></span>Response</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HttpListenerResponse SimpleRest.Api.SimpleRestResponse.Response</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SimpleRestResponse_8cs_source.html#l00009">9</a> of file <a class="el" href="SimpleRestResponse_8cs_source.html">SimpleRestResponse.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad112d935fe8e36a33ece30261a1808e7" name="ad112d935fe8e36a33ece30261a1808e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad112d935fe8e36a33ece30261a1808e7">&#9670;&#160;</a></span>StatusCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ushort SimpleRest.Api.SimpleRestResponse.StatusCode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SimpleRestResponse_8cs_source.html#l00014">14</a> of file <a class="el" href="SimpleRestResponse_8cs_source.html">SimpleRestResponse.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Event Documentation</h2>
+<a id="a868c364f726ce2bce8e93ca3d9e0ea17" name="a868c364f726ce2bce8e93ca3d9e0ea17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a868c364f726ce2bce8e93ca3d9e0ea17">&#9670;&#160;</a></span>OnSend</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a9633bca41e4d89c56765a944e6a9780b">Result</a>? SimpleRest.Api.SimpleRestResponse.OnSend</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SimpleRestResponse_8cs_source.html#l00012">12</a> of file <a class="el" href="SimpleRestResponse_8cs_source.html">SimpleRestResponse.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/amano/SimpleRest/<a class="el" href="Program_8cs_source.html">Program.cs</a></li>
+<li>/home/amano/SimpleRest/Api/<a class="el" href="SimpleRestResponse_8cs_source.html">SimpleRestResponse.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

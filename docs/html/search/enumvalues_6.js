@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['options_0',['OPTIONS',['../namespaceSimpleRest_1_1Api.html#ada4eac4d8de31c19a9aa2abd91c5a909a164dd62adb30ca051b5289672a572f9b',1,'SimpleRest::Api']]],
-  ['other_1',['OTHER',['../namespaceSimpleRest_1_1Api.html#ada4eac4d8de31c19a9aa2abd91c5a909a03570470bad94692ce93e32700d2e1cb',1,'SimpleRest::Api']]]
+  ['none_0',['NONE',['../Enums_8cs.html#abefb130a1e9ce5f7764648705edcf427ab50339a10e1de285ac99d4c3990b8693',1,'Enums.cs']]]
 ];

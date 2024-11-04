@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['test_0',['test',['../classMyLibrary_1_1Example.html#a1c0046b0674eb4cad09c5d3e943912b8',1,'MyLibrary::Example']]]
+  ['result_0',['Result',['../classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a9633bca41e4d89c56765a944e6a9780b',1,'SimpleRest::Api::SimpleRestResponse']]]
 ];

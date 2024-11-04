@@ -4,11 +4,11 @@ var indexSectionsWithContent =
   1: "ips",
   2: "s",
   3: ".eiprs",
-  4: "acfglmrs",
-  5: "m",
-  6: "s",
-  7: "dghlmnop",
-  8: "bcehmpqr",
+  4: "adfghlmprs",
+  5: "s",
+  6: "adghlmnop",
+  7: "bcehmpqrsu",
+  8: "o",
   9: "ins"
 };
 
@@ -19,10 +19,10 @@ var indexSectionNames =
   2: "namespaces",
   3: "files",
   4: "functions",
-  5: "variables",
-  6: "enums",
-  7: "enumvalues",
-  8: "properties",
+  5: "enums",
+  6: "enumvalues",
+  7: "properties",
+  8: "events",
   9: "pages"
 };
 
@@ -33,10 +33,10 @@ var indexSectionLabels =
   2: "Namespaces",
   3: "Files",
   4: "Functions",
-  5: "Variables",
-  6: "Enumerations",
-  7: "Enumerator",
-  8: "Properties",
+  5: "Enumerations",
+  6: "Enumerator",
+  7: "Properties",
+  8: "Events",
   9: "Pages"
 };
 

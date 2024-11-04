@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['medium_0',['MEDIUM',['../namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8ac87f3be66ffc3c0d4249f1c2cc5f3cce',1,'SimpleRest::Api']]]
+  ['long_0',['LONG',['../Enums_8cs.html#abefb130a1e9ce5f7764648705edcf427ac1fabfea54ec6011e694f211f3ffebf3',1,'Enums.cs']]],
+  ['low_1',['LOW',['../Enums_8cs.html#abefb130a1e9ce5f7764648705edcf427a41bc94cbd8eebea13ce0491b2ac11b88',1,'Enums.cs']]]
 ];

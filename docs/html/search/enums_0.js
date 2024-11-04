@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['simplerestloglevel_0',['SimpleRestLogLevel',['../namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8',1,'SimpleRest::Api']]],
-  ['simplerestmethod_1',['SimpleRestMethod',['../namespaceSimpleRest_1_1Api.html#ada4eac4d8de31c19a9aa2abd91c5a909',1,'SimpleRest::Api']]]
+  ['simplerestloglevel_0',['SimpleRestLogLevel',['../Enums_8cs.html#abefb130a1e9ce5f7764648705edcf427',1,'Enums.cs']]],
+  ['simplerestmethod_1',['SimpleRestMethod',['../Enums_8cs.html#add67cc5901cc761e7e9870b90ee26be2',1,'Enums.cs']]]
 ];

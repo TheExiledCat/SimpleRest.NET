@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['runmiddleware_0',['RunMiddleWare',['../classSimpleRest_1_1Api_1_1SimpleRestApi.html#a5e727748e443a76fa43a929a8c72f410',1,'SimpleRest::Api::SimpleRestApi']]]
+  ['map_0',['Map',['../classSimpleRest_1_1Api_1_1SimpleRestApi.html#a0e70e5629089887d23a2d21ae42074ac',1,'SimpleRest::Api::SimpleRestApi']]]
 ];
