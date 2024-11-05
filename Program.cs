@@ -2,8 +2,7 @@
 using Dumpify;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-namespace SimpleRest.Api;
-
+using SimpleRest.Api;
 class Program
 {
     static async Task Main(string[] args)
