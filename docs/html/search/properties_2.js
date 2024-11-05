@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['email_0',['Email',['../d9/de1/classSimpleRest_1_1Api_1_1User.html#a0988363e39072692740f601604dd6406',1,'SimpleRest::Api::User']]]
+  ['email_0',['Email',['../d9/dc0/classUser.html#a7ed159e4b886cffcf51dd675b9e4793b',1,'User']]]
 ];
