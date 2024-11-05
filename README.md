@@ -6,7 +6,7 @@
 
 ## Intallation 🔧
 
-![NuGet Version](https://img.shields.io/nuget/v/SimpleRestApi?style=for-the-badge&logo=nuget&logoSize=auto&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FSimpleRestApi%2F&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FSimpleRestApi%2F)
+<object data="https://img.shields.io/nuget/v/SimpleRestApi?style=for-the-badge&logo=nuget&logoSize=auto&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FSimpleRestApi%2F&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FSimpleRestApi%2F"></object>
 
 For installation and getting started see [Getting Started](./docs/guides/Getting%20Started.md)
 
