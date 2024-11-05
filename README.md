@@ -1,10 +1,14 @@
 [TOC]
 
-# SimpleREST.Net
+# SimpleREST.Net <img src="./docs/fetchieIcon.jpeg" style="width:40px">
 
-_The simplest Rest Api framework for .Net_
+<h3 style="color:pink"> <i>The simplest Rest Api framework for .Net</i></h3>
 
-## Example
+## Intallation 🔧
+![NuGet Version](https://img.shields.io/nuget/v/SimpleRestApi)
+
+For installation and getting started see [Getting Started](./docs/guides/Getting%20Started.md)
+## Example :white_check_mark:
 
 To create a basic rest api and serve it on a host and port number all you need to do is add `using SimpleRest.Api;` and the following code to your program:
 
@@ -31,12 +35,64 @@ To create a basic rest api and serve it on a host and port number all you need t
     }
 ```
 
-## Features
+## Features ⤵️
 
-- Easy to use
-- Express.Js like route mapping and middleware
-- Automatic response parsing
-- Uri route parameters following the RFC 6570 Spec
+- Easy to use 👶
+
+- Express.js like route mapping and middleware using SimpleRestApi.METHOD (see [routing](./docs/guides/Routing.md)) 🌐
+  ```csharp
+  api.Get("/route",async (req,res)=>{
+      //use the request and response objects to your liking
+      string sortBy = req.Query["sortBy"];
+      //use one of the response terminating
+      //functions to send a result to the client
+      res.Send("Success!")
+  });
+  ```
+- Automatic response parsing using Newtonsoft.Json (or a custom converter) 🫡
+
+  ```csharp
+  api.Get("/",async (req,res)=>{
+    //use some .net or custom class and fill it with some query data, e.g. "John"
+    User user = new User{Name = req.Query["name"],Id=1}
+    res.send(user)
+  });
+  ```
+
+  output:
+
+  ```json
+  {
+    "name": "John",
+    "Id": 1
+  }
+  ```
+
+  this will also set the content-type header to a fitting type based on the implementation of [ISimpleRestContentTypeParser](./Src/Interfaces/ISimpleRestContentTypeParser.cs) (injectable)
+
+- Uri route parameters following the [RFC 6570 Spec]("https://www.rfc-editor.org/rfc/rfc6570")
+
+  ```csharp
+    api.Put("/users/{userId}/posts/{postId}",async (req,res)=>{
+            int? id = req["userId"] as int?;
+            int postId = req["postId"] as int?;
+            //or using generic
+            int id = req.Get<int>("userId");
+    });
+  ```
+
+- Parsing json body as object
+
+  ```csharp
+  api.Post("/users",async(req,res)=>{
+    User? user = req.Body.As<User>()
+  });
+  ```
+
+- Expandable
+
+  - using dependency injection(DI), Extension methods, Custom Middleware or Middleware handlers
+
 - NativeAOT Compatible (assuming you dont add non AOT compatible libraries)
 
 ## Planned Features

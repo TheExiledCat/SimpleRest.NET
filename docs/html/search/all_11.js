@@ -26,8 +26,9 @@ var searchData=
   ['simplerestresponse_2ecs_23',['SimpleRestResponse.cs',['../d5/dfe/SimpleRestResponse_8cs.html',1,'']]],
   ['simpleresturitemplateformatter_2ecs_24',['SimpleRestUriTemplateFormatter.cs',['../d9/d8a/SimpleRestUriTemplateFormatter_8cs.html',1,'']]],
   ['simpleresturitemplatehandler_25',['SimpleRestUriTemplateHandler',['../d5/d6b/classSimpleRest_1_1Api_1_1SimpleRestUriTemplateHandler.html',1,'SimpleRest::Api']]],
-  ['source_20using_20git_26',['Or from source using git',['../d8/d93/md_guides_2installation.html#autotoc_md9',1,'']]],
+  ['source_20using_20git_26',['Or from source using git',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md9',1,'']]],
   ['start_27',['Start',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a57499f770fbfecbe4626f2d0c05eb89f',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['statuscode_28',['StatusCode',['../df/dd0/classSimpleRestResponse.html#ae389697e70ebdee8f296721ca8ddabba',1,'SimpleRestResponse']]],
-  ['stop_29',['Stop',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8',1,'SimpleRest::Api::SimpleRestApi']]]
+  ['started_28',['Getting Started',['../d1/d57/md_guides_2Getting_01Started.html',1,'']]],
+  ['statuscode_29',['StatusCode',['../df/dd0/classSimpleRestResponse.html#ae389697e70ebdee8f296721ca8ddabba',1,'SimpleRestResponse']]],
+  ['stop_30',['Stop',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8',1,'SimpleRest::Api::SimpleRestApi']]]
 ];

@@ -32,10 +32,10 @@ var NAVTREE =
       [ "Extending", "index.html#autotoc_md4", null ],
       [ "Documentation", "index.html#autotoc_md5", null ]
     ] ],
-    [ "installation", "d8/d93/md_guides_2installation.html", [
-      [ "Installation", "d8/d93/md_guides_2installation.html#autotoc_md6", [
-        [ "Using NuGet:", "d8/d93/md_guides_2installation.html#autotoc_md8", null ],
-        [ "Or from source using git", "d8/d93/md_guides_2installation.html#autotoc_md9", null ]
+    [ "Getting Started", "d1/d57/md_guides_2Getting_01Started.html", [
+      [ "Installation", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md6", [
+        [ "Using NuGet:", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md8", null ],
+        [ "Or from source using git", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md9", null ]
       ] ]
     ] ],
     [ "Packages", "namespaces.html", [
