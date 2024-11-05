@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['name_0',['Name',['../d9/dc0/classUser.html#a39e338bc624844cc3ed51ce8256eb8b6',1,'User']]],
-  ['net_1',['SimpleREST.NET',['../index.html',1,'']]],
-  ['net_2',['SimpleREST.Net',['../index.html#autotoc_md0',1,'']]],
-  ['nuget_3a_3',['Using NuGet:',['../d8/d93/md_guides_2installation.html#autotoc_md8',1,'']]]
+  ['keys_0',['Keys',['../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html#aa5cb03ba7d682b0b950d2b642b5cc89e',1,'SimpleRest.Api.SimpleRestQuery.Keys'],['../da/d93/interfaceSimpleRest_1_1Api_1_1ISimpleRestQuery.html#aaa96e62bf341143184ecf5a5b938c0ab',1,'SimpleRest.Api.ISimpleRestQuery.Keys']]]
 ];

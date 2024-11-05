@@ -1,6 +1,6 @@
 var searchData=
 [
   ['readme_2emd_0',['README.md',['../da/ddd/README_8md.html',1,'']]],
-  ['response_1',['Response',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a9801537d19f71dc18580f13a13c9f6c6',1,'SimpleRest::Api::SimpleRestResponse']]],
-  ['result_2',['Result',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a9633bca41e4d89c56765a944e6a9780b',1,'SimpleRest::Api::SimpleRestResponse']]]
+  ['response_1',['Response',['../df/dd0/classSimpleRestResponse.html#a041a1dd19c5309751377723c0e2e6d64',1,'SimpleRestResponse']]],
+  ['result_2',['Result',['../df/dd0/classSimpleRestResponse.html#a3c30e75440816dd2128f9de3a6fad662',1,'SimpleRestResponse']]]
 ];

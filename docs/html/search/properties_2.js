@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['email_0',['Email',['../d9/dc0/classUser.html#a7ed159e4b886cffcf51dd675b9e4793b',1,'User']]]
+  ['endpoint_0',['Endpoint',['../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#a01928470a90bf7d66f076f878bd75a22',1,'SimpleRest.Api.SimpleRestMap.Endpoint'],['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a887b159a1571cc3ab9d55c15e6d04448',1,'SimpleRest.Api.SimpleRestRequest.Endpoint']]]
 ];

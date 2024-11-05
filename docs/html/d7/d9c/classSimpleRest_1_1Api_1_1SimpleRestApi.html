@@ -108,8 +108,8 @@ $(function(){initNavTree('d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html','
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5f842e0243ee35f43b0043fbb4c95764" id="r_a5f842e0243ee35f43b0043fbb4c95764"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f842e0243ee35f43b0043fbb4c95764">SimpleRestApi</a> (int port, <a class="el" href="../../de/d5d/interfaceSimpleRest_1_1Api_1_1ISimpleRestLogger.html">ISimpleRestLogger</a>? logger=null, <a class="el" href="../../da/d0d/interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser.html">ISimpleRestContentTypeParser</a>? responseParser=null)</td></tr>
-<tr class="separator:a5f842e0243ee35f43b0043fbb4c95764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a614f0d9ec665151b9ee8bbabbe744999" id="r_a614f0d9ec665151b9ee8bbabbe744999"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a614f0d9ec665151b9ee8bbabbe744999">SimpleRestApi</a> (int port, <a class="el" href="../../de/d5d/interfaceSimpleRest_1_1Api_1_1ISimpleRestLogger.html">ISimpleRestLogger</a>? logger=null, <a class="el" href="../../da/d0d/interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser.html">ISimpleRestContentTypeParser</a>? responseParser=null, <a class="el" href="../../d1/db5/interfaceSimpleRest_1_1Api_1_1ISimpleRestUriTemplateFormatter.html">ISimpleRestUriTemplateFormatter</a>? uriFormatter=null, <a class="el" href="../../d4/dfa/interfaceSimpleRest_1_1Api_1_1ISimpleRestEndpointFormatter.html">ISimpleRestEndpointFormatter</a>? endpointFormatter=null, JsonSerializerSettings? jsonSerializerSettings=null)</td></tr>
+<tr class="separator:a614f0d9ec665151b9ee8bbabbe744999"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e70e5629089887d23a2d21ae42074ac" id="r_a0e70e5629089887d23a2d21ae42074ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e70e5629089887d23a2d21ae42074ac">Map</a> (string endpoint, <a class="el" href="../../df/dba/namespaceSimpleRest_1_1Api.html#a5956715d44430293817e727c06a28767">ApiMiddleWare</a> middleWare)</td></tr>
 <tr class="separator:a0e70e5629089887d23a2d21ae42074ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a986b5492f24e3e9d81a4a3608c92847c" id="r_a986b5492f24e3e9d81a4a3608c92847c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a986b5492f24e3e9d81a4a3608c92847c">Get</a> (string endpoint, <a class="el" href="../../df/dba/namespaceSimpleRest_1_1Api.html#a5956715d44430293817e727c06a28767">ApiMiddleWare</a> middleWare)</td></tr>
@@ -131,10 +131,10 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00007">7</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00008">8</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5f842e0243ee35f43b0043fbb4c95764" name="a5f842e0243ee35f43b0043fbb4c95764"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f842e0243ee35f43b0043fbb4c95764">&#9670;&#160;</a></span>SimpleRestApi()</h2>
+<a id="a614f0d9ec665151b9ee8bbabbe744999" name="a614f0d9ec665151b9ee8bbabbe744999"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a614f0d9ec665151b9ee8bbabbe744999">&#9670;&#160;</a></span>SimpleRestApi()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,12 +152,27 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../da/d0d/interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser.html">ISimpleRestContentTypeParser</a>?</td>          <td class="paramname"><span class="paramname"><em>responseParser</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="../../da/d0d/interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser.html">ISimpleRestContentTypeParser</a>?</td>          <td class="paramname"><span class="paramname"><em>responseParser</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/db5/interfaceSimpleRest_1_1Api_1_1ISimpleRestUriTemplateFormatter.html">ISimpleRestUriTemplateFormatter</a>?</td>          <td class="paramname"><span class="paramname"><em>uriFormatter</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dfa/interfaceSimpleRest_1_1Api_1_1ISimpleRestEndpointFormatter.html">ISimpleRestEndpointFormatter</a>?</td>          <td class="paramname"><span class="paramname"><em>endpointFormatter</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">JsonSerializerSettings?</td>          <td class="paramname"><span class="paramname"><em>jsonSerializerSettings</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00016">16</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00019">19</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
 
 </div>
 </div>
@@ -181,7 +196,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00060">60</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00071">71</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
 
 </div>
 </div>
@@ -204,7 +219,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00041">41</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00044">44</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
 
 </div>
 </div>
@@ -227,7 +242,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00065">65</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00078">78</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
 
 </div>
 </div>
@@ -250,7 +265,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00035">35</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00037">37</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
 
 </div>
 </div>
@@ -273,7 +288,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00055">55</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00064">64</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
 
 </div>
 </div>
@@ -296,7 +311,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00045">45</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00050">50</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
 
 </div>
 </div>
@@ -319,7 +334,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00050">50</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00057">57</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
 
 </div>
 </div>
@@ -338,17 +353,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00070">70</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00086">86</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi_a57499f770fbfecbe4626f2d0c05eb89f_cgraph.png" border="0" usemap="#ad7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi_a57499f770fbfecbe4626f2d0c05eb89f_cgraph" alt=""/></div>
 <map name="ad7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi_a57499f770fbfecbe4626f2d0c05eb89f_cgraph" id="ad7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi_a57499f770fbfecbe4626f2d0c05eb89f_cgraph">
 <area shape="rect" title=" " alt="" coords="5,37,204,77"/>
-<area shape="rect" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a871cc9213366958473155404893e1ce6" title=" " alt="" coords="252,5,495,45"/>
+<area shape="rect" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a3d04e6ab95d9b1f4aa0580cb55696a05" title=" " alt="" coords="252,5,495,45"/>
 <area shape="poly" title=" " alt="" coords="204,43,238,39,238,44,205,48"/>
 <area shape="rect" href="../../de/d5d/interfaceSimpleRest_1_1Api_1_1ISimpleRestLogger.html#a36c03d7ca20a63362a6e91fbea143577" title=" " alt="" coords="272,69,475,109"/>
 <area shape="poly" title=" " alt="" coords="205,67,259,73,258,78,204,72"/>
+<area shape="rect" href="../../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html#a976a52325e73e9d4612cbb80d2aecfac" title=" " alt="" coords="543,5,741,45"/>
+<area shape="poly" title=" " alt="" coords="495,23,529,23,529,28,495,28"/>
 </map>
 </div>
 
@@ -369,12 +386,12 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00113">113</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html#l00155">155</a> of file <a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/amano/SimpleRest/Api/<a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a></li>
+<li>/home/amano/SimpleRest/Src/Api/<a class="el" href="../../df/d3e/SimpleRestApi_8cs_source.html">SimpleRestApi.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

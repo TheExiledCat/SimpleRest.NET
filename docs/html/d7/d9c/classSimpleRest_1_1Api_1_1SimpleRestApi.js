@@ -1,6 +1,6 @@
 var classSimpleRest_1_1Api_1_1SimpleRestApi =
 [
-    [ "SimpleRestApi", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a5f842e0243ee35f43b0043fbb4c95764", null ],
+    [ "SimpleRestApi", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a614f0d9ec665151b9ee8bbabbe744999", null ],
     [ "Delete", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a9c2e0a6248ff7f3a9d85d6315e72346f", null ],
     [ "Get", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c", null ],
     [ "Head", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a4f468b38d7bd34fdb0382a8cdeeecf11", null ],

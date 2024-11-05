@@ -1,4 +1,4 @@
 var SimpleRestContentTypeParser_8cs =
 [
-    [ "SimpleRestContentTypeParser", "da/d0f/classSimpleRestContentTypeParser.html", "da/d0f/classSimpleRestContentTypeParser" ]
+    [ "SimpleRest.Api.SimpleRestContentTypeParser", "d4/dfc/classSimpleRest_1_1Api_1_1SimpleRestContentTypeParser.html", "d4/dfc/classSimpleRest_1_1Api_1_1SimpleRestContentTypeParser" ]
 ];

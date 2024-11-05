@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['useragent_0',['UserAgent',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a34c034e17d01e86438b7a238a8c21b61',1,'SimpleRest::Api::SimpleRestRequest']]],
-  ['using_20git_1',['Or using git',['../d8/d93/md_guides_2installation.html#autotoc_md5',1,'']]],
-  ['using_20nuget_3a_2',['Using NuGet:',['../d8/d93/md_guides_2installation.html#autotoc_md4',1,'']]]
+  ['this_5bstring_20key_5d_0',['this[string key]',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#aac2d17d521f06371113b2294545b996e',1,'SimpleRest.Api.SimpleRestRequest.this[string key]'],['../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html#a6ee8a0a7e2f094fb9ab3020be8191cd2',1,'SimpleRest.Api.SimpleRestQuery.this[string key]'],['../da/d93/interfaceSimpleRest_1_1Api_1_1ISimpleRestQuery.html#a7cc82b1af37ec66623cff907aa035f4b',1,'SimpleRest.Api.ISimpleRestQuery.this[string key]']]],
+  ['tostring_1',['ToString',['../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#affd737222415c76b38442ad0fea7ce47',1,'SimpleRest::Api::SimpleRestMap']]]
 ];

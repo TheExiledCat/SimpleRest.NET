@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['simplerestrequestbody_0',['SimpleRestRequestBody',['../dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1SimpleRestRequestBody.html#aa337a672734e7d0064049f39ef4cf387',1,'SimpleRest::Api::SimpleRestRequest::SimpleRestRequestBody']]]
+  ['fromdictionary_0',['FromDictionary',['../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html#a976a52325e73e9d4612cbb80d2aecfac',1,'SimpleRest::Api::SimpleRestQuery']]],
+  ['fromhttplistenercontext_1',['FromHttpListenerContext',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a3d04e6ab95d9b1f4aa0580cb55696a05',1,'SimpleRest::Api::SimpleRestRequest']]]
 ];

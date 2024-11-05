@@ -1,4 +1,4 @@
 var SimpleRestLogger_8cs =
 [
-    [ "SimpleRestLogger", "d7/d51/classSimpleRestLogger.html", "d7/d51/classSimpleRestLogger" ]
+    [ "SimpleRest.Api.SimpleRestLogger", "da/d6b/classSimpleRest_1_1Api_1_1SimpleRestLogger.html", "da/d6b/classSimpleRest_1_1Api_1_1SimpleRestLogger" ]
 ];
