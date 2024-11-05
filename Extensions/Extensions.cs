@@ -18,4 +18,5 @@ public static class SimpleRestExtensions
     {
         return new Uri.UriTemplate(uriTemplate.Template.TrimEnd('/'));
     }
+
 }

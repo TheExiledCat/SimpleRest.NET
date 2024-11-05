@@ -13,18 +13,15 @@ To create a basic rest api and serve it on a host and port number all you need t
     {
         //Create the api
         SimpleRestApi api = new SimpleRestApi(3000);
-        //Map some middleware, using the request and response objects optionally to change the data before the HTTP Middleware Methods get called on them
-        api.Map("/",async (req,res)=>{
-            req.Query["name"] = req.Query["name"].ToUpper()
-         })
-        //Map an HTTP method as a middleware
+        //Map a route handler using the async ApiMiddleWare delegate
         api.Get("/",async (req,res)=>{
-            //send object and terminate the connection and middleware chain
+            //send the result and terminate the connection
             res.Send("Hello World");
-        })
-        //create a 404 handler if none of the middleware is called to terminate the connection
-        api.Map("*",async (req,res)=>{
-            res.send("Route not found");
+        });
+        //map a route with uri segment parameters
+        api.Put("/users/{id}",async (res,res)=>{
+            int id = req.P
+            res.Send()
         })
         //Start the server on given port with a callback to call before continuing with the rest of the server functions
         await api.Start((int port) =>

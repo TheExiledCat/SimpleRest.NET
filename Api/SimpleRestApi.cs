@@ -89,7 +89,6 @@ internal class SimpleRestApi
         {
             m_Listener.Start();
             OnStartup?.Invoke(m_Port);
-            m_Middleware.Dump();
             while (true)
             {
                 try
@@ -119,12 +118,13 @@ internal class SimpleRestApi
     {
         Dictionary<UriTemplateMatch, SimpleRestMap> matches = m_Middleware
         .Where(
-            m => m.Pattern.Match(new System.Uri(request.Endpoint)) != null
+            m => m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative)) != null
             )
         .ToDictionary(
-            m => m.Pattern.Match(new System.Uri(request.Endpoint)), m => m
+            m => m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative)), m => m
             );
-
+        matches.Values.ToList().Dump();
+        request.Dump();
 
         foreach (KeyValuePair<UriTemplateMatch, SimpleRestMap> match in matches)
         {
@@ -132,7 +132,7 @@ internal class SimpleRestApi
                 return;
             SimpleRestMap map = match.Value;
             UriTemplateMatch uriTemplateMatch = match.Key;
-            request.Endpoint.Dump();
+
             if (map.Method == SimpleRestMethod.ANY || map.Method == request.Method)
             {
                 ApplyUriParams(uriTemplateMatch, request);

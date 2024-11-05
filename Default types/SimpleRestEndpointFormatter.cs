@@ -8,7 +8,7 @@ internal class SimpleRestEndpointFormatter : ISimpleRestEndpointFormatter
     }
     public string GetEndpoint(string endpoint)
     {
-        if (m_IgnoreTrailingSlash) return endpoint.TrimEnd('/');
+        if (m_IgnoreTrailingSlash) return endpoint.Length > 1 ? endpoint.TrimEnd('/') : endpoint;
 
         return endpoint;
     }

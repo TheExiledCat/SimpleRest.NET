@@ -14,28 +14,28 @@ internal class SimpleRestLogger : ISimpleRestLogger
         Console.WriteLine($"[{DateTime.Now.ToShortDateString()}] {customMessage}");
     }
 
-    public void Log(SimpleRestRequest request, SimpleRestLogLevel? loglevel = null)
+    public void Log(SimpleRestRequest? request, SimpleRestLogLevel? loglevel = null)
     {
-        loglevel ??= m_LogLevel;
+        SimpleRestLogLevel level = loglevel ?? m_LogLevel;
 
-        switch (loglevel)
+        switch (level)
         {
             case SimpleRestLogLevel.LOW:
-                Console.WriteLine($"{request.Method.ToString()}: {request.Endpoint}");
+                Console.WriteLine($"{request?.Method.ToString()}: {request?.Endpoint}");
 
                 break;
             case SimpleRestLogLevel.MEDIUM:
-                Console.WriteLine($"[{DateTime.Now.ToShortDateString()}] {request.Method.ToString()}: {request.Endpoint}");
+                Console.WriteLine($"[{DateTime.Now.ToShortDateString()}] {request?.Method.ToString()}: {request?.Endpoint}");
                 break;
             case SimpleRestLogLevel.HIGH:
-                Console.WriteLine($"[{DateTime.Now.ToShortDateString()}] {request.Method.ToString()}: {request.Endpoint}{(request.Query?.Count > 0 ? "?" + string.Join("&", request.Query.Select(kvp => kvp.Key + "=" + kvp.Value)) : string.Empty)}");
+                Console.WriteLine($"[{DateTime.Now.ToShortDateString()}] {request?.Method.ToString()}: {request?.Endpoint}{(request?.Query.Query?.Count > 0 ? "?" + string.Join("&", request.Query.Query.Select(kvp => kvp.Key + "=" + kvp.Value)) : string.Empty)}");
                 break;
             case SimpleRestLogLevel.LONG:
-                Console.WriteLine($"[{DateTime.Now.ToLongDateString()}] {request.Method.ToString()}: {request.Endpoint}{(request.Query?.Count > 0 ? "?" + string.Join("&", request.Query.Select(kvp => kvp.Key + "=" + kvp.Value)) : string.Empty)}");
+                Console.WriteLine($"[{DateTime.Now.ToLongDateString()}] {request?.Method.ToString()}: {request?.Endpoint}{(request?.Query.Query?.Count > 0 ? "?" + string.Join("&", request.Query.Query.Select(kvp => kvp.Key + "=" + kvp.Value)) : string.Empty)}");
                 break;
 
             case SimpleRestLogLevel.DEBUG:
-                Console.WriteLine($@"[{DateTime.Now.ToLongDateString()}] {request.Method.ToString()}: {request.Endpoint}{'\n'}Query:{'\n'}{request.Query.DumpText(
+                Console.WriteLine($@"[{DateTime.Now.ToLongDateString()}] {request?.Method.ToString()}: {request?.Endpoint}{'\n'}Query:{'\n'}{request?.Query.DumpText(
                 typeNames: new TypeNamingConfig { ShowTypeNames = false },
                 tableConfig: new TableConfig
                 {
