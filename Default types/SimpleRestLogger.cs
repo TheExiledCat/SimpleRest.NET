@@ -1,7 +1,7 @@
 using Dumpify;
-using SimpleRest.Api;
+namespace SimpleRest.Api;
 
-class SimpleRestLogger : ISimpleRestLogger
+internal class SimpleRestLogger : ISimpleRestLogger
 {
     SimpleRestLogLevel m_LogLevel;
     public SimpleRestLogger(SimpleRestLogLevel logLevel = SimpleRestLogLevel.NONE)

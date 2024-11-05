@@ -16,8 +16,11 @@
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Dumpify" Version="0.6.6"/>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-    <None Include="README.md" Pack="true" PackagePath="./"/>
+    <PackageReference Include="Dumpify" Version="0.6.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <None Include="README.md" Pack="true" PackagePath="./" />
+    <PackageReference Include="System.ServiceModel.http" Version="8.0.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="8.0.0" />
+    <PackageReference Include="UriTemplate.core" Version="1.0.2" />
   </ItemGroup>
 </Project>

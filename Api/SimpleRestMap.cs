@@ -1,35 +1,27 @@
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Uri = UriTemplate.Core;
 
 namespace SimpleRest.Api;
-public class SimpleRestMap
+internal class SimpleRestMap
 {
     public SimpleRestMethod Method { get; }
-    public Regex Pattern { get; }
+    // public Regex Pattern { get; }
     public ApiMiddleWare Middleware { get; }
+    public Uri.UriTemplate Pattern { get; }
     public string Endpoint { get; }
-    public SimpleRestMap(string endpoint, SimpleRestMethod method, ApiMiddleWare middleWare)
+    public SimpleRestMap(string endpoint, SimpleRestMethod method, ApiMiddleWare middleWare, ISimpleRestUriTemplateFormatter? templateHandler = null)
     {
         Method = method;
-        //extract params from url in format {param} and allow wildcards like * to be used
-        // Convert `{param}` to named regex groups and `*` to single-segment wildcard
-        // Escape special characters in the route pattern for Regex
-        string regexPattern = Regex.Replace(endpoint, @"\{(.+?)\}", @"(?<$1>[^/]+)");
-
-        // After capturing named parameters, handle wildcards (*)
-        regexPattern = regexPattern.Replace("*", @"[^/]*");
-
-        // Handle single-character optional wildcard (?)
-        regexPattern = regexPattern.Replace("?", @"[^/]");
-
-        // Ensure full match with anchors
-        regexPattern = "^" + regexPattern + "$";
+        string finalPattern = endpoint;
+        finalPattern = templateHandler?.GetTemplatePattern(finalPattern) ?? finalPattern;
+        Pattern = new Uri.UriTemplate(finalPattern);
 
 
-        // Return a compiled regex for performance
-        Pattern = new Regex(regexPattern, RegexOptions.Compiled);
         Middleware = middleWare;
-        Endpoint = endpoint;
+        Endpoint = finalPattern;
     }
+
     public override string ToString()
     {
         return Endpoint;

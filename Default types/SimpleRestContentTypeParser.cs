@@ -1,6 +1,6 @@
-using SimpleRest.Api;
+namespace SimpleRest.Api;
 
-class SimpleRestContentTypeParser : ISimpleRestContentTypeParser
+internal class SimpleRestContentTypeParser : ISimpleRestContentTypeParser
 {
     Dictionary<Type, string> contentTypes = new Dictionary<Type, string>
     {

@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using Uri = UriTemplate.Core;
 namespace SimpleRest.Extensions;
 public static class SimpleRestExtensions
 {
@@ -12,5 +13,9 @@ public static class SimpleRestExtensions
         {
             return fallbackValue;
         }
+    }
+    public static Uri.UriTemplate IgnoreTrailingSlash(this Uri.UriTemplate uriTemplate)
+    {
+        return new Uri.UriTemplate(uriTemplate.Template.TrimEnd('/'));
     }
 }

@@ -1,4 +1,5 @@
-public enum SimpleRestLogLevel
+namespace SimpleRest.Api;
+internal enum SimpleRestLogLevel
 {
     NONE,
     LOW,
@@ -7,7 +8,7 @@ public enum SimpleRestLogLevel
     LONG,
     DEBUG
 }
-public enum SimpleRestMethod
+internal enum SimpleRestMethod
 {
     GET,
     POST,

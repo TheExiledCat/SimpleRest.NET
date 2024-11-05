@@ -3,7 +3,7 @@ using System.Text;
 using Newtonsoft.Json;
 
 namespace SimpleRest.Api;
-public class SimpleRestResponse
+internal class SimpleRestResponse
 {
     public delegate void Result(string result);
     public HttpListenerResponse Response { get; private set; }

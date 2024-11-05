@@ -3,12 +3,12 @@ using System.Text;
 using Newtonsoft.Json;
 using SimpleRest.Extensions;
 namespace SimpleRest.Api;
-public class SimpleRestRequest
+internal class SimpleRestRequest
 {
     public string Endpoint { get; private set; } = "";
     public object[]? Path { get; private set; }
     public Dictionary<string, object?> Query { get; private set; } = [];
-    public Dictionary<string, object?> Params { get; private set; } = [];
+    public Dictionary<string, object?> Params { get; set; } = [];
     public SimpleRestRequestBody? Body { get; private set; }
     public Dictionary<string, string>? Headers { get; private set; }
     public string? ContentType { get; private set; }
@@ -16,8 +16,11 @@ public class SimpleRestRequest
     public SimpleRestMethod Method { get; private set; }
     public string? UserAgent { get; private set; }
 
-
-    public static SimpleRestRequest FromHttpListenerContext(HttpListenerContext listener)
+    public object? this[string key]
+    {
+        get => Params[key];
+    }
+    public static SimpleRestRequest FromHttpListenerContext(HttpListenerContext listener, ISimpleRestEndpointFormatter? endpointFormatter = null)
     {
         HttpListenerRequest contextRequest = listener.Request;
 
@@ -27,7 +30,8 @@ public class SimpleRestRequest
         request.Headers = contextRequest.Headers?.AllKeys.ToDictionary(k => k, k => contextRequest.Headers[k]);
         request.ContentType = contextRequest.ContentType;
         request.ContentLength = contextRequest.ContentLength64;
-        request.Endpoint = contextRequest.Url?.AbsolutePath;
+        request.Endpoint = contextRequest.Url?.AbsolutePath ?? "";
+        request.Endpoint = endpointFormatter?.GetEndpoint(request.Endpoint) ?? request.Endpoint;
         request.Method = Enum.Parse<SimpleRestMethod>(contextRequest.HttpMethod);
         // Get the raw URL and extract the path
         string? rawUrl = contextRequest.RawUrl;
@@ -55,6 +59,16 @@ public class SimpleRestRequest
         public string Content { get; private set; }
         public byte[] Bytes { get; private set; }
 
+        public T? As<T>() where T : class
+        {
 
+            return this.GetContent<T>();
+        }
     }
+}
+internal class SimpleRestRequest<T> : SimpleRestRequest
+
+{
+
+
 }

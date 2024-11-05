@@ -1,70 +1,88 @@
 using System.Net;
 using Dumpify;
-
+using Newtonsoft.Json;
+using UriTemplate.Core;
+using Uri = UriTemplate.Core;
 namespace SimpleRest.Api;
-public delegate Task ApiMiddleWare(SimpleRestRequest request, SimpleRestResponse response);
-public delegate void ApiMiddleWareHandler(string endpoint, ApiMiddleWare middleWare);
-class SimpleRestApi
+internal delegate Task ApiMiddleWare(SimpleRestRequest request, SimpleRestResponse response);
+internal class SimpleRestApi
 {
 
     ISimpleRestLogger m_Logger;
     ISimpleRestContentTypeParser m_ResponseTypeParser;
+    ISimpleRestUriTemplateFormatter m_UriTemplateFormatter;
+    ISimpleRestEndpointFormatter m_EndpointFormatter;
     HttpListener m_Listener;
     List<SimpleRestMap> m_Middleware = [];
 
     int m_Port;
-    public SimpleRestApi(int port, ISimpleRestLogger? logger = null, ISimpleRestContentTypeParser? responseParser = null)
+    public SimpleRestApi(int port, ISimpleRestLogger? logger = null, ISimpleRestContentTypeParser? responseParser = null, ISimpleRestUriTemplateFormatter? uriFormatter = null, ISimpleRestEndpointFormatter? endpointFormatter = null, JsonSerializerSettings? jsonSerializerSettings = null)
     {
         m_Logger = logger ?? new SimpleRestLogger();
         m_ResponseTypeParser = responseParser ?? new SimpleRestContentTypeParser();
         m_Listener = new HttpListener();
+        m_UriTemplateFormatter = uriFormatter ?? new SimpleRestUriTemplateHandler();
         m_Port = port;
         m_Listener.Prefixes.Add("http://*:" + port + "/");
+        JsonConvert.DefaultSettings = () => jsonSerializerSettings ?? new JsonSerializerSettings();
+        m_EndpointFormatter = endpointFormatter ?? new SimpleRestEndpointFormatter();
+    }
 
+    void AddMiddleware(string endpoint, SimpleRestMethod method, ApiMiddleWare middleWare)
+    {
+        m_Middleware.Add(new SimpleRestMap(endpoint, method, middleWare, m_UriTemplateFormatter));
 
     }
 
     public void Map(string endpoint, ApiMiddleWare middleWare)
     {
-        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.ANY, middleWare));
+        AddMiddleware(endpoint, SimpleRestMethod.ANY, middleWare);
     }
+
 
 
     public void Get(string endpoint, ApiMiddleWare middleWare)
     {
-        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.GET, middleWare));
+        AddMiddleware(endpoint, SimpleRestMethod.GET, middleWare);
+
 
     }
     public void Post(string endpoint, ApiMiddleWare middleWare)
     {
-        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.POST, middleWare));
+        AddMiddleware(endpoint, SimpleRestMethod.POST, middleWare);
+
 
 
     }
     public void Put(string endpoint, ApiMiddleWare middleWare)
     {
-        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.PUT, middleWare));
+        AddMiddleware(endpoint, SimpleRestMethod.PUT, middleWare);
+
 
 
     }
     public void Patch(string endpoint, ApiMiddleWare middleWare)
     {
-        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.PATCH, middleWare));
+        AddMiddleware(endpoint, SimpleRestMethod.PATCH, middleWare);
+
 
 
     }
     public void Delete(string endpoint, ApiMiddleWare middleWare)
     {
-        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.DELETE, middleWare));
+        AddMiddleware(endpoint, SimpleRestMethod.DELETE, middleWare);
+
 
 
     }
     public void Head(string endpoint, ApiMiddleWare middleWare)
     {
-        m_Middleware.Add(new SimpleRestMap(endpoint, SimpleRestMethod.HEAD, middleWare));
+        AddMiddleware(endpoint, SimpleRestMethod.HEAD, middleWare);
+
 
 
     }
+
     public async Task Start(Action<int>? OnStartup = null)
     {
         try
@@ -77,10 +95,9 @@ class SimpleRestApi
                 try
                 {
                     HttpListenerContext context = await m_Listener.GetContextAsync();
-                    SimpleRestRequest request = SimpleRestRequest.FromHttpListenerContext(context);
+                    SimpleRestRequest request = SimpleRestRequest.FromHttpListenerContext(context, m_EndpointFormatter);
                     SimpleRestResponse response = new SimpleRestResponse(context.Response, m_ResponseTypeParser);
                     m_Logger.Log(request);
-
                     await RunMiddleWare(request, response);
 
                     context.Response.Close();
@@ -100,16 +117,40 @@ class SimpleRestApi
     }
     async Task RunMiddleWare(SimpleRestRequest request, SimpleRestResponse response)
     {
-        SimpleRestMap[] matches = m_Middleware.Where(m => m.Pattern.Match(request.Endpoint).Success).ToArray();
-        matches.ToList().ForEach(m => m.Pattern.GetGroupNames().Dump());
-        foreach (SimpleRestMap map in matches)
+        Dictionary<UriTemplateMatch, SimpleRestMap> matches = m_Middleware
+        .Where(
+            m => m.Pattern.Match(new System.Uri(request.Endpoint)) != null
+            )
+        .ToDictionary(
+            m => m.Pattern.Match(new System.Uri(request.Endpoint)), m => m
+            );
+
+
+        foreach (KeyValuePair<UriTemplateMatch, SimpleRestMap> match in matches)
         {
             if (response.HasCompleted)
                 return;
-
+            SimpleRestMap map = match.Value;
+            UriTemplateMatch uriTemplateMatch = match.Key;
+            request.Endpoint.Dump();
             if (map.Method == SimpleRestMethod.ANY || map.Method == request.Method)
+            {
+                ApplyUriParams(uriTemplateMatch, request);
+
                 await map.Middleware.Invoke(request, response);
+                //TODO until manual route switching is added, stop on the first matched path.
+
+                return;
+
+            }
+
         }
+
+    }
+    static void ApplyUriParams(UriTemplateMatch match, SimpleRestRequest request)
+    {
+        request.Params = match.Bindings.ToDictionary(b => b.Key, b => (object?)b.Value.Value);
+
     }
     public void Stop()
     {
