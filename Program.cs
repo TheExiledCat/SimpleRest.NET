@@ -1,7 +1,4 @@
 ﻿
-using Dumpify;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using SimpleRest.Api;
 class Program
 {
