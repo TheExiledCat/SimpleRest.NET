@@ -108,7 +108,19 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
     <a href="#autotoc_md0">SimpleREST.Net</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md1">Getting Started</a>
+        <a href="#autotoc_md1">Example</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md2">Features</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md3">Planned Features</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md4">Extending</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md5">Documentation</a>
       </li>
     </ul>
   </li>
@@ -119,32 +131,85 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 SimpleREST.Net</h1>
 <p><em>The simplest Rest Api framework for .Net</em></p>
 <h2><a class="anchor" id="autotoc_md1"></a>
-Getting Started</h2>
+Example</h2>
 <p>To create a basic rest api and serve it on a host and port number all you need to do is add <code>using <a class="el" href="df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</code> and the following code to your program:</p>
 <div class="fragment"><div class="line"><span class="keyword">static</span> async Task Main(<span class="keywordtype">string</span>[] args)</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">//Create the api</span></div>
-<div class="line">    SimpleRestApi api = <span class="keyword">new</span> SimpleRestApi(3000);</div>
-<div class="line">    <span class="comment">//Map some middleware, using the request and response objects optionally to change the data before the HTTP Middleware Methods get called on them</span></div>
-<div class="line">    api.Map(<span class="stringliteral">&quot;/&quot;</span>,async (req,res)=&gt;{</div>
-<div class="line">        req.Query[<span class="stringliteral">&quot;name&quot;</span>] = req.Query[<span class="stringliteral">&quot;name&quot;</span>].ToUpper()</div>
-<div class="line">     })</div>
-<div class="line">    <span class="comment">//Map an HTTP method as a middleware</span></div>
-<div class="line">    api.Get(<span class="stringliteral">&quot;/&quot;</span>,async (req,res)=&gt;{</div>
-<div class="line">        <span class="comment">//send object and terminate the connection and middleware chain</span></div>
+<div class="line">    SimpleRestApi api = <span class="keyword">new</span> SimpleRestApi(3000, <span class="keyword">new</span> SimpleRestLogger(SimpleRestLogLevel.DEBUG));</div>
+<div class="line">    <span class="comment">//Map a route handler using the async ApiMiddleWare delegate (allows for async code)</span></div>
+<div class="line">    api.Get(<span class="stringliteral">&quot;/&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">//send the result and terminate the connection</span></div>
 <div class="line">        res.Send(<span class="stringliteral">&quot;Hello World&quot;</span>);</div>
-<div class="line">    })</div>
-<div class="line">    <span class="comment">//create a 404 handler if none of the middleware is called to terminate the connection</span></div>
-<div class="line">    api.Map(<span class="stringliteral">&quot;*&quot;</span>,async (req,res)=&gt;{</div>
-<div class="line">        res.send(<span class="stringliteral">&quot;Route not found&quot;</span>);</div>
-<div class="line">    })</div>
+<div class="line">    });</div>
+<div class="line">    <span class="comment">//map a route with uri segment parameters ((RFC 6570 Spec))</span></div>
+<div class="line">    api.Put(<span class="stringliteral">&quot;/users/{id}&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordtype">int</span>? <span class="keywordtype">id</span> = req.Params[<span class="stringliteral">&quot;id&quot;</span>] as <span class="keywordtype">int</span>?;</div>
+<div class="line">        res.Send($<span class="stringliteral">&quot;user with id {id} updated&quot;</span>);</div>
+<div class="line">    });</div>
+<div class="line">    api.Post(<span class="stringliteral">&quot;/users&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">//convert a custom or .NET class from the request body</span></div>
+<div class="line">        User? user = req.Body?.As&lt;User&gt;();</div>
+<div class="line">        <span class="comment">//get query params</span></div>
+<div class="line">        <span class="keywordtype">string</span>? token = req.Query[<span class="stringliteral">&quot;token&quot;</span>] as string;</div>
+<div class="line">        <span class="comment">//automatically convert response to correct type for http content type standard, in this case JSON for classes</span></div>
+<div class="line">        res.Send(user);</div>
+<div class="line">    });</div>
 <div class="line">    <span class="comment">//Start the server on given port with a callback to call before continuing with the rest of the server functions</span></div>
 <div class="line">    await api.Start((<span class="keywordtype">int</span> port) =&gt;</div>
 <div class="line">    {</div>
 <div class="line">        Console.WriteLine(<span class="stringliteral">&quot;Server started on port &quot;</span> + port);</div>
 <div class="line">    });</div>
 <div class="line">}</div>
-</div><!-- fragment --> </div></div><!-- PageDoc -->
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md2"></a>
+Features</h2>
+<ul>
+<li>Easy to use</li>
+<li>Express.Js like route mapping and middleware</li>
+<li>Automatic response parsing</li>
+<li>Uri route parameters following the RFC 6570 Spec</li>
+<li>NativeAOT Compatible (assuming you dont add non AOT compatible libraries)</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Planned Features</h2>
+<ul class="check">
+<li class="unchecked">Route Handlers that can divide endpoint handling into different classes (Like ASP)</li>
+</ul>
+<ul class="check">
+<li class="unchecked">wildcards for routes (*,?,+ etc..)</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Seperate routers that can have their own routes and middleware to seperate route logic</li>
+</ul>
+<ul class="check">
+<li class="unchecked">More options for result sending, like response.Download(), response.Redirect() etc..</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Custom Error Handling and validation</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Route forwarding to move to a different route before sending result (like the express next() function)</li>
+</ul>
+<ul>
+<li>and more...</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Extending</h2>
+<p>The SimpleRestApi Constructor allows for easy extending through dependency injection by adding your own custom implementations for things like:</p>
+<ul>
+<li>Loggers</li>
+<li>Formatting</li>
+<li>Endpoint and route parsing</li>
+<li>Middleware</li>
+<li><em>More to come</em></li>
+</ul>
+<p>its also possible to add extension methods to the SimpleRestApi class to inject your own custom optional functions</p>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Documentation</h2>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 </div><!-- doc-content -->

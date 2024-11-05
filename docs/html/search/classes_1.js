@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['program_0',['Program',['../db/d45/classSimpleRest_1_1Api_1_1Program.html',1,'SimpleRest::Api']]]
+  ['simplerestrequestbody_0',['SimpleRestRequestBody',['../dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1SimpleRestRequestBody.html',1,'SimpleRest::Api::SimpleRestRequest']]]
 ];

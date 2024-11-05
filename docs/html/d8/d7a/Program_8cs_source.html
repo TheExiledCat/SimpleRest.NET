@@ -104,40 +104,63 @@ $(function(){initNavTree('d8/d7a/Program_8cs_source.html','../../'); initResizab
 <div class="contents">
 <a href="../../d8/d7a/Program_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span>Dumpify;</div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="../../db/d45/classSimpleRest_1_1Api_1_1Program.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="../../db/d45/classSimpleRest_1_1Api_1_1Program.html">Program</a></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keyword">static</span> async Task Main(<span class="keywordtype">string</span>[] args)</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        <a class="code hl_class" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a> api = <span class="keyword">new</span> <a class="code hl_class" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a>(3000, <span class="keyword">new</span> <a class="code hl_class" href="../../d7/d51/classSimpleRestLogger.html">SimpleRestLogger</a>(logLevel: <a class="code hl_enumeration" href="../../df/d40/Enums_8cs.html#abefb130a1e9ce5f7764648705edcf427">SimpleRestLogLevel</a>.MEDIUM));</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c">Get</a>(<span class="stringliteral">&quot;/&quot;</span>, async (req, res) =&gt;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>            Console.WriteLine(<span class="stringliteral">&quot;this is a get map&quot;</span>);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>            res.Send(<span class="stringliteral">&quot;Hello world&quot;</span>);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        });</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        await api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a57499f770fbfecbe4626f2d0c05eb89f">Start</a>((<span class="keywordtype">int</span> port) =&gt;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            Console.WriteLine(<span class="stringliteral">&quot;Server started on port &quot;</span> + port);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        });</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using </span>Newtonsoft.Json;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">using </span>Newtonsoft.Json.Serialization;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="../../db/d45/classSimpleRest_1_1Api_1_1Program.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="../../db/d45/classSimpleRest_1_1Api_1_1Program.html">Program</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">static</span> async Task Main(<span class="keywordtype">string</span>[] args)</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <span class="comment">//Create the api</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        SimpleRestApi api = <span class="keyword">new</span> SimpleRestApi(3000, <span class="keyword">new</span> SimpleRestLogger(SimpleRestLogLevel.DEBUG));</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="comment">//Map a route handler using the async ApiMiddleWare delegate (allows for async code)</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        api.Get(<span class="stringliteral">&quot;/&quot;</span>, async (req, res) =&gt;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            <span class="comment">//send the result and terminate the connection</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            res.Send(<span class="stringliteral">&quot;Hello World&quot;</span>);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        });</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="comment">//map a route with uri segment parameters ((RFC 6570 Spec))</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        api.Put(<span class="stringliteral">&quot;/users/{id}&quot;</span>, async (req, res) =&gt;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keywordtype">int</span>? <span class="keywordtype">id</span> = req.Params[<span class="stringliteral">&quot;id&quot;</span>] as <span class="keywordtype">int</span>?;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            res.Send($<span class="stringliteral">&quot;user with id {id} updated&quot;</span>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        });</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        api.Post(<span class="stringliteral">&quot;/users&quot;</span>, async (req, res) =&gt;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="comment">//convert a custom or .NET class from the request body</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <a class="code hl_class" href="../../d9/de1/classSimpleRest_1_1Api_1_1User.html">User</a>? user = req.Body?.As&lt;<a class="code hl_class" href="../../d9/de1/classSimpleRest_1_1Api_1_1User.html">User</a>&gt;();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="comment">//get query params</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="keywordtype">string</span>? token = req.Query[<span class="stringliteral">&quot;token&quot;</span>] as string;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <span class="comment">//automatically convert response to correct type for http content type standard, in this case JSON for classes</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            res.Send(user);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        });</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="comment">//Start the server on given port with a callback to call before continuing with the rest of the server functions</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        await api.Start((<span class="keywordtype">int</span> port) =&gt;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            Console.WriteLine(<span class="stringliteral">&quot;Server started on port &quot;</span> + port);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        });</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
 </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="ttc" id="aEnums_8cs_html_abefb130a1e9ce5f7764648705edcf427"><div class="ttname"><a href="../../df/d40/Enums_8cs.html#abefb130a1e9ce5f7764648705edcf427">SimpleRestLogLevel</a></div><div class="ttdeci">SimpleRestLogLevel</div><div class="ttdef"><b>Definition</b> <a href="../../df/d40/Enums_8cs_source.html#l00001">Enums.cs:2</a></div></div>
-<div class="ttc" id="aclassSimpleRestLogger_html"><div class="ttname"><a href="../../d7/d51/classSimpleRestLogger.html">SimpleRestLogger</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/de3/SimpleRestLogger_8cs_source.html#l00004">SimpleRestLogger.cs:5</a></div></div>
-<div class="ttc" id="aclassSimpleRest_1_1Api_1_1Program_html"><div class="ttname"><a href="../../db/d45/classSimpleRest_1_1Api_1_1Program.html">SimpleRest.Api.Program</a></div><div class="ttdef"><b>Definition</b> <a href="#l00005">Program.cs:6</a></div></div>
-<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRest.Api.SimpleRestApi</a></div><div class="ttdef"><b>Definition</b> <a href="../../df/d3e/SimpleRestApi_8cs_source.html#l00007">SimpleRestApi.cs:8</a></div></div>
-<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a57499f770fbfecbe4626f2d0c05eb89f"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a57499f770fbfecbe4626f2d0c05eb89f">SimpleRest.Api.SimpleRestApi.Start</a></div><div class="ttdeci">async Task Start(Action&lt; int &gt;? OnStartup=null)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d3e/SimpleRestApi_8cs_source.html#l00070">SimpleRestApi.cs:70</a></div></div>
-<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a986b5492f24e3e9d81a4a3608c92847c"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c">SimpleRest.Api.SimpleRestApi.Get</a></div><div class="ttdeci">void Get(string endpoint, ApiMiddleWare middleWare)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d3e/SimpleRestApi_8cs_source.html#l00041">SimpleRestApi.cs:41</a></div></div>
-<div class="ttc" id="anamespaceSimpleRest_1_1Api_html"><div class="ttname"><a href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a></div><div class="ttdef"><b>Definition</b> <a href="../../df/d3e/SimpleRestApi_8cs_source.html#l00004">SimpleRestApi.cs:4</a></div></div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d9/de1/classSimpleRest_1_1Api_1_1User.html">   41</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d9/de1/classSimpleRest_1_1Api_1_1User.html">User</a></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d9/de1/classSimpleRest_1_1Api_1_1User.html#a288b0ca527571eeae13946e1d317ae06">   43</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../d9/de1/classSimpleRest_1_1Api_1_1User.html#a288b0ca527571eeae13946e1d317ae06">Name</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d9/de1/classSimpleRest_1_1Api_1_1User.html#a0988363e39072692740f601604dd6406">   44</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="../../d9/de1/classSimpleRest_1_1Api_1_1User.html#a0988363e39072692740f601604dd6406">Email</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}</div>
+</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="ttc" id="aclassSimpleRest_1_1Api_1_1Program_html"><div class="ttname"><a href="../../db/d45/classSimpleRest_1_1Api_1_1Program.html">SimpleRest.Api.Program</a></div><div class="ttdef"><b>Definition</b> <a href="#l00007">Program.cs:8</a></div></div>
+<div class="ttc" id="aclassSimpleRest_1_1Api_1_1User_html"><div class="ttname"><a href="../../d9/de1/classSimpleRest_1_1Api_1_1User.html">SimpleRest.Api.User</a></div><div class="ttdef"><b>Definition</b> <a href="#l00041">Program.cs:42</a></div></div>
+<div class="ttc" id="aclassSimpleRest_1_1Api_1_1User_html_a0988363e39072692740f601604dd6406"><div class="ttname"><a href="../../d9/de1/classSimpleRest_1_1Api_1_1User.html#a0988363e39072692740f601604dd6406">SimpleRest.Api.User.Email</a></div><div class="ttdeci">string Email</div><div class="ttdef"><b>Definition</b> <a href="#l00044">Program.cs:44</a></div></div>
+<div class="ttc" id="aclassSimpleRest_1_1Api_1_1User_html_a288b0ca527571eeae13946e1d317ae06"><div class="ttname"><a href="../../d9/de1/classSimpleRest_1_1Api_1_1User.html#a288b0ca527571eeae13946e1d317ae06">SimpleRest.Api.User.Name</a></div><div class="ttdeci">string Name</div><div class="ttdef"><b>Definition</b> <a href="#l00043">Program.cs:43</a></div></div>
+<div class="ttc" id="anamespaceSimpleRest_1_1Api_html"><div class="ttname"><a href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a></div><div class="ttdef"><b>Definition</b> <a href="../../df/d40/Enums_8cs_source.html#l00001">Enums.cs:1</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

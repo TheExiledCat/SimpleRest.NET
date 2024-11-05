@@ -102,10 +102,9 @@ $(function(){initNavTree('d5/df0/SimpleRestContentTypeParser_8cs_source.html','.
   <div class="headertitle"><div class="title">SimpleRestContentTypeParser.cs</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d5/df0/SimpleRestContentTypeParser_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span><a class="code hl_namespace" href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</div>
+<a href="../../d5/df0/SimpleRestContentTypeParser_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="foldopen" id="foldopen00003" data-start="{" data-end="};">
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="../../da/d0f/classSimpleRestContentTypeParser.html">    3</a></span><span class="keyword">class </span><a class="code hl_class" href="../../da/d0f/classSimpleRestContentTypeParser.html">SimpleRestContentTypeParser</a> : <a class="code hl_interface" href="../../da/d0d/interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser.html">ISimpleRestContentTypeParser</a></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">internal</span> <span class="keyword">class </span>SimpleRestContentTypeParser : ISimpleRestContentTypeParser</div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    Dictionary&lt;Type, string&gt; contentTypes = <span class="keyword">new</span> Dictionary&lt;Type, string&gt;</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    {</div>
@@ -121,15 +120,12 @@ $(function(){initNavTree('d5/df0/SimpleRestContentTypeParser_8cs_source.html','.
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        { typeof(Guid), <span class="stringliteral">&quot;application/json&quot;</span> },         <span class="comment">// Serialize GUIDs as JSON</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        { typeof(<span class="keywordtype">object</span>), <span class="stringliteral">&quot;application/json&quot;</span> },         <span class="comment">// Serialize custom objects as JSON</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    };</div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../da/d0f/classSimpleRestContentTypeParser.html#affbfe6213cb23291c49425505a34d87b">   19</a></span>    <span class="keyword">public</span> Dictionary&lt;Type, string&gt; <a class="code hl_property" href="../../da/d0f/classSimpleRestContentTypeParser.html#affbfe6213cb23291c49425505a34d87b">ContentTypes</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">public</span> Dictionary&lt;Type, string&gt; ContentTypes</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">get</span> =&gt; contentTypes;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
-</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../da/d0f/classSimpleRestContentTypeParser.html#a76fad5eff3b251a7d6510b0551726b17">   24</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_function" href="../../da/d0f/classSimpleRestContentTypeParser.html#a76fad5eff3b251a7d6510b0551726b17">GetType&lt;T&gt;</a>()</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">public</span> <span class="keywordtype">string</span> GetType&lt;T&gt;()</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">if</span> (contentTypes.ContainsKey(typeof(T)))</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keywordflow">return</span> contentTypes[typeof(T)];</div>
@@ -138,14 +134,8 @@ $(function(){initNavTree('d5/df0/SimpleRestContentTypeParser_8cs_source.html','.
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="keywordflow">return</span> contentTypes[typeof(<span class="keywordtype">string</span>)];</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        }</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
-</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
-</div>
-<div class="ttc" id="aclassSimpleRestContentTypeParser_html"><div class="ttname"><a href="../../da/d0f/classSimpleRestContentTypeParser.html">SimpleRestContentTypeParser</a></div><div class="ttdef"><b>Definition</b> <a href="#l00003">SimpleRestContentTypeParser.cs:4</a></div></div>
-<div class="ttc" id="aclassSimpleRestContentTypeParser_html_a76fad5eff3b251a7d6510b0551726b17"><div class="ttname"><a href="../../da/d0f/classSimpleRestContentTypeParser.html#a76fad5eff3b251a7d6510b0551726b17">SimpleRestContentTypeParser.GetType&lt; T &gt;</a></div><div class="ttdeci">string GetType&lt; T &gt;()</div><div class="ttdoc">Converts a .NET or custom type into an http content type.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">SimpleRestContentTypeParser.cs:24</a></div></div>
-<div class="ttc" id="aclassSimpleRestContentTypeParser_html_affbfe6213cb23291c49425505a34d87b"><div class="ttname"><a href="../../da/d0f/classSimpleRestContentTypeParser.html#affbfe6213cb23291c49425505a34d87b">SimpleRestContentTypeParser.ContentTypes</a></div><div class="ttdeci">Dictionary&lt; Type, string &gt; ContentTypes</div><div class="ttdef"><b>Definition</b> <a href="#l00019">SimpleRestContentTypeParser.cs:20</a></div></div>
-<div class="ttc" id="ainterfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser_html"><div class="ttname"><a href="../../da/d0d/interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser.html">SimpleRest.Api.ISimpleRestContentTypeParser</a></div><div class="ttdef"><b>Definition</b> <a href="../../d0/d5f/ISimpleRestContentTypeParser_8cs_source.html#l00002">ISimpleRestContentTypeParser.cs:3</a></div></div>
-<div class="ttc" id="anamespaceSimpleRest_1_1Api_html"><div class="ttname"><a href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a></div><div class="ttdef"><b>Definition</b> <a href="../../df/d3e/SimpleRestApi_8cs_source.html#l00004">SimpleRestApi.cs:4</a></div></div>
+<div class="ttc" id="anamespaceSimpleRest_1_1Api_html"><div class="ttname"><a href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a></div><div class="ttdef"><b>Definition</b> <a href="../../df/d40/Enums_8cs_source.html#l00001">Enums.cs:1</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

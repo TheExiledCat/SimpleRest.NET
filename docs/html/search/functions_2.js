@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fromhttplistenercontext_0',['FromHttpListenerContext',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a871cc9213366958473155404893e1ce6',1,'SimpleRest::Api::SimpleRestRequest']]]
+  ['simplerestrequestbody_0',['SimpleRestRequestBody',['../dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1SimpleRestRequestBody.html#aa337a672734e7d0064049f39ef4cf387',1,'SimpleRest::Api::SimpleRestRequest::SimpleRestRequestBody']]]
 ];

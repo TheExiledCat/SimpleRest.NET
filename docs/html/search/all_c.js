@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['net_0',['SimpleREST.NET',['../index.html',1,'']]],
-  ['net_1',['SimpleREST.Net',['../index.html#autotoc_md0',1,'']]],
-  ['none_2',['NONE',['../df/d40/Enums_8cs.html#abefb130a1e9ce5f7764648705edcf427ab50339a10e1de285ac99d4c3990b8693',1,'Enums.cs']]],
-  ['nuget_3a_3',['Using NuGet:',['../d8/d93/md_guides_2installation.html#autotoc_md4',1,'']]]
+  ['readme_2emd_0',['README.md',['../da/ddd/README_8md.html',1,'']]]
 ];

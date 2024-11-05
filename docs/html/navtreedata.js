@@ -26,37 +26,35 @@ var NAVTREE =
 [
   [ "SimpleREST.NET", "index.html", [
     [ "SimpleREST.Net", "index.html#autotoc_md0", [
-      [ "Getting Started", "index.html#autotoc_md1", null ]
+      [ "Example", "index.html#autotoc_md1", null ],
+      [ "Features", "index.html#autotoc_md2", null ],
+      [ "Planned Features", "index.html#autotoc_md3", null ],
+      [ "Extending", "index.html#autotoc_md4", null ],
+      [ "Documentation", "index.html#autotoc_md5", null ]
     ] ],
     [ "installation", "d8/d93/md_guides_2installation.html", [
-      [ "Installation", "d8/d93/md_guides_2installation.html#autotoc_md2", [
-        [ "Using NuGet:", "d8/d93/md_guides_2installation.html#autotoc_md4", null ],
-        [ "Or using git", "d8/d93/md_guides_2installation.html#autotoc_md5", null ]
+      [ "Installation", "d8/d93/md_guides_2installation.html#autotoc_md6", [
+        [ "Using NuGet:", "d8/d93/md_guides_2installation.html#autotoc_md8", null ],
+        [ "Or using git", "d8/d93/md_guides_2installation.html#autotoc_md9", null ]
       ] ]
     ] ],
     [ "Packages", "namespaces.html", [
-      [ "Package List", "namespaces.html", "namespaces_dup" ],
-      [ "Package Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ]
-      ] ]
+      [ "Package List", "namespaces.html", "namespaces_dup" ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
-        [ "Properties", "functions_prop.html", null ],
-        [ "Events", "functions_evnt.html", null ]
+        [ "Properties", "functions_prop.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Enumerations", "globals_enum.html", null ]
+        [ "Typedefs", "globals_type.html", null ]
       ] ]
     ] ]
   ] ]
