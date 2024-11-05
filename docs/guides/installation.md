@@ -15,7 +15,7 @@ dotnet add package SimpleREST
 ## Or using git
 
 ```git
-git clone {{repo}}
+git clone {{site.github_repo}}
 ```
 
-then add the using tags `using SimpleREST` and optionally `using SimpleREST.Extensions` for some nice converter functions
+then add the using tag `using SimpleRest.Api`
