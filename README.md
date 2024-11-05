@@ -5,9 +5,11 @@
 <h3 style="color:pink"> <i>The simplest Rest Api framework for .Net</i></h3>
 
 ## Intallation 🔧
-![NuGet Version](https://img.shields.io/nuget/v/SimpleRestApi)
+
+![NuGet Version](https://img.shields.io/nuget/v/SimpleRestApi?style=for-the-badge&logo=nuget&logoSize=auto)
 
 For installation and getting started see [Getting Started](./docs/guides/Getting%20Started.md)
+
 ## Example :white_check_mark:
 
 To create a basic rest api and serve it on a host and port number all you need to do is add `using SimpleRest.Api;` and the following code to your program:
