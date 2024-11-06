@@ -91,6 +91,7 @@ public class SimpleRestQuery : ISimpleRestQuery
         get
         {
             return Query.TryGetValue(key, out object val) ? val : null;
+
         }
 
     }

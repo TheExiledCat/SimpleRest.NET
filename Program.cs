@@ -9,11 +9,18 @@ class Program
     {
         //Create the api
         SimpleRestApi api = new SimpleRestApi(3000, new SimpleRestLogger(SimpleRestLogLevel.DEBUG));
+        api.Map("/users/{id}", async (req, res) =>
+        {
+            Console.WriteLine("doubling id");
+            req.Params["id"] = (int?)req.Params["id"] * 2;
+            Console.WriteLine("doubled id: " + req.Params["id"]);
+        });
         //Map a route handler using the async ApiMiddleWare delegate (allows for async code)
         api.Get("/", async (req, res) =>
         {
             //send the result and terminate the connection
-            res.Send("Hello World");
+            User u = new User { Name = "Armando", Email = "Armando@test.com" };
+            res.Send(u);
         });
         //map a route with uri segment parameters ((RFC 6570 Spec))
         api.Put("/users/{id}", async (req, res) =>

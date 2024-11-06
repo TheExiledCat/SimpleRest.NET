@@ -1,6 +1,7 @@
 using System.Net;
 using Dumpify;
 using Newtonsoft.Json;
+using SimpleRest.Extensions;
 using UriTemplate.Core;
 using Uri = UriTemplate.Core;
 namespace SimpleRest.Api;
@@ -14,9 +15,10 @@ public class SimpleRestApi
     ISimpleRestEndpointFormatter m_EndpointFormatter;
     HttpListener m_Listener;
     List<SimpleRestMap> m_Middleware = [];
+    Type m_DefaultIntType;
 
     int m_Port;
-    public SimpleRestApi(int port, ISimpleRestLogger? logger = null, ISimpleRestContentTypeParser? responseParser = null, ISimpleRestUriTemplateFormatter? uriFormatter = null, ISimpleRestEndpointFormatter? endpointFormatter = null, JsonSerializerSettings? jsonSerializerSettings = null)
+    public SimpleRestApi(int port, ISimpleRestLogger? logger = null, ISimpleRestContentTypeParser? responseParser = null, ISimpleRestUriTemplateFormatter? uriFormatter = null, ISimpleRestEndpointFormatter? endpointFormatter = null, JsonSerializerSettings? jsonSerializerSettings = null, Type? defaultIntType = null)
     {
         m_Logger = logger ?? new SimpleRestLogger();
         m_ResponseTypeParser = responseParser ?? new SimpleRestContentTypeParser();
@@ -26,6 +28,8 @@ public class SimpleRestApi
         m_Listener.Prefixes.Add("http://*:" + port + "/");
         JsonConvert.DefaultSettings = () => jsonSerializerSettings ?? new JsonSerializerSettings();
         m_EndpointFormatter = endpointFormatter ?? new SimpleRestEndpointFormatter();
+        m_DefaultIntType = defaultIntType ?? typeof(int);
+
     }
 
     void AddMiddleware(string endpoint, SimpleRestMethod method, ApiMiddleWare middleWare)
@@ -124,6 +128,7 @@ public class SimpleRestApi
             m => m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative)), m => m
             );
         matches.Values.ToList().Dump();
+
         request.Dump();
 
         foreach (KeyValuePair<UriTemplateMatch, SimpleRestMap> match in matches)
@@ -135,21 +140,38 @@ public class SimpleRestApi
 
             if (map.Method == SimpleRestMethod.ANY || map.Method == request.Method)
             {
-                ApplyUriParams(uriTemplateMatch, request);
+                Console.WriteLine($"Running middleware for route {map.Method.ToString()} {map.Endpoint}");
 
+                ApplyUriParams(uriTemplateMatch, request);
                 await map.Middleware.Invoke(request, response);
                 //TODO until manual route switching is added, stop on the first matched path.
 
-                return;
+
 
             }
 
         }
 
     }
-    static void ApplyUriParams(UriTemplateMatch match, SimpleRestRequest request)
+    void ApplyUriParams(UriTemplateMatch match, SimpleRestRequest request)
     {
-        request.Params = match.Bindings.ToDictionary(b => b.Key, b => (object?)b.Value.Value);
+
+        request.Params.NonDistructiveUnion(match.Bindings.Select(b => new KeyValuePair<string, object?>(b.Key, ApplyIntType(JsonConvert.DeserializeObject(b.Value.Value?.ToString() ?? "null")))).ToDictionary(b => b.Key, b => (object?)b.Value));
+
+
+    }
+    object? ApplyIntType(object? value)
+    {
+        if (value != null && value is short
+            || value is ushort
+            || value is int
+            || value is uint
+            || value is long
+            || value is ulong)
+        {
+            return Convert.ChangeType(value, m_DefaultIntType);
+        }
+        return value;
 
     }
     public void Stop()
