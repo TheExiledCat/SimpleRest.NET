@@ -24,10 +24,11 @@ public class SimpleRestContentTypeParser : ISimpleRestContentTypeParser
     public string GetType<T>()
     {
         if (contentTypes.ContainsKey(typeof(T)))
-            return contentTypes[typeof(T)];
+        { return contentTypes[typeof(T)]; }
+
         else
         {
-            return contentTypes[typeof(string)];
+            return contentTypes[typeof(object)];
         }
     }
 }

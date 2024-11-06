@@ -27,7 +27,7 @@ public class SimpleRestResponse
         ContentType = m_TypeParser.GetType<T>();
         byte[] buffer = Encoding.UTF8.GetBytes(finalOutput);
         Response.ContentLength64 = buffer.Length;
-
+        Response.ContentType = ContentType;
         Response.OutputStream.Write(buffer, 0, buffer.Length);
 
         Response?.Close();

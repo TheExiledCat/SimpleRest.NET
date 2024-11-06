@@ -107,22 +107,25 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md0">SimpleREST.Net</a>
+    <a href="#autotoc_md0">SimpleREST.Net &lt;img src=&quot;./docs/fetchieIcon.jpeg&quot; style=&quot;width:40px&quot;&gt;</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md1">Example</a>
+        <a href="#autotoc_md1">Installation 🔧</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md2">Features</a>
+        <a href="#autotoc_md2">Example ✅</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md3">Planned Features</a>
+        <a href="#autotoc_md3">Features ⤵️</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md4">Extending</a>
+        <a href="#autotoc_md4">Planned Features</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md5">Documentation</a>
+        <a href="#autotoc_md5">Extending</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md6">Documentation</a>
       </li>
     </ul>
   </li>
@@ -130,10 +133,14 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 </div>
 <div class="textblock"><p><a class="anchor" id="md__2home_2amano_2SimpleRest_2README"></a></p>
 <h1><a class="anchor" id="autotoc_md0"></a>
-SimpleREST.Net</h1>
-<p><em>The simplest Rest Api framework for .Net</em></p>
+SimpleREST.Net <img src="./docs/fetchieIcon.jpeg" alt="" style="width:40px" class="inline"/></h1>
+<h3 style="color:pink"><em>The simplest Rest Api framework for .Net</em></h3>
 <h2><a class="anchor" id="autotoc_md1"></a>
-Example</h2>
+Installation 🔧</h2>
+<p><a href="https://www.nuget.org/packages/SimpleRestApi/" target="_blank"><img src="https://img.shields.io/nuget/v/SimpleRestApi?style=for-the-badge&amp;logo=nuget&amp;logoSize=auto&amp;link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FSimpleRestApi%2F" alt="Nuget link" class="inline"/></a></p>
+<p>For installation and getting started see <a class="el" href="d1/d57/md_guides_2Getting_01Started.html">Getting Started</a></p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Example ✅</h2>
 <p>To create a basic rest api and serve it on a host and port number all you need to do is add <code>using <a class="el" href="df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</code> and the following code to your program:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#</span></div>
 <div class="line">   <span class="keyword">static</span> async Task Main(<span class="keywordtype">string</span>[] args)</div>
@@ -156,16 +163,51 @@ Example</h2>
 <div class="line">           Console.WriteLine(<span class="stringliteral">&quot;Server started on port &quot;</span> + port);</div>
 <div class="line">       });</div>
 <div class="line">   }</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md2"></a>
-Features</h2>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
+Features ⤵️</h2>
 <ul>
-<li>Easy to use</li>
-<li>Express.Js like route mapping and middleware</li>
-<li>Automatic response parsing</li>
-<li>Uri route parameters following the RFC 6570 Spec</li>
+<li>Easy to use 👶</li>
+<li>Express.js like route mapping and middleware using SimpleRestApi.METHOD (see routing) 🌐 <div class="fragment"><div class="line">api.Get(<span class="stringliteral">&quot;/route&quot;</span>,async (req,res)=&gt;{</div>
+<div class="line">    <span class="comment">//use the request and response objects to your liking</span></div>
+<div class="line">    <span class="keywordtype">string</span> sortBy = req.Query[<span class="stringliteral">&quot;sortBy&quot;</span>];</div>
+<div class="line">    <span class="comment">//use one of the response terminating</span></div>
+<div class="line">    <span class="comment">//functions to send a result to the client</span></div>
+<div class="line">    res.Send(<span class="stringliteral">&quot;Success!&quot;</span>)</div>
+<div class="line">});</div>
+</div><!-- fragment --></li>
+<li><p class="startli">Automatic response parsing using Newtonsoft.Json (or a custom converter) 🫡</p>
+<div class="fragment"><div class="line">api.Get(<span class="stringliteral">&quot;/&quot;</span>,async (req,res)=&gt;{</div>
+<div class="line">  <span class="comment">//use some .net or custom class and fill it with some query data, e.g. &quot;John&quot;</span></div>
+<div class="line">  User user = <span class="keyword">new</span> User{Name = req.Query[<span class="stringliteral">&quot;name&quot;</span>],Id=1}</div>
+<div class="line">  res.send(user)</div>
+<div class="line">});</div>
+</div><!-- fragment --><p class="startli">output:</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;name&quot;: &quot;John&quot;,</div>
+<div class="line">  &quot;Id&quot;: 1</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="startli">this will also set the content-type header to a fitting type based on the implementation of <a href="./Src/Interfaces/ISimpleRestContentTypeParser.cs">ISimpleRestContentTypeParser</a> (injectable)</p>
+</li>
+<li><p class="startli">Uri route parameters following the [RFC 6570 Spec]("https://www.rfc-editor.org/rfc/rfc6570")</p>
+<div class="fragment"><div class="line">api.Put(<span class="stringliteral">&quot;/users/{userId}/posts/{postId}&quot;</span>,async (req,res)=&gt;{</div>
+<div class="line">        <span class="keywordtype">int</span>? <span class="keywordtype">id</span> = req[<span class="stringliteral">&quot;userId&quot;</span>] as <span class="keywordtype">int</span>?;</div>
+<div class="line">        <span class="keywordtype">int</span> postId = req[<span class="stringliteral">&quot;postId&quot;</span>] as <span class="keywordtype">int</span>?;</div>
+<div class="line">        <span class="comment">//or using generic</span></div>
+<div class="line">        <span class="keywordtype">int</span> <span class="keywordtype">id</span> = req.Get&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;userId&quot;</span>);</div>
+<div class="line">});</div>
+</div><!-- fragment --></li>
+<li><p class="startli">Parsing json body as object</p>
+<div class="fragment"><div class="line">api.Post(<span class="stringliteral">&quot;/users&quot;</span>,async(req,res)=&gt;{</div>
+<div class="line">  User? user = req.Body.As&lt;User&gt;()</div>
+<div class="line">});</div>
+</div><!-- fragment --></li>
+<li>Expandable<ul>
+<li>using dependency injection(DI), Extension methods, Custom Middleware or Middleware handlers</li>
+</ul>
+</li>
 <li>NativeAOT Compatible (assuming you dont add non AOT compatible libraries)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Planned Features</h2>
 <ul class="check">
 <li class="unchecked">Route Handlers that can divide endpoint handling into different classes (Like ASP)</li>
@@ -188,7 +230,7 @@ Planned Features</h2>
 <ul>
 <li>and more...</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Extending</h2>
 <p>The SimpleRestApi Constructor allows for easy extending through dependency injection by adding your own custom implementations for things like:</p>
 <ul>
@@ -199,7 +241,7 @@ Extending</h2>
 <li><em>More to come</em></li>
 </ul>
 <p>its also possible to add extension methods to the SimpleRestApi class to inject your own custom optional functions</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Documentation</h2>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>

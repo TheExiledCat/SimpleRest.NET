@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xpm_20dependency_0',['npm/xpm dependency',['../md_doxygen-awesome-css_2README.html#autotoc_md41',1,'']]]
+  ['width_3a40px_0',['SimpleREST.Net &lt;img src=&quot;./docs/fetchieIcon.jpeg&quot; style=&quot;width:40px&quot;&gt;',['../index.html#autotoc_md0',1,'']]]
 ];

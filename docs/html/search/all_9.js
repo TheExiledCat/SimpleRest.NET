@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['keys_0',['Keys',['../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html#aa5cb03ba7d682b0b950d2b642b5cc89e',1,'SimpleRest.Api.SimpleRestQuery.Keys'],['../da/d93/interfaceSimpleRest_1_1Api_1_1ISimpleRestQuery.html#aaa96e62bf341143184ecf5a5b938c0ab',1,'SimpleRest.Api.ISimpleRestQuery.Keys']]]
+  ['jpeg_20style_20width_3a40px_0',['SimpleREST.Net &lt;img src=&quot;./docs/fetchieIcon.jpeg&quot; style=&quot;width:40px&quot;&gt;',['../index.html#autotoc_md0',1,'']]],
+  ['json_20request_20response_20handling_1',['JSON Request/Response Handling',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md14',1,'']]]
 ];

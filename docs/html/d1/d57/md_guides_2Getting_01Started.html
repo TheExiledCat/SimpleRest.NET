@@ -107,29 +107,273 @@ $(function(){initNavTree('d1/d57/md_guides_2Getting_01Started.html','../../'); i
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md6">Installation</a>
+    <a href="#autotoc_md7">Installation</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md8">Using NuGet:</a>
+        <a href="#autotoc_md9">Using NuGet:</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md9">Or from source using git</a>
+        <a href="#autotoc_md10">Or from source using git</a>
+      </li>
+    </ul>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md11">SimpleRest.NET Examples</a>
+    <ul>
+      <li class="level2">
+        <a href="#autotoc_md12">Basic Setup</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md13">URI Template Parameters</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md14">JSON Request/Response Handling</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md15">Request Information</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md16">Shared Route Logic</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md17">Complete Example</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md18">Key Features</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md19">Common Usage Patterns</a>
+        <ul>
+          <li class="level3">
+            <a href="#autotoc_md20">Accessing Query Parameters</a>
+          </li>
+          <li class="level3">
+            <a href="#autotoc_md21">Parsing Request Body</a>
+          </li>
+          <li class="level3">
+            <a href="#autotoc_md22">Using URL Parameters</a>
+          </li>
+          <li class="level3">
+            <a href="#autotoc_md23">Setting Response Data</a>
+          </li>
+        </ul>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md24">Notes</a>
       </li>
     </ul>
   </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md6"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md7"></a>
 Installation</h1>
 <p>SimpleREST.NET is available as a NuGet package and works and has been tested in &gt;= .NET 6.0</p>
 <hr  />
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Using NuGet:</h2>
 <div class="fragment"><div class="line">dotnet add package SimpleREST</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
 Or from source using git</h2>
 <div class="fragment"><div class="line">git clone https://theexiledcat.github.io/SimpleRest.NET/</div>
-</div><!-- fragment --><p>then add the using tag <code>using <a class="el" href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a></code> </p>
+</div><!-- fragment --><p>then add the using tag <code>using <a class="el" href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a></code></p>
+<h1><a class="anchor" id="autotoc_md11"></a>
+SimpleRest.NET Examples</h1>
+<h2><a class="anchor" id="autotoc_md12"></a>
+Basic Setup</h2>
+<p>The simplest way to create an API with SimpleRest.NET is to create a new instance of <code>SimpleRestApi</code> and define your routes. The following example shows how to set up a basic API with logging enabled:</p>
+<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a> api = <span class="keyword">new</span> <a class="code hl_class" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a>(3000, <span class="keyword">new</span> <a class="code hl_class" href="../../da/d6b/classSimpleRest_1_1Api_1_1SimpleRestLogger.html">SimpleRestLogger</a>(<a class="code hl_enumeration" href="../../df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8">SimpleRestLogLevel</a>.DEBUG));</div>
+<div class="line"> </div>
+<div class="line">api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c">Get</a>(<span class="stringliteral">&quot;/&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">{</div>
+<div class="line">    res.Send(<span class="stringliteral">&quot;Hello World&quot;</span>);</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line">await api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a57499f770fbfecbe4626f2d0c05eb89f">Start</a>((<span class="keywordtype">int</span> port) =&gt;</div>
+<div class="line">{</div>
+<div class="line">    Console.WriteLine($<span class="stringliteral">&quot;Server started on port {port}&quot;</span>);</div>
+<div class="line">});</div>
+<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRest.Api.SimpleRestApi</a></div><div class="ttdef"><b>Definition</b> <a href="../../df/d3e/SimpleRestApi_8cs_source.html#l00010">SimpleRestApi.cs:11</a></div></div>
+<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a57499f770fbfecbe4626f2d0c05eb89f"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a57499f770fbfecbe4626f2d0c05eb89f">SimpleRest.Api.SimpleRestApi.Start</a></div><div class="ttdeci">async Task Start(Action&lt; int &gt;? OnStartup=null)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d3e/SimpleRestApi_8cs_source.html#l00091">SimpleRestApi.cs:91</a></div></div>
+<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a986b5492f24e3e9d81a4a3608c92847c"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c">SimpleRest.Api.SimpleRestApi.Get</a></div><div class="ttdeci">void Get(string endpoint, ApiMiddleWare middleWare)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d3e/SimpleRestApi_8cs_source.html#l00049">SimpleRestApi.cs:49</a></div></div>
+<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestLogger_html"><div class="ttname"><a href="../../da/d6b/classSimpleRest_1_1Api_1_1SimpleRestLogger.html">SimpleRest.Api.SimpleRestLogger</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/de3/SimpleRestLogger_8cs_source.html#l00004">SimpleRestLogger.cs:5</a></div></div>
+<div class="ttc" id="anamespaceSimpleRest_1_1Api_html"><div class="ttname"><a href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a></div><div class="ttdef"><b>Definition</b> <a href="../../df/d40/Enums_8cs_source.html#l00001">Enums.cs:1</a></div></div>
+<div class="ttc" id="anamespaceSimpleRest_1_1Api_html_a213e4074609286d386cb9de95b93bac8"><div class="ttname"><a href="../../df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8">SimpleRest.Api.SimpleRestLogLevel</a></div><div class="ttdeci">SimpleRestLogLevel</div><div class="ttdef"><b>Definition</b> <a href="../../df/d40/Enums_8cs_source.html#l00002">Enums.cs:3</a></div></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md13"></a>
+URI Template Parameters</h2>
+<p>SimpleRest.NET supports URI template parameters following the RFC 6570 specification. This allows you to capture values from the URL path:</p>
+<div class="fragment"><div class="line"><span class="comment">// Single parameter</span></div>
+<div class="line">api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c">Get</a>(<span class="stringliteral">&quot;/users/{id}&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">object</span>? <span class="keywordtype">id</span> = req.Params[<span class="stringliteral">&quot;id&quot;</span>];</div>
+<div class="line">    <span class="keywordtype">string</span>? name = req.Query[<span class="stringliteral">&quot;name&quot;</span>] as string;</div>
+<div class="line">    </div>
+<div class="line">    res.Send($<span class="stringliteral">&quot;User ID: {id}, Name: {name ?? &quot;</span>Not provided<span class="stringliteral">&quot;}&quot;</span>);</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Multiple parameters</span></div>
+<div class="line">api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c">Get</a>(<span class="stringliteral">&quot;/api/organizations/{orgId}/projects/{projectId}&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">object</span>? orgId = req.Params[<span class="stringliteral">&quot;orgId&quot;</span>];</div>
+<div class="line">    <span class="keywordtype">object</span>? projectId = req.Params[<span class="stringliteral">&quot;projectId&quot;</span>];</div>
+<div class="line"> </div>
+<div class="line">    res.Send(<span class="keyword">new</span> { </div>
+<div class="line">        Organization = orgId,</div>
+<div class="line">        Project = projectId</div>
+<div class="line">    });</div>
+<div class="line">});</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
+JSON Request/Response Handling</h2>
+<p>SimpleRest.NET automatically handles JSON serialization and deserialization. Here's how to work with JSON data:</p>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>User</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">string</span> Name { <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keywordtype">string</span>.Empty;</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">string</span> Email { <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keywordtype">string</span>.Empty;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a237fc8068e75e79b7fba21ec9a15d8c1">Post</a>(<span class="stringliteral">&quot;/users&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Parse JSON body to User object</span></div>
+<div class="line">    User? user = req.Body.As&lt;User&gt;();</div>
+<div class="line">    <span class="keywordflow">if</span> (user != <span class="keyword">null</span>)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Response will automatically be serialized to JSON</span></div>
+<div class="line">        res.Send(<span class="keyword">new</span> { </div>
+<div class="line">            Success = <span class="keyword">true</span>, </div>
+<div class="line">            Message = $<span class="stringliteral">&quot;User {user.Name} created&quot;</span> </div>
+<div class="line">        });</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">    {</div>
+<div class="line">        res.Send(<span class="keyword">new</span> { </div>
+<div class="line">            Success = <span class="keyword">false</span>, </div>
+<div class="line">            Message = <span class="stringliteral">&quot;Invalid user data&quot;</span> </div>
+<div class="line">        });</div>
+<div class="line">    }</div>
+<div class="line">});</div>
+<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a237fc8068e75e79b7fba21ec9a15d8c1"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a237fc8068e75e79b7fba21ec9a15d8c1">SimpleRest.Api.SimpleRestApi.Post</a></div><div class="ttdeci">void Post(string endpoint, ApiMiddleWare middleWare)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d3e/SimpleRestApi_8cs_source.html#l00055">SimpleRestApi.cs:55</a></div></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
+Request Information</h2>
+<p>You can access various properties of the incoming request:</p>
+<div class="fragment"><div class="line">api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c">Get</a>(<span class="stringliteral">&quot;/info&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">{</div>
+<div class="line">    res.Send(<span class="keyword">new</span> {</div>
+<div class="line">        Method = req.Method,</div>
+<div class="line">        Endpoint = req.Endpoint,</div>
+<div class="line">        ContentType = req.ContentType,</div>
+<div class="line">        UserAgent = req.UserAgent</div>
+<div class="line">    });</div>
+<div class="line">});</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md16"></a>
+Shared Route Logic</h2>
+<p>The <code>Map</code> method allows you to apply shared logic to a route regardless of the HTTP method:</p>
+<div class="fragment"><div class="line">api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a0e70e5629089887d23a2d21ae42074ac">Map</a>(<span class="stringliteral">&quot;/api/items/{id}&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">{</div>
+<div class="line">    Console.WriteLine($<span class="stringliteral">&quot;Accessing item {req.Params[&quot;</span><span class="keywordtype">id</span><span class="stringliteral">&quot;]}&quot;</span>);</div>
+<div class="line">    <span class="comment">// This middleware will run for any HTTP method on this route</span></div>
+<div class="line">});</div>
+<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a0e70e5629089887d23a2d21ae42074ac"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a0e70e5629089887d23a2d21ae42074ac">SimpleRest.Api.SimpleRestApi.Map</a></div><div class="ttdeci">void Map(string endpoint, ApiMiddleWare middleWare)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d3e/SimpleRestApi_8cs_source.html#l00042">SimpleRestApi.cs:42</a></div></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
+Complete Example</h2>
+<p>Here's a complete example that demonstrates multiple features of SimpleRest.NET:</p>
+<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>Program</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">static</span> async Task Main(<span class="keywordtype">string</span>[] args)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Initialize API with logging</span></div>
+<div class="line">        <a class="code hl_class" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a> api = <span class="keyword">new</span> <a class="code hl_class" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a>(3000, <span class="keyword">new</span> <a class="code hl_class" href="../../da/d6b/classSimpleRest_1_1Api_1_1SimpleRestLogger.html">SimpleRestLogger</a>(<a class="code hl_enumeration" href="../../df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8">SimpleRestLogLevel</a>.DEBUG));</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Basic route</span></div>
+<div class="line">        api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c">Get</a>(<span class="stringliteral">&quot;/&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">        {</div>
+<div class="line">            res.Send(<span class="stringliteral">&quot;Hello World&quot;</span>);</div>
+<div class="line">        });</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Route with URI template parameters</span></div>
+<div class="line">        api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c">Get</a>(<span class="stringliteral">&quot;/users/{id}&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordtype">object</span>? <span class="keywordtype">id</span> = req.Params[<span class="stringliteral">&quot;id&quot;</span>];</div>
+<div class="line">            res.Send($<span class="stringliteral">&quot;User ID: {id}&quot;</span>);</div>
+<div class="line">        });</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// POST endpoint with JSON handling</span></div>
+<div class="line">        api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a237fc8068e75e79b7fba21ec9a15d8c1">Post</a>(<span class="stringliteral">&quot;/users&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">        {</div>
+<div class="line">            User? user = req.Body.As&lt;User&gt;();</div>
+<div class="line">            res.Send(<span class="keyword">new</span> { Success = <span class="keyword">true</span>, User = user });</div>
+<div class="line">        });</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Route with multiple parameters and query string</span></div>
+<div class="line">        api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c">Get</a>(<span class="stringliteral">&quot;/api/organizations/{orgId}/projects/{projectId}&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordtype">object</span>? orgId = req.Params[<span class="stringliteral">&quot;orgId&quot;</span>];</div>
+<div class="line">            <span class="keywordtype">object</span>? projectId = req.Params[<span class="stringliteral">&quot;projectId&quot;</span>];</div>
+<div class="line">            <span class="keywordtype">string</span>? filter = req.Query[<span class="stringliteral">&quot;filter&quot;</span>] as string;</div>
+<div class="line"> </div>
+<div class="line">            res.Send(<span class="keyword">new</span> { </div>
+<div class="line">                Organization = orgId,</div>
+<div class="line">                Project = projectId,</div>
+<div class="line">                Filter = filter</div>
+<div class="line">            });</div>
+<div class="line">        });</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Shared middleware</span></div>
+<div class="line">        api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a0e70e5629089887d23a2d21ae42074ac">Map</a>(<span class="stringliteral">&quot;/api/items/{id}&quot;</span>, async (req, res) =&gt;</div>
+<div class="line">        {</div>
+<div class="line">            Console.WriteLine($<span class="stringliteral">&quot;Accessing item {req.Params[&quot;</span><span class="keywordtype">id</span><span class="stringliteral">&quot;]}&quot;</span>);</div>
+<div class="line">        });</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Start the server</span></div>
+<div class="line">        await api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a57499f770fbfecbe4626f2d0c05eb89f">Start</a>((<span class="keywordtype">int</span> port) =&gt;</div>
+<div class="line">        {</div>
+<div class="line">            Console.WriteLine($<span class="stringliteral">&quot;Server started on port {port}&quot;</span>);</div>
+<div class="line">        });</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>User</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">string</span> Name { <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keywordtype">string</span>.Empty;</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">string</span> Email { <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keywordtype">string</span>.Empty;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md18"></a>
+Key Features</h2>
+<ul>
+<li><b>Async Support</b>: All route handlers are async by default</li>
+<li><b>Automatic JSON Serialization</b>: Response objects are automatically serialized to JSON or another corresponding type</li>
+<li><b>URI Templates</b>: Following RFC 6570 specification</li>
+<li><b>Query Parameters</b>: Accessible via <code>req.Query["paramName"]</code>(TODO: remove need for manual typecast)</li>
+<li><b>URI Parameters</b>: Accessible via <code>req.Params["paramName"]</code> (TODO: remove need for manual typecast)</li>
+<li><b>Request Body Parsing</b>: Using <code>req.Body.As&lt;T&gt;()</code></li>
+<li><b>Logging</b>: Built-in configurable logging system</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md19"></a>
+Common Usage Patterns</h2>
+<h3><a class="anchor" id="autotoc_md20"></a>
+Accessing Query Parameters</h3>
+<div class="fragment"><div class="line"><span class="keywordtype">string</span>? value = req.Query[<span class="stringliteral">&quot;paramName&quot;</span>] as string;</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md21"></a>
+Parsing Request Body</h3>
+<div class="fragment"><div class="line">TBody? data = req.Body?.As&lt;TBody&gt;();</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md22"></a>
+Using URL Parameters</h3>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span>? <span class="keywordtype">id</span> = req.Params[<span class="stringliteral">&quot;id&quot;</span>] as <span class="keywordtype">int</span>?;</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md23"></a>
+Setting Response Data</h3>
+<div class="fragment"><div class="line">res.Send(<span class="keyword">new</span> { message = <span class="stringliteral">&quot;Success&quot;</span> });</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md24"></a>
+Notes</h2>
+<ul>
+<li>The framework uses URI templates following the <code>RFC 6570</code> specification</li>
+<li>All handlers are async to ensure better performance</li>
+<li>JSON serialization is handled automatically</li>
+<li>The logging system can be configured with different levels (NONE, LOW, MEDIUM, HIGH, LONG, DEBUG), you can also create your own loger by implementing <code>ISimpleRestLogger</code></li>
+<li>Route parameters are strongly typed when accessed and must be manually converted from <code>object?</code> to their corresponding type</li>
+<li>Framework is NativeAOT compatible </li>
+</ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

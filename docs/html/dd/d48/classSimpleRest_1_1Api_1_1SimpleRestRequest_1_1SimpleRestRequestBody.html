@@ -108,26 +108,35 @@ $(function(){initNavTree('dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1
   <div class="headertitle"><div class="title">SimpleRest.Api.SimpleRestRequest.SimpleRestRequestBody Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The body of a <a class="el" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html" title="The main class for all incoming request data. This is a wrapper for the HttpListenerRequest class....">SimpleRest.Api.SimpleRestRequest</a>. This class encapsulates the content of an HTTP request body, providing access to both raw byte data and deserialized content.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa337a672734e7d0064049f39ef4cf387" id="r_aa337a672734e7d0064049f39ef4cf387"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa337a672734e7d0064049f39ef4cf387">SimpleRestRequestBody</a> (HttpListenerRequest request)</td></tr>
+<tr class="memdesc:aa337a672734e7d0064049f39ef4cf387"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="../../dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1SimpleRestRequestBody.html" title="The body of a SimpleRest.Api.SimpleRestRequest. This class encapsulates the content of an HTTP reques...">SimpleRestRequestBody</a> class using the specified HttpListenerRequest.  <br /></td></tr>
 <tr class="separator:aa337a672734e7d0064049f39ef4cf387"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a264c95d19cbb3c23e3983f2cabba382d" id="r_a264c95d19cbb3c23e3983f2cabba382d"><td class="memItemLeft" align="right" valign="top">TBody?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a264c95d19cbb3c23e3983f2cabba382d">GetContent&lt; TBody &gt;</a> ()</td></tr>
-<tr class="separator:a264c95d19cbb3c23e3983f2cabba382d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77263de00e44b561d7c2693147f24361" id="r_a77263de00e44b561d7c2693147f24361"><td class="memItemLeft" align="right" valign="top">T?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77263de00e44b561d7c2693147f24361">As&lt; T &gt;</a> ()</td></tr>
+<tr class="memdesc:a77263de00e44b561d7c2693147f24361"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function <code>As&lt;T&gt;</code> returns the content as type <em>T</em>  if <em>T</em>  is a reference type.  <br /></td></tr>
 <tr class="separator:a77263de00e44b561d7c2693147f24361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a264c95d19cbb3c23e3983f2cabba382d" id="r_a264c95d19cbb3c23e3983f2cabba382d"><td class="memItemLeft" align="right" valign="top">TBody?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a264c95d19cbb3c23e3983f2cabba382d">GetContent&lt; TBody &gt;</a> ()</td></tr>
+<tr class="memdesc:a264c95d19cbb3c23e3983f2cabba382d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function <code>GetContent&lt;TBody&gt;</code> deserializes the <a class="el" href="#a0e22e57ce821e934d386e00ab7697f79" title="Gets the content of the request body as a UTF-8 encoded string.">Content</a> property into an object of type <em>TBody</em> .  <br /></td></tr>
+<tr class="separator:a264c95d19cbb3c23e3983f2cabba382d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a0e22e57ce821e934d386e00ab7697f79" id="r_a0e22e57ce821e934d386e00ab7697f79"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e22e57ce821e934d386e00ab7697f79">Content</a><code> [get]</code></td></tr>
+<tr class="memdesc:a0e22e57ce821e934d386e00ab7697f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the content of the request body as a UTF-8 encoded string.  <br /></td></tr>
 <tr class="separator:a0e22e57ce821e934d386e00ab7697f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7197fbef4a85de8cceae6b4f2c388a80" id="r_a7197fbef4a85de8cceae6b4f2c388a80"><td class="memItemLeft" align="right" valign="top">byte[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7197fbef4a85de8cceae6b4f2c388a80">Bytes</a><code> [get]</code></td></tr>
+<tr class="memdesc:a7197fbef4a85de8cceae6b4f2c388a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the raw content of the request body as a byte array.  <br /></td></tr>
 <tr class="separator:a7197fbef4a85de8cceae6b4f2c388a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html#l00053">53</a> of file <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html">SimpleRestRequest.cs</a>.</p>
+<div class="textblock"><p>The body of a <a class="el" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html" title="The main class for all incoming request data. This is a wrapper for the HttpListenerRequest class....">SimpleRest.Api.SimpleRestRequest</a>. This class encapsulates the content of an HTTP request body, providing access to both raw byte data and deserialized content. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html#l00084">84</a> of file <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html">SimpleRestRequest.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa337a672734e7d0064049f39ef4cf387" name="aa337a672734e7d0064049f39ef4cf387"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa337a672734e7d0064049f39ef4cf387">&#9670;&#160;</a></span>SimpleRestRequestBody()</h2>
@@ -144,7 +153,15 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html#l00055">55</a> of file <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html">SimpleRestRequest.cs</a>.</p>
+<p>Initializes a new instance of the <a class="el" href="../../dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1SimpleRestRequestBody.html" title="The body of a SimpleRest.Api.SimpleRestRequest. This class encapsulates the content of an HTTP reques...">SimpleRestRequestBody</a> class using the specified HttpListenerRequest. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>The HttpListenerRequest from which to read the body content.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html#l00090">90</a> of file <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html">SimpleRestRequest.cs</a>.</p>
 
 </div>
 </div>
@@ -163,6 +180,15 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The function <code>As&lt;T&gt;</code> returns the content as type <em>T</em>  if <em>T</em>  is a reference type. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type to which the content should be deserialized.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An instance of type <em>T</em> , or <code>null</code> if the conversion fails. </dd></dl>
 <div class="typeconstraint">
 <dl><dt><b>Type Constraints</b></dt><dd>
 <table border="0" cellspacing="2" cellpadding="0">
@@ -172,7 +198,7 @@ Properties</h2></td></tr>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html#l00071">71</a> of file <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html">SimpleRestRequest.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html#l00117">117</a> of file <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html">SimpleRestRequest.cs</a>.</p>
 
 </div>
 </div>
@@ -191,7 +217,16 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html#l00064">64</a> of file <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html">SimpleRestRequest.cs</a>.</p>
+<p>The function <code>GetContent&lt;TBody&gt;</code> deserializes the <a class="el" href="#a0e22e57ce821e934d386e00ab7697f79" title="Gets the content of the request body as a UTF-8 encoded string.">Content</a> property into an object of type <em>TBody</em> . </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TBody</td><td>The type to which the content should be deserialized.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An instance of type <em>TBody</em> , or <code>null</code> if the deserialization fails. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html#l00130">130</a> of file <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html">SimpleRestRequest.cs</a>.</p>
 
 </div>
 </div>
@@ -216,7 +251,9 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html#l00069">69</a> of file <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html">SimpleRestRequest.cs</a>.</p>
+<p>Gets the raw content of the request body as a byte array. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html#l00108">108</a> of file <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html">SimpleRestRequest.cs</a>.</p>
 
 </div>
 </div>
@@ -240,7 +277,9 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html#l00068">68</a> of file <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html">SimpleRestRequest.cs</a>.</p>
+<p>Gets the content of the request body as a UTF-8 encoded string. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html#l00103">103</a> of file <a class="el" href="../../d8/d9b/SimpleRestRequest_8cs_source.html">SimpleRestRequest.cs</a>.</p>
 
 </div>
 </div>

@@ -26,16 +26,33 @@ var NAVTREE =
 [
   [ "SimpleREST.NET", "index.html", [
     [ "SimpleREST.Net", "index.html#autotoc_md0", [
-      [ "Example", "index.html#autotoc_md1", null ],
-      [ "Features", "index.html#autotoc_md2", null ],
-      [ "Planned Features", "index.html#autotoc_md3", null ],
-      [ "Extending", "index.html#autotoc_md4", null ],
-      [ "Documentation", "index.html#autotoc_md5", null ]
+      [ "Installation 🔧", "index.html#autotoc_md1", null ],
+      [ "Example ✅", "index.html#autotoc_md2", null ],
+      [ "Features ⤵️", "index.html#autotoc_md3", null ],
+      [ "Planned Features", "index.html#autotoc_md4", null ],
+      [ "Extending", "index.html#autotoc_md5", null ],
+      [ "Documentation", "index.html#autotoc_md6", null ]
     ] ],
     [ "Getting Started", "d1/d57/md_guides_2Getting_01Started.html", [
-      [ "Installation", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md6", [
-        [ "Using NuGet:", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md8", null ],
-        [ "Or from source using git", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md9", null ]
+      [ "Installation", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md7", [
+        [ "Using NuGet:", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md9", null ],
+        [ "Or from source using git", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md10", null ]
+      ] ],
+      [ "SimpleRest.NET Examples", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md11", [
+        [ "Basic Setup", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md12", null ],
+        [ "URI Template Parameters", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md13", null ],
+        [ "JSON Request/Response Handling", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md14", null ],
+        [ "Request Information", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md15", null ],
+        [ "Shared Route Logic", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md16", null ],
+        [ "Complete Example", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md17", null ],
+        [ "Key Features", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md18", null ],
+        [ "Common Usage Patterns", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md19", [
+          [ "Accessing Query Parameters", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md20", null ],
+          [ "Parsing Request Body", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md21", null ],
+          [ "Using URL Parameters", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md22", null ],
+          [ "Setting Response Data", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md23", null ]
+        ] ],
+        [ "Notes", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md24", null ]
       ] ]
     ] ],
     [ "Packages", "namespaces.html", [
@@ -69,7 +86,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"index.html#autotoc_md0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

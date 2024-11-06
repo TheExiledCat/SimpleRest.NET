@@ -137,7 +137,7 @@ $(function(){initNavTree('d5/dfe/SimpleRestResponse_8cs_source.html','../../'); 
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_property" href="../../df/dd0/classSimpleRestResponse.html#a0884d5e72aa6dcf61621233d9b99ab5e">ContentType</a> = m_TypeParser.GetType&lt;T&gt;();</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">byte</span>[] buffer = Encoding.UTF8.GetBytes(finalOutput);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        Response.ContentLength64 = buffer.Length;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        Response.ContentType = <a class="code hl_property" href="../../df/dd0/classSimpleRestResponse.html#a0884d5e72aa6dcf61621233d9b99ab5e">ContentType</a>;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_property" href="../../df/dd0/classSimpleRestResponse.html#a041a1dd19c5309751377723c0e2e6d64">Response</a>.OutputStream.Write(buffer, 0, buffer.Length);</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_property" href="../../df/dd0/classSimpleRestResponse.html#a041a1dd19c5309751377723c0e2e6d64">Response</a>?.Close();</div>

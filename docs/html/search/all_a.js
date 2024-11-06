@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['log_0',['Log',['../da/d6b/classSimpleRest_1_1Api_1_1SimpleRestLogger.html#af907641ab4b5398938e8ce66ab3292d8',1,'SimpleRest.Api.SimpleRestLogger.Log(string customMessage, SimpleRestLogLevel? loglevel=null)'],['../da/d6b/classSimpleRest_1_1Api_1_1SimpleRestLogger.html#aec3c2f8fc860d7c0a0b3818eb1310e92',1,'SimpleRest.Api.SimpleRestLogger.Log(SimpleRestRequest? request, SimpleRestLogLevel? loglevel=null)'],['../de/d5d/interfaceSimpleRest_1_1Api_1_1ISimpleRestLogger.html#a36c03d7ca20a63362a6e91fbea143577',1,'SimpleRest.Api.ISimpleRestLogger.Log(string customMessage, SimpleRestLogLevel? logLevel=null)'],['../de/d5d/interfaceSimpleRest_1_1Api_1_1ISimpleRestLogger.html#ab34ff6c5fb12abc6706c8249d4953556',1,'SimpleRest.Api.ISimpleRestLogger.Log(SimpleRestRequest? request, SimpleRestLogLevel? logLevel=null)']]],
-  ['long_1',['LONG',['../df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8ac1fabfea54ec6011e694f211f3ffebf3',1,'SimpleRest::Api']]],
-  ['low_2',['LOW',['../df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8a41bc94cbd8eebea13ce0491b2ac11b88',1,'SimpleRest::Api']]]
+  ['key_20features_0',['Key Features',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md18',1,'']]],
+  ['keys_1',['Keys',['../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html#aa5cb03ba7d682b0b950d2b642b5cc89e',1,'SimpleRest.Api.SimpleRestQuery.Keys'],['../da/d93/interfaceSimpleRest_1_1Api_1_1ISimpleRestQuery.html#aaa96e62bf341143184ecf5a5b938c0ab',1,'SimpleRest.Api.ISimpleRestQuery.Keys']]]
 ];

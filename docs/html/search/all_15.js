@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['wide_0',['System-wide',['../md_doxygen-awesome-css_2README.html#autotoc_md42',1,'']]],
-  ['width_1',['Width',['../md_doxygen-awesome-css_2docs_2tricks.html#tricks-sidebar',1,'Choosing Sidebar Width'],['../md_doxygen-awesome-css_2docs_2tricks.html#autotoc_md27',1,'Full Width']]],
-  ['with_20graphviz_2',['Diagrams with Graphviz',['../md_doxygen-awesome-css_2docs_2tricks.html#tricks-graphviz',1,'']]]
+  ['values_0',['Values',['../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html#a0bb3a17cf3b73c4db20577e3225d32ad',1,'SimpleRest.Api.SimpleRestQuery.Values'],['../da/d93/interfaceSimpleRest_1_1Api_1_1ISimpleRestQuery.html#a7ceecfc7a21068ae200658308255129a',1,'SimpleRest.Api.ISimpleRestQuery.Values']]]
 ];

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['uri_0',['Uri',['../df/d3e/SimpleRestApi_8cs.html#a5158d4f8b5feef33d67a88180c9472a7',1,'SimpleRestApi.cs']]],
-  ['useragent_1',['UserAgent',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a34c034e17d01e86438b7a238a8c21b61',1,'SimpleRest::Api::SimpleRestRequest']]],
-  ['using_20git_2',['Or from source using git',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md9',1,'']]],
-  ['using_20nuget_3a_3',['Using NuGet:',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md8',1,'']]]
+  ['template_20parameters_0',['URI Template Parameters',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md13',1,'']]],
+  ['this_5bstring_20key_5d_1',['this[string key]',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#aac2d17d521f06371113b2294545b996e',1,'SimpleRest.Api.SimpleRestRequest.this[string key]'],['../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html#a6ee8a0a7e2f094fb9ab3020be8191cd2',1,'SimpleRest.Api.SimpleRestQuery.this[string key]'],['../da/d93/interfaceSimpleRest_1_1Api_1_1ISimpleRestQuery.html#a7cc82b1af37ec66623cff907aa035f4b',1,'SimpleRest.Api.ISimpleRestQuery.this[string key]']]],
+  ['tostring_2',['ToString',['../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#affd737222415c76b38442ad0fea7ce47',1,'SimpleRest::Api::SimpleRestMap']]]
 ];

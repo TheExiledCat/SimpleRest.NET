@@ -1,6 +1,7 @@
 using System.Net;
 using Dumpify;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using SimpleRest.Extensions;
 using UriTemplate.Core;
 using Uri = UriTemplate.Core;
@@ -26,7 +27,7 @@ public class SimpleRestApi
         m_UriTemplateFormatter = uriFormatter ?? new SimpleRestUriTemplateHandler();
         m_Port = port;
         m_Listener.Prefixes.Add("http://*:" + port + "/");
-        JsonConvert.DefaultSettings = () => jsonSerializerSettings ?? new JsonSerializerSettings();
+        JsonConvert.DefaultSettings = () => jsonSerializerSettings ?? new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
         m_EndpointFormatter = endpointFormatter ?? new SimpleRestEndpointFormatter();
         m_DefaultIntType = defaultIntType ?? typeof(int);
 

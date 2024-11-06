@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['your_20customizations_0',['Share your customizations',['../md_doxygen-awesome-css_2docs_2customization.html#autotoc_md11',1,'']]]
+  ['✅_0',['Example ✅',['../index.html#autotoc_md2',1,'']]]
 ];
