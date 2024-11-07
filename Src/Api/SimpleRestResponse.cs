@@ -2,7 +2,7 @@ using System.Net;
 using System.Text;
 using Newtonsoft.Json;
 
-using SimpleRest.Api;
+namespace SimpleRest.Api;
 public class SimpleRestResponse
 {
     public delegate void Result(string result);
