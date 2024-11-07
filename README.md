@@ -21,7 +21,7 @@ For installation and getting started see [Getting Started](<./docs/guides/Gettin
 
 To create a basic rest api and serve it on a host and port number all you need to do is add `using SimpleRest.Api;` and the following code to your program:
 
-```c#
+```csharp
     static async Task Main(string[] args)
     {
         //Create the api on port
