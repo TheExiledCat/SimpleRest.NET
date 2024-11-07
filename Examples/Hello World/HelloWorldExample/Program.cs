@@ -1,13 +1,15 @@
 ﻿using SimpleRest.Api;
+using SimpleRest.Handlers;
 
 public class Program
 {
     static async Task Main()
     {
         SimpleRestApi api = new SimpleRestApi(3000, new SimpleRestLogger(SimpleRestLogLevel.DEBUG));
+        api.Use(new ResourceNotFoundHandler());
         api.Get("/", async (req, res) =>
         {
-            res.Send("Hello World");
+
         });
         await api.Start((port, url) =>
         {
