@@ -1,0 +1,87 @@
+using System;
+using System.Collections.Generic;
+
+namespace SimpleRest.Extensions.Native;
+
+public static partial class NativeExtensions
+{
+    public static bool TryGet<TValue1>(this Dictionary<string, object?> dictionary, out TValue1? value1)
+    {
+        if (dictionary == null || dictionary.Count == 0)
+        {
+            throw new ArgumentException(nameof(dictionary));
+        }
+        object?[] values = dictionary.Values.ToArray();
+        value1 = (TValue1?)values[0];
+
+        if (value1 != null)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    
+
+    public static bool TryGet<TValue1, TValue2>(this Dictionary<string, object?> dictionary, out TValue1? value1, out TValue2? value2) 
+    {
+        if (dictionary == null || dictionary.Count == 0) 
+        {
+            throw new ArgumentException(nameof(dictionary));
+        }
+        object?[] values = dictionary.Values.ToArray();
+        
+        value1 = (TValue1?)values[0];
+        value2 = (TValue2?)values[1];
+
+        return value1 != null || value2 != null;
+    }
+
+    public static bool TryGet<TValue1, TValue2, TValue3>(this Dictionary<string, object?> dictionary, out TValue1? value1, out TValue2? value2, out TValue3? value3) 
+    {
+        if (dictionary == null || dictionary.Count == 0) 
+        {
+            throw new ArgumentException(nameof(dictionary));
+        }
+        object?[] values = dictionary.Values.ToArray();
+        
+        value1 = (TValue1?)values[0];
+        value2 = (TValue2?)values[1];
+        value3 = (TValue3?)values[2];
+
+        return value1 != null || value2 != null || value3 != null;
+    }
+
+    public static bool TryGet<TValue1, TValue2, TValue3, TValue4>(this Dictionary<string, object?> dictionary, out TValue1? value1, out TValue2? value2, out TValue3? value3, out TValue4? value4) 
+    {
+        if (dictionary == null || dictionary.Count == 0) 
+        {
+            throw new ArgumentException(nameof(dictionary));
+        }
+        object?[] values = dictionary.Values.ToArray();
+        
+        value1 = (TValue1?)values[0];
+        value2 = (TValue2?)values[1];
+        value3 = (TValue3?)values[2];
+        value4 = (TValue4?)values[3];
+
+        return value1 != null || value2 != null || value3 != null || value4 != null;
+    }
+
+    public static bool TryGet<TValue1, TValue2, TValue3, TValue4, TValue5>(this Dictionary<string, object?> dictionary, out TValue1? value1, out TValue2? value2, out TValue3? value3, out TValue4? value4, out TValue5? value5) 
+    {
+        if (dictionary == null || dictionary.Count == 0) 
+        {
+            throw new ArgumentException(nameof(dictionary));
+        }
+        object?[] values = dictionary.Values.ToArray();
+        
+        value1 = (TValue1?)values[0];
+        value2 = (TValue2?)values[1];
+        value3 = (TValue3?)values[2];
+        value4 = (TValue4?)values[3];
+        value5 = (TValue5?)values[4];
+
+        return value1 != null || value2 != null || value3 != null || value4 != null || value5 != null;
+    }
+}

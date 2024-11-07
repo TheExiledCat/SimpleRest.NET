@@ -1,5 +1,6 @@
 var namespaceSimpleRest =
 [
     [ "Api", "df/dba/namespaceSimpleRest_1_1Api.html", "df/dba/namespaceSimpleRest_1_1Api" ],
-    [ "Extensions", "d1/df7/namespaceSimpleRest_1_1Extensions.html", null ]
+    [ "Extensions", "d1/df7/namespaceSimpleRest_1_1Extensions.html", "d1/df7/namespaceSimpleRest_1_1Extensions" ],
+    [ "Handlers", "d9/dd7/namespaceSimpleRest_1_1Handlers.html", "d9/dd7/namespaceSimpleRest_1_1Handlers" ]
 ];

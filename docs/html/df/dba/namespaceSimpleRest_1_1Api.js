@@ -1,5 +1,6 @@
 var namespaceSimpleRest_1_1Api =
 [
+    [ "ISimpleRestApiHandler", "d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html", "d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler" ],
     [ "ISimpleRestContentTypeParser", "da/d0d/interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser.html", "da/d0d/interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser" ],
     [ "ISimpleRestEndpointFormatter", "d4/dfa/interfaceSimpleRest_1_1Api_1_1ISimpleRestEndpointFormatter.html", "d4/dfa/interfaceSimpleRest_1_1Api_1_1ISimpleRestEndpointFormatter" ],
     [ "ISimpleRestLogger", "de/d5d/interfaceSimpleRest_1_1Api_1_1ISimpleRestLogger.html", "de/d5d/interfaceSimpleRest_1_1Api_1_1ISimpleRestLogger" ],

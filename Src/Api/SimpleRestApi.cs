@@ -14,9 +14,22 @@ public class SimpleRestApi
     ISimpleRestContentTypeParser m_ResponseTypeParser;
     ISimpleRestUriTemplateFormatter m_UriTemplateFormatter;
     ISimpleRestEndpointFormatter m_EndpointFormatter;
+    List<ISimpleRestApiHandler> m_Handlers = [];
     HttpListener m_Listener;
     List<SimpleRestMap> m_Middleware = [];
     Type m_DefaultIntType;
+    public event Action<SimpleRestApi> OnServerStart;
+    public event Action<SimpleRestApi> OnBeforeRequestCreate;
+    public event Action<SimpleRestApi, SimpleRestRequest> OnRequestCreate;
+    public event Action<SimpleRestApi, SimpleRestRequest> OnBeforeResponseCreate;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse> OnResponseCreate;
+    public event Action<SimpleRestApi, SimpleRestRequest> OnLog;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, Dictionary<UriTemplateMatch, SimpleRestMap>> OnHandleRequestStack;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap> OnRequestMatch;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap> OnApplyUriParams;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap> OnBeforeRunMiddleware;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap> OnRunMiddleware;
+
 
     int m_Port;
     public SimpleRestApi(int port, ISimpleRestLogger? logger = null, ISimpleRestContentTypeParser? responseParser = null, ISimpleRestUriTemplateFormatter? uriFormatter = null, ISimpleRestEndpointFormatter? endpointFormatter = null, JsonSerializerSettings? jsonSerializerSettings = null, Type? defaultIntType = null)
@@ -30,6 +43,10 @@ public class SimpleRestApi
         JsonConvert.DefaultSettings = () => jsonSerializerSettings ?? new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
         m_EndpointFormatter = endpointFormatter ?? new SimpleRestEndpointFormatter();
         m_DefaultIntType = defaultIntType ?? typeof(int);
+        foreach (ISimpleRestApiHandler handler in m_Handlers)
+        {
+            OnServerStart += handler.OnServerStart;
+        }
 
     }
 
@@ -38,7 +55,10 @@ public class SimpleRestApi
         m_Middleware.Add(new SimpleRestMap(endpoint, method, middleWare, m_UriTemplateFormatter));
 
     }
-
+    public void Use(ISimpleRestApiHandler customHandler)
+    {
+        m_Handlers.Add(customHandler);
+    }
     public void Map(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.ANY, middleWare);
@@ -87,21 +107,33 @@ public class SimpleRestApi
 
 
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="OnStartup"></param>
+    /// <returns></returns>
     public async Task Start(Action<int>? OnStartup = null)
     {
         try
         {
+
             m_Listener.Start();
+            OnServerStart?.Invoke(this);
             OnStartup?.Invoke(m_Port);
             while (true)
             {
                 try
                 {
                     HttpListenerContext context = await m_Listener.GetContextAsync();
+                    OnBeforeRequestCreate?.Invoke(this);
                     SimpleRestRequest request = SimpleRestRequest.FromHttpListenerContext(context, m_EndpointFormatter);
+                    OnRequestCreate?.Invoke(this, request);
+                    OnBeforeResponseCreate?.Invoke(this, request);
                     SimpleRestResponse response = new SimpleRestResponse(context.Response, m_ResponseTypeParser);
+                    OnResponseCreate?.Invoke(this, request, response);
+
                     m_Logger.Log(request);
+                    OnLog?.Invoke(this, request);
                     await RunMiddleWare(request, response);
 
                     context.Response.Close();
@@ -129,8 +161,8 @@ public class SimpleRestApi
             m => m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative)), m => m
             );
         matches.Values.ToList().Dump();
+        OnHandleRequestStack?.Invoke(this, request, response, matches);
 
-        request.Dump();
 
         foreach (KeyValuePair<UriTemplateMatch, SimpleRestMap> match in matches)
         {
@@ -141,11 +173,13 @@ public class SimpleRestApi
 
             if (map.Method == SimpleRestMethod.ANY || map.Method == request.Method)
             {
-                Console.WriteLine($"Running middleware for route {map.Method.ToString()} {map.Endpoint}");
-
+                OnRequestMatch?.Invoke(this, request, response, uriTemplateMatch, map);
                 ApplyUriParams(uriTemplateMatch, request);
+                OnApplyUriParams?.Invoke(this, request, response, uriTemplateMatch, map);
+                OnBeforeRunMiddleware?.Invoke(this, request, response, uriTemplateMatch, map);
                 await map.Middleware.Invoke(request, response);
-                //TODO until manual route switching is added, stop on the first matched path.
+                OnRunMiddleware?.Invoke(this, request, response, uriTemplateMatch, map);
+
 
 
 
@@ -156,11 +190,30 @@ public class SimpleRestApi
     }
     void ApplyUriParams(UriTemplateMatch match, SimpleRestRequest request)
     {
+        match.Dump();
+        Dictionary<string, object?> paramsToAdd = [];
+        foreach (string key in match.Bindings.Keys)
+        {
+            paramsToAdd.Add(key, match.Bindings[key].Value);
+            object? converted = null;
+            try
+            {
+                converted = JsonConvert.DeserializeObject(match.Bindings[key].Value.ToString() ?? "null");
+            }
+            catch (JsonException je)
+            {
+                string stringifiedObject = $"\"{match.Bindings[key].Value.ToString()}\"";
+                converted = JsonConvert.DeserializeObject(stringifiedObject ?? "null");
 
-        request.Params.NonDistructiveUnion(match.Bindings.Select(b => new KeyValuePair<string, object?>(b.Key, ApplyIntType(JsonConvert.DeserializeObject(b.Value.Value?.ToString() ?? "null")))).ToDictionary(b => b.Key, b => (object?)b.Value));
-
+            }
+            converted = ApplyIntType(converted);
+            paramsToAdd[key] = converted;
+        }
+        request.Params.NonDistructiveUnion(paramsToAdd);
+        request.Params.Dump();
 
     }
+
     object? ApplyIntType(object? value)
     {
         if (value != null && value is short

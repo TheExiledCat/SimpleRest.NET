@@ -107,7 +107,7 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md0">SimpleREST.Net &lt;img src=&quot;./docs/fetchieIcon.jpeg&quot; style=&quot;width:40px&quot;&gt;</a>
+    <a href="#autotoc_md0">SimpleREST.Net</a>
     <ul>
       <li class="level2">
         <a href="#autotoc_md1">Installation 🔧</a>
@@ -133,7 +133,7 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 </div>
 <div class="textblock"><p><a class="anchor" id="md__2home_2amano_2SimpleRest_2README"></a></p>
 <h1><a class="anchor" id="autotoc_md0"></a>
-SimpleREST.Net <img src="./docs/fetchieIcon.jpeg" alt="" style="width:40px" class="inline"/></h1>
+SimpleREST.Net</h1>
 <h3 style="color:pink"><em>The simplest Rest Api framework for .Net</em></h3>
 <h2><a class="anchor" id="autotoc_md1"></a>
 Installation 🔧</h2>
@@ -192,8 +192,8 @@ Features ⤵️</h2>
 <div class="fragment"><div class="line">api.Put(<span class="stringliteral">&quot;/users/{userId}/posts/{postId}&quot;</span>,async (req,res)=&gt;{</div>
 <div class="line">        <span class="keywordtype">int</span>? <span class="keywordtype">id</span> = req[<span class="stringliteral">&quot;userId&quot;</span>] as <span class="keywordtype">int</span>?;</div>
 <div class="line">        <span class="keywordtype">int</span> postId = req[<span class="stringliteral">&quot;postId&quot;</span>] as <span class="keywordtype">int</span>?;</div>
-<div class="line">        <span class="comment">//or using generic</span></div>
-<div class="line">        <span class="keywordtype">int</span> <span class="keywordtype">id</span> = req.Get&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;userId&quot;</span>);</div>
+<div class="line">        <span class="comment">//or using generics and the out keyword to convert and assign directly with up to 12 names parameters</span></div>
+<div class="line">        req.Params.TryGet(out <span class="keywordtype">int</span> userId, out <span class="keywordtype">int</span> postId);</div>
 <div class="line">});</div>
 </div><!-- fragment --></li>
 <li><p class="startli">Parsing json body as object</p>

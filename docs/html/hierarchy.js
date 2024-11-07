@@ -1,5 +1,8 @@
 var hierarchy =
 [
+    [ "SimpleRest.Api.ISimpleRestApiHandler", "d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html", [
+      [ "SimpleRest.Handlers.SimpleRestApiHandler", "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html", null ]
+    ] ],
     [ "SimpleRest.Api.ISimpleRestContentTypeParser", "da/d0d/interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser.html", [
       [ "SimpleRest.Api.SimpleRestContentTypeParser", "d4/dfc/classSimpleRest_1_1Api_1_1SimpleRestContentTypeParser.html", null ]
     ] ],

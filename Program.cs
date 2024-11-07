@@ -1,5 +1,7 @@
 ﻿
 using SimpleRest.Api;
+using SimpleRest.Extensions.Native;
+using UriTemplate.Core;
 class Program
 {
     static async Task Main(string[] args)
@@ -20,9 +22,9 @@ class Program
             res.Send(u);
         });
         //map a route with uri segment parameters ((RFC 6570 Spec))
-        api.Put("/users/{id}", async (req, res) =>
+        api.Put("/users/{id}/{name}", async (req, res) =>
         {
-            int? id = req.Params["id"] as int?;
+            req.Params.TryGet(out int id, out string? name);
             res.Send($"user with id {id} updated");
         });
         api.Post("/users", async (req, res) =>
@@ -46,8 +48,62 @@ class User
     public string Name { get; set; }
     public string Email { get; set; }
 }
+class SimpleRestApiHandler : ISimpleRestApiHandler
+{
+    public void OnApplyUriParams(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response, UriTemplateMatch match, SimpleRestMap routeMap)
+    {
+        throw new NotImplementedException();
+    }
 
+    public void OnBeforeRequestCreate(SimpleRestApi api)
+    {
+        throw new NotImplementedException();
+    }
 
+    public void OnBeforeResponseCreate(SimpleRestApi api, SimpleRestRequest request)
+    {
+        throw new NotImplementedException();
+    }
 
+    public void OnBeforeRunMiddleware(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response, UriTemplateMatch match, SimpleRestMap routeMap)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnHandleRequestStack(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response, Dictionary<UriTemplateMatch, SimpleRestMap> matches)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnLog(SimpleRestApi api, SimpleRestRequest request)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnRequestCreate(SimpleRestApi api, SimpleRestRequest request)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnRequestMatch(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response, UriTemplateMatch match, SimpleRestMap routeMap)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnResponseCreate(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnRunMiddleware(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response, UriTemplateMatch match, SimpleRestMap routeMap)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnServerStart(SimpleRestApi api)
+    {
+        throw new NotImplementedException();
+    }
+}
 
 

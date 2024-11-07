@@ -1,6 +1,6 @@
 [TOC]
 
-# SimpleREST.Net <img src="./docs/fetchieIcon.jpeg" style="width:40px">
+# SimpleREST.Net
 
 <h3 style="color:pink"> <i>The simplest Rest Api framework for .Net</i></h3>
 
@@ -78,8 +78,8 @@ To create a basic rest api and serve it on a host and port number all you need t
     api.Put("/users/{userId}/posts/{postId}",async (req,res)=>{
             int? id = req["userId"] as int?;
             int postId = req["postId"] as int?;
-            //or using generic
-            int id = req.Get<int>("userId");
+            //or using generics and the out keyword to convert and assign directly with up to 12 names parameters
+            req.Params.TryGet(out int userId, out int postId);
     });
   ```
 
