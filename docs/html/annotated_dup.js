@@ -15,11 +15,11 @@ var annotated_dup =
         [ "SimpleRestMap", "da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html", "da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap" ],
         [ "SimpleRestQuery", "de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html", "de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery" ],
         [ "SimpleRestRequest", "d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html", "d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest" ],
+        [ "SimpleRestResponse", "d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html", "d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse" ],
         [ "SimpleRestUriTemplateHandler", "d5/d6b/classSimpleRest_1_1Api_1_1SimpleRestUriTemplateHandler.html", "d5/d6b/classSimpleRest_1_1Api_1_1SimpleRestUriTemplateHandler" ]
       ] ],
       [ "Handlers", "d9/dd7/namespaceSimpleRest_1_1Handlers.html", [
         [ "SimpleRestApiHandler", "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html", "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler" ]
       ] ]
-    ] ],
-    [ "SimpleRestResponse", "df/dd0/classSimpleRestResponse.html", "df/dd0/classSimpleRestResponse" ]
+    ] ]
 ];

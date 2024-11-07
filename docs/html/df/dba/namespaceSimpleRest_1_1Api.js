@@ -13,6 +13,7 @@ var namespaceSimpleRest_1_1Api =
     [ "SimpleRestMap", "da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html", "da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap" ],
     [ "SimpleRestQuery", "de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html", "de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery" ],
     [ "SimpleRestRequest", "d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html", "d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest" ],
+    [ "SimpleRestResponse", "d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html", "d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse" ],
     [ "SimpleRestUriTemplateHandler", "d5/d6b/classSimpleRest_1_1Api_1_1SimpleRestUriTemplateHandler.html", "d5/d6b/classSimpleRest_1_1Api_1_1SimpleRestUriTemplateHandler" ],
     [ "SimpleRestLogLevel", "df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8", [
       [ "NONE", "df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8ab50339a10e1de285ac99d4c3990b8693", null ],

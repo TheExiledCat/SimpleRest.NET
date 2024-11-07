@@ -10,6 +10,6 @@ var searchData=
   ['onrequestmatch_7',['OnRequestMatch',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a8b9481fbcf3ae0fa870063954d6835d0',1,'SimpleRest::Api::SimpleRestApi']]],
   ['onresponsecreate_8',['OnResponseCreate',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a3cd63fe7eff00832c81d73edd032bd28',1,'SimpleRest::Api::SimpleRestApi']]],
   ['onrunmiddleware_9',['OnRunMiddleware',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#aad8f387b2f5ea49ee12ea5e9fb1ae146',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['onsend_10',['OnSend',['../df/dd0/classSimpleRestResponse.html#a5c37888640ef48c6e6db2707725f7c8d',1,'SimpleRestResponse']]],
+  ['onsend_10',['OnSend',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a868c364f726ce2bce8e93ca3d9e0ea17',1,'SimpleRest::Api::SimpleRestResponse']]],
   ['onserverstart_11',['OnServerStart',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#aac34a4fc75c82a12fb690293098d7b06',1,'SimpleRest::Api::SimpleRestApi']]]
 ];

@@ -180,7 +180,7 @@ Or from source using git</h2>
 SimpleRest.NET Examples</h1>
 <h2><a class="anchor" id="autotoc_md13"></a>
 Basic Setup</h2>
-<p>The simplest way to create an API with SimpleRest.NET is to create a new instance of <code>SimpleRestApi</code> and define your routes. The following example shows how to set up a basic API with logging enabled:</p>
+<p>The simplest way to create an API with SimpleRest.NET is to create a new instance of the <code><a class="el" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRest.Api.SimpleRestApi</a></code> class and define your routes. The following example shows how to set up a basic API with logging enabled:</p>
 <div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_class" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a> api = <span class="keyword">new</span> <a class="code hl_class" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a>(3000, <span class="keyword">new</span> <a class="code hl_class" href="../../da/d6b/classSimpleRest_1_1Api_1_1SimpleRestLogger.html">SimpleRestLogger</a>(<a class="code hl_enumeration" href="../../df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8">SimpleRestLogLevel</a>.DEBUG));</div>
@@ -208,7 +208,7 @@ URI Template Parameters</h2>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">object</span>? <span class="keywordtype">id</span> = req.Params[<span class="stringliteral">&quot;id&quot;</span>];</div>
 <div class="line">    <span class="keywordtype">string</span>? name = req.Query[<span class="stringliteral">&quot;name&quot;</span>] as string;</div>
-<div class="line">    </div>
+<div class="line"> </div>
 <div class="line">    res.Send($<span class="stringliteral">&quot;User ID: {id}, Name: {name ?? &quot;</span>Not provided<span class="stringliteral">&quot;}&quot;</span>);</div>
 <div class="line">});</div>
 <div class="line"> </div>
@@ -218,7 +218,7 @@ URI Template Parameters</h2>
 <div class="line">    <span class="keywordtype">object</span>? orgId = req.Params[<span class="stringliteral">&quot;orgId&quot;</span>];</div>
 <div class="line">    <span class="keywordtype">object</span>? projectId = req.Params[<span class="stringliteral">&quot;projectId&quot;</span>];</div>
 <div class="line"> </div>
-<div class="line">    res.Send(<span class="keyword">new</span> { </div>
+<div class="line">    res.Send(<span class="keyword">new</span> {</div>
 <div class="line">        Organization = orgId,</div>
 <div class="line">        Project = projectId</div>
 <div class="line">    });</div>
@@ -239,16 +239,16 @@ JSON Request/Response Handling</h2>
 <div class="line">    <span class="keywordflow">if</span> (user != <span class="keyword">null</span>)</div>
 <div class="line">    {</div>
 <div class="line">        <span class="comment">// Response will automatically be serialized to JSON</span></div>
-<div class="line">        res.Send(<span class="keyword">new</span> { </div>
-<div class="line">            Success = <span class="keyword">true</span>, </div>
-<div class="line">            Message = $<span class="stringliteral">&quot;User {user.Name} created&quot;</span> </div>
+<div class="line">        res.Send(<span class="keyword">new</span> {</div>
+<div class="line">            Success = <span class="keyword">true</span>,</div>
+<div class="line">            Message = $<span class="stringliteral">&quot;User {user.Name} created&quot;</span></div>
 <div class="line">        });</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span></div>
 <div class="line">    {</div>
-<div class="line">        res.Send(<span class="keyword">new</span> { </div>
-<div class="line">            Success = <span class="keyword">false</span>, </div>
-<div class="line">            Message = <span class="stringliteral">&quot;Invalid user data&quot;</span> </div>
+<div class="line">        res.Send(<span class="keyword">new</span> {</div>
+<div class="line">            Success = <span class="keyword">false</span>,</div>
+<div class="line">            Message = <span class="stringliteral">&quot;Invalid user data&quot;</span></div>
 <div class="line">        });</div>
 <div class="line">    }</div>
 <div class="line">});</div>
@@ -267,7 +267,7 @@ Request Information</h2>
 <div class="line">});</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
 Shared Route Logic</h2>
-<p>The <code>Map</code> method allows you to apply shared logic to a route regardless of the HTTP method:</p>
+<p>The <code>Map</code> method allows you to apply shared logic to a route regardless of the HTTP method by mapping Middleware:</p>
 <div class="fragment"><div class="line">api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a0e70e5629089887d23a2d21ae42074ac">Map</a>(<span class="stringliteral">&quot;/api/items/{id}&quot;</span>, async (req, res) =&gt;</div>
 <div class="line">{</div>
 <div class="line">    Console.WriteLine($<span class="stringliteral">&quot;Accessing item {req.Params[&quot;</span><span class="keywordtype">id</span><span class="stringliteral">&quot;]}&quot;</span>);</div>
@@ -313,7 +313,7 @@ Complete Example</h2>
 <div class="line">            <span class="keywordtype">object</span>? projectId = req.Params[<span class="stringliteral">&quot;projectId&quot;</span>];</div>
 <div class="line">            <span class="keywordtype">string</span>? filter = req.Query[<span class="stringliteral">&quot;filter&quot;</span>] as string;</div>
 <div class="line"> </div>
-<div class="line">            res.Send(<span class="keyword">new</span> { </div>
+<div class="line">            res.Send(<span class="keyword">new</span> {</div>
 <div class="line">                Organization = orgId,</div>
 <div class="line">                Project = projectId,</div>
 <div class="line">                Filter = filter</div>
@@ -346,7 +346,7 @@ Key Features</h2>
 <li><b>Automatic JSON Serialization</b>: Response objects are automatically serialized to JSON or another corresponding type</li>
 <li><b>URI Templates</b>: Following RFC 6570 specification</li>
 <li><b>Query Parameters</b>: Accessible via <code>req.Query["paramName"]</code>(TODO: remove need for manual typecast)</li>
-<li><b>URI Parameters</b>: Accessible via <code>req.Params["paramName"]</code> (TODO: remove need for manual typecast)</li>
+<li><b>URI Parameters</b>: Accessible via <code>req.Params["paramName"]</code> or <code>req.Params.TryGet&lt;paramTypes&gt;(out param1, outparam2, etc...)</code></li>
 <li><b>Request Body Parsing</b>: Using <code>req.Body.As&lt;T&gt;()</code></li>
 <li><b>Logging</b>: Built-in configurable logging system</li>
 </ul>
@@ -370,9 +370,8 @@ Notes</h2>
 <li>The framework uses URI templates following the <code>RFC 6570</code> specification</li>
 <li>All handlers are async to ensure better performance</li>
 <li>JSON serialization is handled automatically</li>
-<li>The logging system can be configured with different levels (NONE, LOW, MEDIUM, HIGH, LONG, DEBUG), you can also create your own loger by implementing <code>ISimpleRestLogger</code></li>
-<li>Route parameters are strongly typed when accessed and must be manually converted from <code>object?</code> to their corresponding type</li>
-<li>Framework is NativeAOT compatible </li>
+<li>The logging system can be configured with different levels (NONE, LOW, MEDIUM, HIGH, LONG, DEBUG), you can also create your own logger by implementing <code>ISimpleRestLogger</code></li>
+<li>Route parameters are strongly typed when accessed and must be manually converted from <code>object?</code> to their corresponding type </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

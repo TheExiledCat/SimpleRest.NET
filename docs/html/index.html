@@ -134,14 +134,14 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
   </li>
 </ul>
 </div>
-<div class="textblock"><p><a class="anchor" id="md__2home_2amano_2SimpleRest_2README"></a></p>
+<div class="textblock"><p><a class="anchor" id="md__2home_2amano_2SimpleRest_8NET_2README"></a></p>
 <h1><a class="anchor" id="autotoc_md0"></a>
 SimpleREST.Net</h1>
 <h3 style="color:pink"><em>The simplest Rest Api framework for .Net</em></h3>
 <h2><a class="anchor" id="autotoc_md1"></a>
 Introduction</h2>
 <p>SimpleREST.Net is a lightweight, easy-to-use, and highly customizable REST API framework for .Net intended for creating small, fast and expendable RestAPis without any larger dependencies like in ASP.NET.</p>
-<p>SimpleRest.Net was heavily based on express.js, so users familiar with express can easily migrate to .NET applications and libraries with SimpleRest.Net </p>
+<p>SimpleRest.Net was heavily based on express.js, so users familiar with express can easily migrate to .NET applications and libraries with SimpleRest.Net</p>
 <h2><a class="anchor" id="autotoc_md2"></a>
 Installation 🔧</h2>
 <p><a href="https://www.nuget.org/packages/SimpleRestApi/" target="_blank"><img src="https://img.shields.io/nuget/v/SimpleRestApi?style=for-the-badge&amp;logo=nuget&amp;logoSize=auto&amp;link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FSimpleRestApi%2F" alt="Nuget link" class="inline"/></a></p>
@@ -208,6 +208,14 @@ Features ⤵️</h2>
 <div class="line">  User? user = req.Body.As&lt;User&gt;()</div>
 <div class="line">});</div>
 </div><!-- fragment --></li>
+<li>Custom Api Handlers by inheriting from SimpleRestApiHandler</li>
+</ul>
+<div class="fragment"><div class="line"><span class="comment">//example handler:</span></div>
+<div class="line">api.Use(<span class="keyword">new</span> ResourceNotFoundHandler());</div>
+<div class="line"><span class="comment">//every handler has overrides that get called by events in the api</span></div>
+<div class="line"><span class="comment">//This example will return a 404 on the response object</span></div>
+<div class="line"><span class="comment">//if after the middleware stack no middleware returned a response</span></div>
+</div><!-- fragment --><ul>
 <li>Expandable<ul>
 <li>using dependency injection(DI), Extension methods, Custom Middleware or Middleware handlers</li>
 </ul>

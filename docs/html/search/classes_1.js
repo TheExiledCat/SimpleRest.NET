@@ -9,6 +9,6 @@ var searchData=
   ['simplerestquery_6',['SimpleRestQuery',['../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html',1,'SimpleRest::Api']]],
   ['simplerestrequest_7',['SimpleRestRequest',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html',1,'SimpleRest::Api']]],
   ['simplerestrequestbody_8',['SimpleRestRequestBody',['../dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1SimpleRestRequestBody.html',1,'SimpleRest::Api::SimpleRestRequest']]],
-  ['simplerestresponse_9',['SimpleRestResponse',['../df/dd0/classSimpleRestResponse.html',1,'']]],
+  ['simplerestresponse_9',['SimpleRestResponse',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html',1,'SimpleRest::Api']]],
   ['simpleresturitemplatehandler_10',['SimpleRestUriTemplateHandler',['../d5/d6b/classSimpleRest_1_1Api_1_1SimpleRestUriTemplateHandler.html',1,'SimpleRest::Api']]]
 ];

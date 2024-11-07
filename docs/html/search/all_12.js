@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['send_3c_20t_20_3e_0',['Send&lt; T &gt;',['../df/dd0/classSimpleRestResponse.html#a2f93268cf4052104c6b0fffd59b52af2',1,'SimpleRestResponse']]],
+  ['send_3c_20t_20_3e_0',['Send&lt; T &gt;',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#ab26dac9792d76da8b036507b6cbc087f',1,'SimpleRest::Api::SimpleRestResponse']]],
   ['setting_20response_20data_1',['Setting Response Data',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md24',1,'']]],
   ['setup_2',['Basic Setup',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md13',1,'']]],
   ['shared_20route_20logic_3',['Shared Route Logic',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md17',1,'']]],
@@ -30,13 +30,13 @@ var searchData=
   ['simplerestrequest_27',['SimpleRestRequest',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html',1,'SimpleRest::Api']]],
   ['simplerestrequest_2ecs_28',['SimpleRestRequest.cs',['../d8/d9b/SimpleRestRequest_8cs.html',1,'']]],
   ['simplerestrequestbody_29',['SimpleRestRequestBody',['../dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1SimpleRestRequestBody.html',1,'SimpleRest.Api.SimpleRestRequest.SimpleRestRequestBody'],['../dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1SimpleRestRequestBody.html#aa337a672734e7d0064049f39ef4cf387',1,'SimpleRest.Api.SimpleRestRequest.SimpleRestRequestBody.SimpleRestRequestBody()']]],
-  ['simplerestresponse_30',['SimpleRestResponse',['../df/dd0/classSimpleRestResponse.html',1,'SimpleRestResponse'],['../df/dd0/classSimpleRestResponse.html#a5bc82d3a476b9850ad91d87320149e6a',1,'SimpleRestResponse.SimpleRestResponse()']]],
+  ['simplerestresponse_30',['SimpleRestResponse',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html',1,'SimpleRest.Api.SimpleRestResponse'],['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a9563f112131314ee40a7856eeb593317',1,'SimpleRest.Api.SimpleRestResponse.SimpleRestResponse()']]],
   ['simplerestresponse_2ecs_31',['SimpleRestResponse.cs',['../d5/dfe/SimpleRestResponse_8cs.html',1,'']]],
   ['simpleresturitemplateformatter_2ecs_32',['SimpleRestUriTemplateFormatter.cs',['../d9/d8a/SimpleRestUriTemplateFormatter_8cs.html',1,'']]],
   ['simpleresturitemplatehandler_33',['SimpleRestUriTemplateHandler',['../d5/d6b/classSimpleRest_1_1Api_1_1SimpleRestUriTemplateHandler.html',1,'SimpleRest::Api']]],
   ['source_20using_20git_34',['Or from source using git',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md11',1,'']]],
   ['start_35',['Start',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a57499f770fbfecbe4626f2d0c05eb89f',1,'SimpleRest::Api::SimpleRestApi']]],
   ['started_36',['Getting Started',['../d1/d57/md_guides_2Getting_01Started.html',1,'']]],
-  ['statuscode_37',['StatusCode',['../df/dd0/classSimpleRestResponse.html#ae389697e70ebdee8f296721ca8ddabba',1,'SimpleRestResponse']]],
+  ['statuscode_37',['StatusCode',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#ad112d935fe8e36a33ece30261a1808e7',1,'SimpleRest::Api::SimpleRestResponse']]],
   ['stop_38',['Stop',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8',1,'SimpleRest::Api::SimpleRestApi']]]
 ];
