@@ -4,11 +4,16 @@
 
 <h3 style="color:pink"> <i>The simplest Rest Api framework for .Net</i></h3>
 
+## Introduction
+SimpleREST.Net is a lightweight, easy-to-use, and highly customizable REST API framework for .Net 
+intended for creating small, fast and expendable RestAPis without any larger dependencies like in ASP.NET.
+
+SimpleRest.Net was heavily based on express.js, so users familiar with express can easily migrate to .NET applications and libraries with SimpleRest.Net
 ## Installation 🔧
 
 <a href="https://www.nuget.org/packages/SimpleRestApi/" target="_blank"><img alt="Nuget link" src="https://img.shields.io/nuget/v/SimpleRestApi?style=for-the-badge&logo=nuget&logoSize=auto&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FSimpleRestApi%2F"></a>
 
-For installation and getting started see [Getting Started](./docs/guides/Getting Started.md)
+For installation and getting started see [Getting Started](<./docs/guides/Getting Started.md>)
 
 ## Example ✅
 
@@ -95,7 +100,7 @@ To create a basic rest api and serve it on a host and port number all you need t
 
   - using dependency injection(DI), Extension methods, Custom Middleware or Middleware handlers
 
-- NativeAOT Compatible (assuming you dont add non AOT compatible libraries)
+
 
 ## Planned Features
 
@@ -105,18 +110,20 @@ To create a basic rest api and serve it on a host and port number all you need t
 - [ ] More options for result sending, like response.Download(), response.Redirect() etc..
 - [ ] Custom Error Handling and validation
 - [ ] Route forwarding to move to a different route before sending result (like the express next() function)
+- [ ] NativeAOT Compatibility (by migrating to System.Text.Json and source generation)
 - and more...
 
 ## Extending
 
 The SimpleRestApi Constructor allows for easy extending through dependency injection by adding your own custom implementations for things like:
 
-- Loggers
-- Formatting
-- Endpoint and route parsing
-- Middleware
+- Loggers `ISimpleRestLogger`
+- Formatting `ISimpleRestUriTemplateFormatter` 
+- Endpoint and route parsing `ISimpleRestEndpointFormatter`
+- Middleware handlers and Api Handlers `ISimpleRestApiHandler`
 - _More to come_
 
 its also possible to add extension methods to the SimpleRestApi class to inject your own custom optional functions
 
 ## Documentation
+See the [Documentation website] (https://theexiledcat.github.io/SimpleRest.NET/html/index.html)

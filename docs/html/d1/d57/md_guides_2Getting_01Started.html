@@ -107,78 +107,78 @@ $(function(){initNavTree('d1/d57/md_guides_2Getting_01Started.html','../../'); i
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md7">Installation</a>
+    <a href="#autotoc_md8">Installation</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md9">Using NuGet:</a>
+        <a href="#autotoc_md10">Using NuGet:</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md10">Or from source using git</a>
+        <a href="#autotoc_md11">Or from source using git</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md11">SimpleRest.NET Examples</a>
+    <a href="#autotoc_md12">SimpleRest.NET Examples</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md12">Basic Setup</a>
+        <a href="#autotoc_md13">Basic Setup</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md13">URI Template Parameters</a>
+        <a href="#autotoc_md14">URI Template Parameters</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md14">JSON Request/Response Handling</a>
+        <a href="#autotoc_md15">JSON Request/Response Handling</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md15">Request Information</a>
+        <a href="#autotoc_md16">Request Information</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md16">Shared Route Logic</a>
+        <a href="#autotoc_md17">Shared Route Logic</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md17">Complete Example</a>
+        <a href="#autotoc_md18">Complete Example</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md18">Key Features</a>
+        <a href="#autotoc_md19">Key Features</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md19">Common Usage Patterns</a>
+        <a href="#autotoc_md20">Common Usage Patterns</a>
         <ul>
           <li class="level3">
-            <a href="#autotoc_md20">Accessing Query Parameters</a>
+            <a href="#autotoc_md21">Accessing Query Parameters</a>
           </li>
           <li class="level3">
-            <a href="#autotoc_md21">Parsing Request Body</a>
+            <a href="#autotoc_md22">Parsing Request Body</a>
           </li>
           <li class="level3">
-            <a href="#autotoc_md22">Using URL Parameters</a>
+            <a href="#autotoc_md23">Using URL Parameters</a>
           </li>
           <li class="level3">
-            <a href="#autotoc_md23">Setting Response Data</a>
+            <a href="#autotoc_md24">Setting Response Data</a>
           </li>
         </ul>
       </li>
       <li class="level2">
-        <a href="#autotoc_md24">Notes</a>
+        <a href="#autotoc_md25">Notes</a>
       </li>
     </ul>
   </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md7"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md8"></a>
 Installation</h1>
 <p>SimpleREST.NET is available as a NuGet package and works and has been tested in &gt;= .NET 6.0</p>
 <hr  />
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md10"></a>
 Using NuGet:</h2>
 <div class="fragment"><div class="line">dotnet add package SimpleREST</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md11"></a>
 Or from source using git</h2>
 <div class="fragment"><div class="line">git clone https://theexiledcat.github.io/SimpleRest.NET/</div>
 </div><!-- fragment --><p>then add the using tag <code>using <a class="el" href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a></code></p>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
 SimpleRest.NET Examples</h1>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
 Basic Setup</h2>
 <p>The simplest way to create an API with SimpleRest.NET is to create a new instance of <code>SimpleRestApi</code> and define your routes. The following example shows how to set up a basic API with logging enabled:</p>
 <div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</div>
@@ -200,7 +200,7 @@ Basic Setup</h2>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestLogger_html"><div class="ttname"><a href="../../da/d6b/classSimpleRest_1_1Api_1_1SimpleRestLogger.html">SimpleRest.Api.SimpleRestLogger</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/de3/SimpleRestLogger_8cs_source.html#l00004">SimpleRestLogger.cs:5</a></div></div>
 <div class="ttc" id="anamespaceSimpleRest_1_1Api_html"><div class="ttname"><a href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a></div><div class="ttdef"><b>Definition</b> <a href="../../df/d40/Enums_8cs_source.html#l00001">Enums.cs:1</a></div></div>
 <div class="ttc" id="anamespaceSimpleRest_1_1Api_html_a213e4074609286d386cb9de95b93bac8"><div class="ttname"><a href="../../df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8">SimpleRest.Api.SimpleRestLogLevel</a></div><div class="ttdeci">SimpleRestLogLevel</div><div class="ttdef"><b>Definition</b> <a href="../../df/d40/Enums_8cs_source.html#l00002">Enums.cs:3</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md13"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
 URI Template Parameters</h2>
 <p>SimpleRest.NET supports URI template parameters following the RFC 6570 specification. This allows you to capture values from the URL path:</p>
 <div class="fragment"><div class="line"><span class="comment">// Single parameter</span></div>
@@ -223,7 +223,7 @@ URI Template Parameters</h2>
 <div class="line">        Project = projectId</div>
 <div class="line">    });</div>
 <div class="line">});</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
 JSON Request/Response Handling</h2>
 <p>SimpleRest.NET automatically handles JSON serialization and deserialization. Here's how to work with JSON data:</p>
 <div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>User</div>
@@ -253,7 +253,7 @@ JSON Request/Response Handling</h2>
 <div class="line">    }</div>
 <div class="line">});</div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a237fc8068e75e79b7fba21ec9a15d8c1"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a237fc8068e75e79b7fba21ec9a15d8c1">SimpleRest.Api.SimpleRestApi.Post</a></div><div class="ttdeci">void Post(string endpoint, ApiMiddleWare middleWare)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d3e/SimpleRestApi_8cs_source.html#l00075">SimpleRestApi.cs:75</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md16"></a>
 Request Information</h2>
 <p>You can access various properties of the incoming request:</p>
 <div class="fragment"><div class="line">api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c">Get</a>(<span class="stringliteral">&quot;/info&quot;</span>, async (req, res) =&gt;</div>
@@ -265,7 +265,7 @@ Request Information</h2>
 <div class="line">        UserAgent = req.UserAgent</div>
 <div class="line">    });</div>
 <div class="line">});</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md16"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
 Shared Route Logic</h2>
 <p>The <code>Map</code> method allows you to apply shared logic to a route regardless of the HTTP method:</p>
 <div class="fragment"><div class="line">api.<a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a0e70e5629089887d23a2d21ae42074ac">Map</a>(<span class="stringliteral">&quot;/api/items/{id}&quot;</span>, async (req, res) =&gt;</div>
@@ -274,7 +274,7 @@ Shared Route Logic</h2>
 <div class="line">    <span class="comment">// This middleware will run for any HTTP method on this route</span></div>
 <div class="line">});</div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a0e70e5629089887d23a2d21ae42074ac"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a0e70e5629089887d23a2d21ae42074ac">SimpleRest.Api.SimpleRestApi.Map</a></div><div class="ttdeci">void Map(string endpoint, ApiMiddleWare middleWare)</div><div class="ttdef"><b>Definition</b> <a href="../../df/d3e/SimpleRestApi_8cs_source.html#l00062">SimpleRestApi.cs:62</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md18"></a>
 Complete Example</h2>
 <p>Here's a complete example that demonstrates multiple features of SimpleRest.NET:</p>
 <div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="../../df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</div>
@@ -339,7 +339,7 @@ Complete Example</h2>
 <div class="line">    <span class="keyword">public</span> <span class="keywordtype">string</span> Name { <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keywordtype">string</span>.Empty;</div>
 <div class="line">    <span class="keyword">public</span> <span class="keywordtype">string</span> Email { <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keywordtype">string</span>.Empty;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md18"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md19"></a>
 Key Features</h2>
 <ul>
 <li><b>Async Support</b>: All route handlers are async by default</li>
@@ -350,21 +350,21 @@ Key Features</h2>
 <li><b>Request Body Parsing</b>: Using <code>req.Body.As&lt;T&gt;()</code></li>
 <li><b>Logging</b>: Built-in configurable logging system</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 Common Usage Patterns</h2>
-<h3><a class="anchor" id="autotoc_md20"></a>
+<h3><a class="anchor" id="autotoc_md21"></a>
 Accessing Query Parameters</h3>
 <div class="fragment"><div class="line"><span class="keywordtype">string</span>? value = req.Query[<span class="stringliteral">&quot;paramName&quot;</span>] as string;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md21"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md22"></a>
 Parsing Request Body</h3>
 <div class="fragment"><div class="line">TBody? data = req.Body?.As&lt;TBody&gt;();</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md22"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md23"></a>
 Using URL Parameters</h3>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span>? <span class="keywordtype">id</span> = req.Params[<span class="stringliteral">&quot;id&quot;</span>] as <span class="keywordtype">int</span>?;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md23"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md24"></a>
 Setting Response Data</h3>
 <div class="fragment"><div class="line">res.Send(<span class="keyword">new</span> { message = <span class="stringliteral">&quot;Success&quot;</span> });</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md24"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md25"></a>
 Notes</h2>
 <ul>
 <li>The framework uses URI templates following the <code>RFC 6570</code> specification</li>

@@ -26,33 +26,34 @@ var NAVTREE =
 [
   [ "SimpleREST.NET", "index.html", [
     [ "SimpleREST.Net", "index.html#autotoc_md0", [
-      [ "Installation 🔧", "index.html#autotoc_md1", null ],
-      [ "Example ✅", "index.html#autotoc_md2", null ],
-      [ "Features ⤵️", "index.html#autotoc_md3", null ],
-      [ "Planned Features", "index.html#autotoc_md4", null ],
-      [ "Extending", "index.html#autotoc_md5", null ],
-      [ "Documentation", "index.html#autotoc_md6", null ]
+      [ "Introduction", "index.html#autotoc_md1", null ],
+      [ "Installation 🔧", "index.html#autotoc_md2", null ],
+      [ "Example ✅", "index.html#autotoc_md3", null ],
+      [ "Features ⤵️", "index.html#autotoc_md4", null ],
+      [ "Planned Features", "index.html#autotoc_md5", null ],
+      [ "Extending", "index.html#autotoc_md6", null ],
+      [ "Documentation", "index.html#autotoc_md7", null ]
     ] ],
     [ "Getting Started", "d1/d57/md_guides_2Getting_01Started.html", [
-      [ "Installation", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md7", [
-        [ "Using NuGet:", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md9", null ],
-        [ "Or from source using git", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md10", null ]
+      [ "Installation", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md8", [
+        [ "Using NuGet:", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md10", null ],
+        [ "Or from source using git", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md11", null ]
       ] ],
-      [ "SimpleRest.NET Examples", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md11", [
-        [ "Basic Setup", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md12", null ],
-        [ "URI Template Parameters", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md13", null ],
-        [ "JSON Request/Response Handling", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md14", null ],
-        [ "Request Information", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md15", null ],
-        [ "Shared Route Logic", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md16", null ],
-        [ "Complete Example", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md17", null ],
-        [ "Key Features", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md18", null ],
-        [ "Common Usage Patterns", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md19", [
-          [ "Accessing Query Parameters", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md20", null ],
-          [ "Parsing Request Body", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md21", null ],
-          [ "Using URL Parameters", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md22", null ],
-          [ "Setting Response Data", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md23", null ]
+      [ "SimpleRest.NET Examples", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md12", [
+        [ "Basic Setup", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md13", null ],
+        [ "URI Template Parameters", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md14", null ],
+        [ "JSON Request/Response Handling", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md15", null ],
+        [ "Request Information", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md16", null ],
+        [ "Shared Route Logic", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md17", null ],
+        [ "Complete Example", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md18", null ],
+        [ "Key Features", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md19", null ],
+        [ "Common Usage Patterns", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md20", [
+          [ "Accessing Query Parameters", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md21", null ],
+          [ "Parsing Request Body", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md22", null ],
+          [ "Using URL Parameters", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md23", null ],
+          [ "Setting Response Data", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md24", null ]
         ] ],
-        [ "Notes", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md24", null ]
+        [ "Notes", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md25", null ]
       ] ]
     ] ],
     [ "Packages", "namespaces.html", [

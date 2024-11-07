@@ -110,22 +110,25 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
     <a href="#autotoc_md0">SimpleREST.Net</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md1">Installation 🔧</a>
+        <a href="#autotoc_md1">Introduction</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md2">Example ✅</a>
+        <a href="#autotoc_md2">Installation 🔧</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md3">Features ⤵️</a>
+        <a href="#autotoc_md3">Example ✅</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md4">Planned Features</a>
+        <a href="#autotoc_md4">Features ⤵️</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md5">Extending</a>
+        <a href="#autotoc_md5">Planned Features</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md6">Documentation</a>
+        <a href="#autotoc_md6">Extending</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md7">Documentation</a>
       </li>
     </ul>
   </li>
@@ -136,10 +139,14 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 SimpleREST.Net</h1>
 <h3 style="color:pink"><em>The simplest Rest Api framework for .Net</em></h3>
 <h2><a class="anchor" id="autotoc_md1"></a>
+Introduction</h2>
+<p>SimpleREST.Net is a lightweight, easy-to-use, and highly customizable REST API framework for .Net intended for creating small, fast and expendable RestAPis without any larger dependencies like in ASP.NET.</p>
+<p>SimpleRest.Net was heavily based on express.js, so users familiar with express can easily migrate to .NET applications and libraries with SimpleRest.Net </p>
+<h2><a class="anchor" id="autotoc_md2"></a>
 Installation 🔧</h2>
 <p><a href="https://www.nuget.org/packages/SimpleRestApi/" target="_blank"><img src="https://img.shields.io/nuget/v/SimpleRestApi?style=for-the-badge&amp;logo=nuget&amp;logoSize=auto&amp;link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FSimpleRestApi%2F" alt="Nuget link" class="inline"/></a></p>
 <p>For installation and getting started see <a class="el" href="d1/d57/md_guides_2Getting_01Started.html">Getting Started</a></p>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 Example ✅</h2>
 <p>To create a basic rest api and serve it on a host and port number all you need to do is add <code>using <a class="el" href="df/dba/namespaceSimpleRest_1_1Api.html">SimpleRest.Api</a>;</code> and the following code to your program:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#</span></div>
@@ -163,7 +170,7 @@ Example ✅</h2>
 <div class="line">           Console.WriteLine(<span class="stringliteral">&quot;Server started on port &quot;</span> + port);</div>
 <div class="line">       });</div>
 <div class="line">   }</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
 Features ⤵️</h2>
 <ul>
 <li>Easy to use 👶</li>
@@ -205,9 +212,8 @@ Features ⤵️</h2>
 <li>using dependency injection(DI), Extension methods, Custom Middleware or Middleware handlers</li>
 </ul>
 </li>
-<li>NativeAOT Compatible (assuming you dont add non AOT compatible libraries)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Planned Features</h2>
 <ul class="check">
 <li class="unchecked">Route Handlers that can divide endpoint handling into different classes (Like ASP)</li>
@@ -227,22 +233,26 @@ Planned Features</h2>
 <ul class="check">
 <li class="unchecked">Route forwarding to move to a different route before sending result (like the express next() function)</li>
 </ul>
+<ul class="check">
+<li class="unchecked">NativeAOT Compatibility (by migrating to System.Text.Json and source generation)</li>
+</ul>
 <ul>
 <li>and more...</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Extending</h2>
 <p>The SimpleRestApi Constructor allows for easy extending through dependency injection by adding your own custom implementations for things like:</p>
 <ul>
-<li>Loggers</li>
-<li>Formatting</li>
-<li>Endpoint and route parsing</li>
-<li>Middleware</li>
+<li>Loggers <code>ISimpleRestLogger</code></li>
+<li>Formatting <code>ISimpleRestUriTemplateFormatter</code></li>
+<li>Endpoint and route parsing <code>ISimpleRestEndpointFormatter</code></li>
+<li>Middleware handlers and Api Handlers <code>ISimpleRestApiHandler</code></li>
 <li><em>More to come</em></li>
 </ul>
 <p>its also possible to add extension methods to the SimpleRestApi class to inject your own custom optional functions</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Documentation</h2>
+<p>See the [Documentation website] (<a href="https://theexiledcat.github.io/SimpleRest.NET/html/index.html">https://theexiledcat.github.io/SimpleRest.NET/html/index.html</a>) </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->

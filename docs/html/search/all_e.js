@@ -13,6 +13,6 @@ var searchData=
   ['onsend_10',['OnSend',['../df/dd0/classSimpleRestResponse.html#a5c37888640ef48c6e6db2707725f7c8d',1,'SimpleRestResponse']]],
   ['onserverstart_11',['OnServerStart',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#aac34a4fc75c82a12fb690293098d7b06',1,'SimpleRest.Api.SimpleRestApi.OnServerStart'],['../d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a094341c18aecb7cc02bf01b4c5e88459',1,'SimpleRest.Handlers.SimpleRestApiHandler.OnServerStart()'],['../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#af538703f17544bed1a172f450c7691b0',1,'SimpleRest.Api.ISimpleRestApiHandler.OnServerStart()']]],
   ['options_12',['OPTIONS',['../df/dba/namespaceSimpleRest_1_1Api.html#ada4eac4d8de31c19a9aa2abd91c5a909a164dd62adb30ca051b5289672a572f9b',1,'SimpleRest::Api']]],
-  ['or_20from_20source_20using_20git_13',['Or from source using git',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md10',1,'']]],
+  ['or_20from_20source_20using_20git_13',['Or from source using git',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md11',1,'']]],
   ['other_14',['OTHER',['../df/dba/namespaceSimpleRest_1_1Api.html#ada4eac4d8de31c19a9aa2abd91c5a909a03570470bad94692ce93e32700d2e1cb',1,'SimpleRest::Api']]]
 ];
