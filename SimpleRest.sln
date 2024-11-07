@@ -5,6 +5,12 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleRest", "SimpleRest.csproj", "{F31D6F1D-1705-4B6C-A414-5E36F3F197C0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{0B39C35B-4C16-4888-A662-7D2FD05909E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hello World", "Hello World", "{CAC18369-2446-43F5-AD64-DFBEB9113CAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldExample", "Examples\Hello World\HelloWorldExample\HelloWorldExample.csproj", "{B5316C1E-83AF-4281-9D06-485CCC7F385D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +21,19 @@ Global
 		{F31D6F1D-1705-4B6C-A414-5E36F3F197C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F31D6F1D-1705-4B6C-A414-5E36F3F197C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F31D6F1D-1705-4B6C-A414-5E36F3F197C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5316C1E-83AF-4281-9D06-485CCC7F385D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5316C1E-83AF-4281-9D06-485CCC7F385D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5316C1E-83AF-4281-9D06-485CCC7F385D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5316C1E-83AF-4281-9D06-485CCC7F385D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ED16F051-6AC2-47D1-8EB2-9FAC80B0DA70}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CAC18369-2446-43F5-AD64-DFBEB9113CAA} = {0B39C35B-4C16-4888-A662-7D2FD05909E3}
+		{B5316C1E-83AF-4281-9D06-485CCC7F385D} = {CAC18369-2446-43F5-AD64-DFBEB9113CAA}
 	EndGlobalSection
 EndGlobal

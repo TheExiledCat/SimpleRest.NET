@@ -35,4 +35,18 @@ public class SimpleRestResponse
         OnSend?.Invoke(finalOutput);
 
     }
+    public void View(string content, string contentType = "text/html; charset=urf-8")
+    {
+
+        ContentType = contentType;
+        byte[] buffer = Encoding.UTF8.GetBytes(content);
+        Response.ContentLength64 = buffer.Length;
+        Response.ContentType = ContentType;
+        Response.OutputStream.Write(buffer, 0, buffer.Length);
+
+        Response?.Close();
+        HasCompleted = true;
+        OnSend?.Invoke(content);
+
+    }
 }

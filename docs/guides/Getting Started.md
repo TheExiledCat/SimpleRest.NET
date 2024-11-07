@@ -56,11 +56,10 @@ api.Get("/users/{id}", async (req, res) =>
     res.Send($"User ID: {id}, Name: {name ?? "Not provided"}");
 });
 
-// Multiple parameters
+// Multiple parameters at once, with type casts handles for you
 api.Get("/api/organizations/{orgId}/projects/{projectId}", async (req, res) =>
 {
-    object? orgId = req.Params["orgId"];
-    object? projectId = req.Params["projectId"];
+    req.Params.TryGet(out int orgId, out int projectId);
 
     res.Send(new {
         Organization = orgId,

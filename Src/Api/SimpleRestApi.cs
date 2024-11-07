@@ -18,17 +18,17 @@ public class SimpleRestApi
     HttpListener m_Listener;
     List<SimpleRestMap> m_Middleware = [];
     Type m_DefaultIntType;
-    public event Action<SimpleRestApi> OnServerStart;
-    public event Action<SimpleRestApi> OnBeforeRequestCreate;
-    public event Action<SimpleRestApi, SimpleRestRequest> OnRequestCreate;
-    public event Action<SimpleRestApi, SimpleRestRequest> OnBeforeResponseCreate;
-    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse> OnResponseCreate;
-    public event Action<SimpleRestApi, SimpleRestRequest> OnLog;
-    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, Dictionary<UriTemplateMatch, SimpleRestMap>> OnHandleRequestStack;
-    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap> OnRequestMatch;
-    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap> OnApplyUriParams;
-    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap> OnBeforeRunMiddleware;
-    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap> OnRunMiddleware;
+    public event Action<SimpleRestApi>? OnServerStart;
+    public event Action<SimpleRestApi>? OnBeforeRequestCreate;
+    public event Action<SimpleRestApi, SimpleRestRequest>? OnRequestCreate;
+    public event Action<SimpleRestApi, SimpleRestRequest>? OnBeforeResponseCreate;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse>? OnResponseCreate;
+    public event Action<SimpleRestApi, SimpleRestRequest>? OnLog;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, Dictionary<UriTemplateMatch, SimpleRestMap>>? OnHandleRequestStack;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap>? OnRequestMatch;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap>? OnApplyUriParams;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap>? OnBeforeRunMiddleware;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap>? OnRunMiddleware;
 
 
     int m_Port;
@@ -112,14 +112,14 @@ public class SimpleRestApi
     /// </summary>
     /// <param name="OnStartup"></param>
     /// <returns></returns>
-    public async Task Start(Action<int>? OnStartup = null)
+    public async Task Start(Action<int, string>? OnStartup = null)
     {
         try
         {
 
             m_Listener.Start();
             OnServerStart?.Invoke(this);
-            OnStartup?.Invoke(m_Port);
+            OnStartup?.Invoke(m_Port, m_Listener.Prefixes.First().Replace("*", "localhost"));
             while (true)
             {
                 try
