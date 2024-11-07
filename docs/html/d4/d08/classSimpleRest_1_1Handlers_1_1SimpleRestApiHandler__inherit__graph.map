@@ -1,5 +1,7 @@
 <map id="SimpleRest.Handlers.SimpleRestApiHandler" name="SimpleRest.Handlers.SimpleRestApiHandler">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,212,119"/>
-<area shape="rect" id="Node000002" href="$d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html" title=" " alt="" coords="23,5,195,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,44,111,79,106,79,106,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="13,79,220,119"/>
+<area shape="rect" id="Node000003" href="$d7/d96/classSimpleRest_1_1Handlers_1_1ResourceNotFoundHandler.html" title=" " alt="" coords="5,167,228,207"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,133,119,166,114,166,114,133"/>
+<area shape="rect" id="Node000002" href="$d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html" title=" " alt="" coords="31,5,203,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,44,119,79,114,79,114,44"/>
 </map>

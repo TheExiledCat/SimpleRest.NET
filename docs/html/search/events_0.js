@@ -1,15 +1,17 @@
 var searchData=
 [
-  ['onapplyuriparams_0',['OnApplyUriParams',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a942910247163de3a13cd893dbb1036e5',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['onbeforerequestcreate_1',['OnBeforeRequestCreate',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a6ee43ccf9552b30c28d2f1e83cb6a75e',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['onbeforeresponsecreate_2',['OnBeforeResponseCreate',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a8b5cc8f7f1a5aaef78c45431587e3e25',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['onbeforerunmiddleware_3',['OnBeforeRunMiddleware',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a74e2a694170bb78f4f7cadda9bbfb005',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['onhandlerequeststack_4',['OnHandleRequestStack',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a9d436383d87631d4d30f397c16e3052c',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['onlog_5',['OnLog',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af160d443436c19d3f3076dc2fe044a1e',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['onrequestcreate_6',['OnRequestCreate',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#ae169e3b18b7debd5a806c520ced5f630',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['onrequestmatch_7',['OnRequestMatch',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a8b9481fbcf3ae0fa870063954d6835d0',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['onresponsecreate_8',['OnResponseCreate',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a3cd63fe7eff00832c81d73edd032bd28',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['onrunmiddleware_9',['OnRunMiddleware',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#aad8f387b2f5ea49ee12ea5e9fb1ae146',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['onsend_10',['OnSend',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a868c364f726ce2bce8e93ca3d9e0ea17',1,'SimpleRest::Api::SimpleRestResponse']]],
-  ['onserverstart_11',['OnServerStart',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#aac34a4fc75c82a12fb690293098d7b06',1,'SimpleRest::Api::SimpleRestApi']]]
+  ['onapplyuriparams_0',['OnApplyUriParams',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a957ebbc7c7bb3867b212c2276bb07332',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['onbeforerequestcreate_1',['OnBeforeRequestCreate',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a1165adac3ccd0061233cd52f64ca3915',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['onbeforerequestend_2',['OnBeforeRequestEnd',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a3119404845993ce7b900d4b557551fe5',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['onbeforeresponsecreate_3',['OnBeforeResponseCreate',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a53fe68601f8410df3fd0d92260c1595e',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['onbeforerunmiddleware_4',['OnBeforeRunMiddleware',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#ae8fceba60c1860f1ae6513ce341c2b58',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['onhandlerequeststack_5',['OnHandleRequestStack',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a4b4f25839e0877c50ff1121c85c4a2a7',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['onlog_6',['OnLog',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a760adba2d3b431102e57fb8ad5b3f247',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['onrequestcreate_7',['OnRequestCreate',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a357ac1d33ac9850958e4c357d3f1dc0c',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['onrequestend_8',['OnRequestEnd',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a517a79dcccc7803dbf4c2255277aa70c',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['onrequestmatch_9',['OnRequestMatch',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a2eb40ff86293691695365e1345a48830',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['onresponsecreate_10',['OnResponseCreate',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a6a6702aea3b6cfd561b72a7e8be93b21',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['onrunmiddleware_11',['OnRunMiddleware',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a86f28235f0095132fb2d8e8ed56ffa7a',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['onsend_12',['OnSend',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a868c364f726ce2bce8e93ca3d9e0ea17',1,'SimpleRest::Api::SimpleRestResponse']]],
+  ['onserverstart_13',['OnServerStart',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a74edd2a3a6f55add11f7495ec6ca7ffd',1,'SimpleRest::Api::SimpleRestApi']]]
 ];

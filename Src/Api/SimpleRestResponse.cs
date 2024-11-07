@@ -1,8 +1,9 @@
 using System.Net;
 using System.Text;
 using Newtonsoft.Json;
-
+using SimpleRest.Views;
 namespace SimpleRest.Api;
+
 public class SimpleRestResponse
 {
     public delegate void Result(string result);
@@ -11,7 +12,17 @@ public class SimpleRestResponse
     public string? ContentType { get; private set; }
     public event Result? OnSend;
     public bool HasCompleted { get; private set; }
-    public ushort StatusCode { get; set; }
+    ushort statusCode = 200;
+    public ushort StatusCode
+    {
+        get => statusCode; set
+        {
+            if (value.ToString().Length == 3)
+            {
+                statusCode = value;
+            }
+        }
+    }
     public SimpleRestResponse(HttpListenerResponse response, ISimpleRestContentTypeParser parser)
     {
         Response = response;
@@ -28,8 +39,9 @@ public class SimpleRestResponse
         byte[] buffer = Encoding.UTF8.GetBytes(finalOutput);
         Response.ContentLength64 = buffer.Length;
         Response.ContentType = ContentType;
-        Response.OutputStream.Write(buffer, 0, buffer.Length);
+        Response.StatusCode = StatusCode;
 
+        Response.OutputStream.Write(buffer, 0, buffer.Length);
         Response?.Close();
         HasCompleted = true;
         OnSend?.Invoke(finalOutput);
@@ -41,12 +53,28 @@ public class SimpleRestResponse
         ContentType = contentType;
         byte[] buffer = Encoding.UTF8.GetBytes(content);
         Response.ContentLength64 = buffer.Length;
+        Response.StatusCode = StatusCode;
         Response.ContentType = ContentType;
         Response.OutputStream.Write(buffer, 0, buffer.Length);
 
         Response?.Close();
         HasCompleted = true;
         OnSend?.Invoke(content);
+
+    }
+    public void View(ISimpleRestView view, string contentType = "text/html; charset=urf-8")
+    {
+
+        ContentType = contentType;
+        byte[] buffer = Encoding.UTF8.GetBytes(view.GetView());
+        Response.ContentLength64 = buffer.Length;
+        Response.StatusCode = StatusCode;
+        Response.ContentType = ContentType;
+        Response.OutputStream.Write(buffer, 0, buffer.Length);
+
+        Response?.Close();
+        HasCompleted = true;
+        OnSend?.Invoke(view.GetView());
 
     }
 }

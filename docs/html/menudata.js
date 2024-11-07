@@ -70,7 +70,8 @@ var menudata={children:[
 {text:"r",url:"functions_func.html#index_r"},
 {text:"s",url:"functions_func.html#index_s"},
 {text:"t",url:"functions_func.html#index_t"},
-{text:"u",url:"functions_func.html#index_u"}]},
+{text:"u",url:"functions_func.html#index_u"},
+{text:"v",url:"functions_func.html#index_v"}]},
 {text:"Properties",url:"functions_prop.html",children:[
 {text:"b",url:"functions_prop.html#index_b"},
 {text:"c",url:"functions_prop.html#index_c"},

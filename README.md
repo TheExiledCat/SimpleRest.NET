@@ -77,7 +77,7 @@ To create a basic rest api and serve it on a host and port number all you need t
   }
   ```
 
-  this will also set the content-type header to a fitting type based on the implementation of SimpleRest.Api.ISimpleRestContentTypeParser (injectable)
+  this will also set the content-type header to a fitting type based on the implementation of `SimpleRest.Api.ISimpleRestContentTypeParser` (injectable)
 
 - Uri route parameters following the [RFC 6570 Spec]("https://www.rfc-editor.org/rfc/rfc6570")
 
@@ -85,7 +85,7 @@ To create a basic rest api and serve it on a host and port number all you need t
     api.Put("/users/{userId}/posts/{postId}",async (req,res)=>{
             int? id = req["userId"] as int?;
             int postId = req["postId"] as int?;
-            //or using generics and the out keyword to convert and assign directly with up to 12 names parameters
+            //or using generics and the out keyword to convert and assign directly with up to 12 named parameters
             req.Params.TryGet(out int userId, out int postId);
     });
   ```
@@ -98,7 +98,7 @@ To create a basic rest api and serve it on a host and port number all you need t
   });
   ```
 
-- Custom Api Handlers by inheriting from SimpleRestApiHandler
+- Custom Api Handlers by inheriting from `SimpleRest.Api.SimpleRestApiHandler`
 
 ```csharp
   //example handler:

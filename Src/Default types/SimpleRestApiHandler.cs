@@ -2,7 +2,7 @@ using SimpleRest.Api;
 using UriTemplate.Core;
 
 namespace SimpleRest.Handlers;
-public class SimpleRestApiHandler : ISimpleRestApiHandler
+public abstract class SimpleRestApiHandler : ISimpleRestApiHandler
 {
     public virtual void OnApplyUriParams(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response, UriTemplateMatch match, SimpleRestMap routeMap)
     {
@@ -10,6 +10,10 @@ public class SimpleRestApiHandler : ISimpleRestApiHandler
     }
 
     public virtual void OnBeforeRequestCreate(SimpleRestApi api)
+    {
+    }
+
+    public virtual void OnBeforeRequestEnd(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response)
     {
     }
 
@@ -30,6 +34,10 @@ public class SimpleRestApiHandler : ISimpleRestApiHandler
     }
 
     public virtual void OnRequestCreate(SimpleRestApi api, SimpleRestRequest request)
+    {
+    }
+
+    public virtual void OnRequestEnd(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response)
     {
     }
 

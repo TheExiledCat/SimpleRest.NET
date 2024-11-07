@@ -193,13 +193,13 @@ Features ⤵️</h2>
 <div class="line">  &quot;name&quot;: &quot;John&quot;,</div>
 <div class="line">  &quot;Id&quot;: 1</div>
 <div class="line">}</div>
-</div><!-- fragment --><p class="startli">this will also set the content-type header to a fitting type based on the implementation of <a href="./Src/Interfaces/ISimpleRestContentTypeParser.cs">ISimpleRestContentTypeParser</a> (injectable)</p>
+</div><!-- fragment --><p class="startli">this will also set the content-type header to a fitting type based on the implementation of <code><a class="el" href="da/d0d/interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser.html">SimpleRest.Api.ISimpleRestContentTypeParser</a></code> (injectable)</p>
 </li>
 <li><p class="startli">Uri route parameters following the [RFC 6570 Spec]("https://www.rfc-editor.org/rfc/rfc6570")</p>
 <div class="fragment"><div class="line">api.Put(<span class="stringliteral">&quot;/users/{userId}/posts/{postId}&quot;</span>,async (req,res)=&gt;{</div>
 <div class="line">        <span class="keywordtype">int</span>? <span class="keywordtype">id</span> = req[<span class="stringliteral">&quot;userId&quot;</span>] as <span class="keywordtype">int</span>?;</div>
 <div class="line">        <span class="keywordtype">int</span> postId = req[<span class="stringliteral">&quot;postId&quot;</span>] as <span class="keywordtype">int</span>?;</div>
-<div class="line">        <span class="comment">//or using generics and the out keyword to convert and assign directly with up to 12 names parameters</span></div>
+<div class="line">        <span class="comment">//or using generics and the out keyword to convert and assign directly with up to 12 named parameters</span></div>
 <div class="line">        req.Params.TryGet(out <span class="keywordtype">int</span> userId, out <span class="keywordtype">int</span> postId);</div>
 <div class="line">});</div>
 </div><!-- fragment --></li>
@@ -208,7 +208,7 @@ Features ⤵️</h2>
 <div class="line">  User? user = req.Body.As&lt;User&gt;()</div>
 <div class="line">});</div>
 </div><!-- fragment --></li>
-<li>Custom Api Handlers by inheriting from SimpleRestApiHandler</li>
+<li>Custom Api Handlers by inheriting from <code>SimpleRest.Api.SimpleRestApiHandler</code></li>
 </ul>
 <div class="fragment"><div class="line"><span class="comment">//example handler:</span></div>
 <div class="line">api.Use(<span class="keyword">new</span> ResourceNotFoundHandler());</div>

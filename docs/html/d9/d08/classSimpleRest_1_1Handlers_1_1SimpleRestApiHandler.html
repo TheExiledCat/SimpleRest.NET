@@ -104,7 +104,7 @@ $(function(){initNavTree('d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHan
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../db/d45/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">SimpleRest.Handlers.SimpleRestApiHandler Class Reference</div></div>
+  <div class="headertitle"><div class="title">SimpleRest.Handlers.SimpleRestApiHandler Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
@@ -112,9 +112,11 @@ Inheritance diagram for SimpleRest.Handlers.SimpleRestApiHandler:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d4/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler__inherit__graph.png" border="0" usemap="#aSimpleRest_8Handlers_8SimpleRestApiHandler_inherit__map" alt="Inheritance graph"/></div>
 <map name="aSimpleRest_8Handlers_8SimpleRestApiHandler_inherit__map" id="aSimpleRest_8Handlers_8SimpleRestApiHandler_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,79,212,119"/>
-<area shape="rect" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html" title=" " alt="" coords="23,5,195,31"/>
-<area shape="poly" title=" " alt="" coords="111,44,111,79,106,79,106,44"/>
+<area shape="rect" title=" " alt="" coords="13,79,220,119"/>
+<area shape="rect" href="../../d7/d96/classSimpleRest_1_1Handlers_1_1ResourceNotFoundHandler.html" title=" " alt="" coords="5,167,228,207"/>
+<area shape="poly" title=" " alt="" coords="119,133,119,166,114,166,114,133"/>
+<area shape="rect" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html" title=" " alt="" coords="31,5,203,31"/>
+<area shape="poly" title=" " alt="" coords="119,44,119,79,114,79,114,44"/>
 </map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -134,6 +136,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9f0ed2f6672c2113ff87fdebfaa20951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab194754fff2c2e56d7672735f8915780" id="r_ab194754fff2c2e56d7672735f8915780"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab194754fff2c2e56d7672735f8915780">OnBeforeRequestCreate</a> (<a class="el" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a> api)</td></tr>
 <tr class="separator:ab194754fff2c2e56d7672735f8915780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15e1ee364d05416d583d8f22a65dd932" id="r_a15e1ee364d05416d583d8f22a65dd932"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15e1ee364d05416d583d8f22a65dd932">OnBeforeRequestEnd</a> (<a class="el" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a> api, <a class="el" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html">SimpleRestRequest</a> request, <a class="el" href="../../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html">SimpleRestResponse</a> response)</td></tr>
+<tr class="separator:a15e1ee364d05416d583d8f22a65dd932"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a766f9e827470426d8dda0d8873f00804" id="r_a766f9e827470426d8dda0d8873f00804"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a766f9e827470426d8dda0d8873f00804">OnBeforeResponseCreate</a> (<a class="el" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a> api, <a class="el" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html">SimpleRestRequest</a> request)</td></tr>
 <tr class="separator:a766f9e827470426d8dda0d8873f00804"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23ed2b17238157ef546523cfbde11e6d" id="r_a23ed2b17238157ef546523cfbde11e6d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23ed2b17238157ef546523cfbde11e6d">OnBeforeRunMiddleware</a> (<a class="el" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a> api, <a class="el" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html">SimpleRestRequest</a> request, <a class="el" href="../../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html">SimpleRestResponse</a> response, UriTemplateMatch match, <a class="el" href="../../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html">SimpleRestMap</a> routeMap)</td></tr>
@@ -144,6 +148,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9a360bf31c75fbb542d33fc339fcf1f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61b4a8e23791b582b520bf82ae937f6b" id="r_a61b4a8e23791b582b520bf82ae937f6b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61b4a8e23791b582b520bf82ae937f6b">OnRequestCreate</a> (<a class="el" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a> api, <a class="el" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html">SimpleRestRequest</a> request)</td></tr>
 <tr class="separator:a61b4a8e23791b582b520bf82ae937f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cc6714284c4f1c4f35171461af3d4fa" id="r_a5cc6714284c4f1c4f35171461af3d4fa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cc6714284c4f1c4f35171461af3d4fa">OnRequestEnd</a> (<a class="el" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a> api, <a class="el" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html">SimpleRestRequest</a> request, <a class="el" href="../../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html">SimpleRestResponse</a> response)</td></tr>
+<tr class="separator:a5cc6714284c4f1c4f35171461af3d4fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cd93828114bb43a75b55163e3cd7375" id="r_a9cd93828114bb43a75b55163e3cd7375"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cd93828114bb43a75b55163e3cd7375">OnRequestMatch</a> (<a class="el" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a> api, <a class="el" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html">SimpleRestRequest</a> request, <a class="el" href="../../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html">SimpleRestResponse</a> response, UriTemplateMatch match, <a class="el" href="../../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html">SimpleRestMap</a> routeMap)</td></tr>
 <tr class="separator:a9cd93828114bb43a75b55163e3cd7375"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13cdfee85e2f1956dd48e4ae4ae8e3c9" id="r_a13cdfee85e2f1956dd48e4ae4ae8e3c9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13cdfee85e2f1956dd48e4ae4ae8e3c9">OnResponseCreate</a> (<a class="el" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a> api, <a class="el" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html">SimpleRestRequest</a> request, <a class="el" href="../../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html">SimpleRestResponse</a> response)</td></tr>
@@ -235,6 +241,46 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a15e1ee364d05416d583d8f22a65dd932" name="a15e1ee364d05416d583d8f22a65dd932"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15e1ee364d05416d583d8f22a65dd932">&#9670;&#160;</a></span>OnBeforeRequestEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void SimpleRest.Handlers.SimpleRestApiHandler.OnBeforeRequestEnd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a></td>          <td class="paramname"><span class="paramname"><em>api</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html">SimpleRestRequest</a></td>          <td class="paramname"><span class="paramname"><em>request</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html">SimpleRestResponse</a></td>          <td class="paramname"><span class="paramname"><em>response</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#a10768ef8a128b3ae088d393c96696fc8">SimpleRest.Api.ISimpleRestApiHandler</a>.</p>
+
+<p>Reimplemented in <a class="el" href="../../d7/d96/classSimpleRest_1_1Handlers_1_1ResourceNotFoundHandler.html#af812e74960177c7dce25207020fd74bb">SimpleRest.Handlers.ResourceNotFoundHandler</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00016">16</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
+
+</div>
+</div>
 <a id="a766f9e827470426d8dda0d8873f00804" name="a766f9e827470426d8dda0d8873f00804"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a766f9e827470426d8dda0d8873f00804">&#9670;&#160;</a></span>OnBeforeResponseCreate()</h2>
 
@@ -264,7 +310,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#ade8e6f677dc5b837e046ecea15674ce6">SimpleRest.Api.ISimpleRestApiHandler</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00016">16</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00020">20</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
 
 </div>
 </div>
@@ -312,7 +358,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#ab81617239cae5758392fb7b58e1ff208">SimpleRest.Api.ISimpleRestApiHandler</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00020">20</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00024">24</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
 
 </div>
 </div>
@@ -355,7 +401,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#ad547233b846e4b4a7ce7137afc46ae25">SimpleRest.Api.ISimpleRestApiHandler</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00024">24</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00028">28</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
 
 </div>
 </div>
@@ -388,7 +434,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#a83ccde242e6b10394f761b45a6a71547">SimpleRest.Api.ISimpleRestApiHandler</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00028">28</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00032">32</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
 
 </div>
 </div>
@@ -421,7 +467,45 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#a21fd946030459a0070cfd00f6dd8011d">SimpleRest.Api.ISimpleRestApiHandler</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00032">32</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00036">36</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
+
+</div>
+</div>
+<a id="a5cc6714284c4f1c4f35171461af3d4fa" name="a5cc6714284c4f1c4f35171461af3d4fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cc6714284c4f1c4f35171461af3d4fa">&#9670;&#160;</a></span>OnRequestEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void SimpleRest.Handlers.SimpleRestApiHandler.OnRequestEnd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRestApi</a></td>          <td class="paramname"><span class="paramname"><em>api</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html">SimpleRestRequest</a></td>          <td class="paramname"><span class="paramname"><em>request</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html">SimpleRestResponse</a></td>          <td class="paramname"><span class="paramname"><em>response</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#a76c2721291c4ac8e6701922b0b6b8f5e">SimpleRest.Api.ISimpleRestApiHandler</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00040">40</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
 
 </div>
 </div>
@@ -469,7 +553,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#a1103fe01d567505bf8b5d3c54d1af176">SimpleRest.Api.ISimpleRestApiHandler</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00036">36</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00044">44</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
 
 </div>
 </div>
@@ -507,7 +591,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#a2c029b79f1d898eb5e24c361577a6def">SimpleRest.Api.ISimpleRestApiHandler</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00040">40</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00048">48</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
 
 </div>
 </div>
@@ -555,7 +639,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#a3213842f870e1c7a2accfbda8dea6399">SimpleRest.Api.ISimpleRestApiHandler</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00044">44</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00052">52</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
 
 </div>
 </div>
@@ -584,7 +668,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#af538703f17544bed1a172f450c7691b0">SimpleRest.Api.ISimpleRestApiHandler</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00048">48</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html#l00056">56</a> of file <a class="el" href="../../d9/d8c/SimpleRestApiHandler_8cs_source.html">SimpleRestApiHandler.cs</a>.</p>
 
 </div>
 </div>

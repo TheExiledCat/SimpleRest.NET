@@ -8,6 +8,8 @@ public interface ISimpleRestApiHandler
     public void OnRequestCreate(SimpleRestApi api, SimpleRestRequest request);
     public void OnBeforeResponseCreate(SimpleRestApi api, SimpleRestRequest request);
     public void OnResponseCreate(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response);
+    public void OnBeforeRequestEnd(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response);
+    public void OnRequestEnd(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response);
     public void OnLog(SimpleRestApi api, SimpleRestRequest request);
     public void OnHandleRequestStack(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response, Dictionary<UriTemplateMatch, SimpleRestMap> matches);
     public void OnRequestMatch(SimpleRestApi api, SimpleRestRequest request, SimpleRestResponse response, UriTemplateMatch match, SimpleRestMap routeMap);

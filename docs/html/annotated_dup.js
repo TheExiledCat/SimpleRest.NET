@@ -19,7 +19,13 @@ var annotated_dup =
         [ "SimpleRestUriTemplateHandler", "d5/d6b/classSimpleRest_1_1Api_1_1SimpleRestUriTemplateHandler.html", "d5/d6b/classSimpleRest_1_1Api_1_1SimpleRestUriTemplateHandler" ]
       ] ],
       [ "Handlers", "d9/dd7/namespaceSimpleRest_1_1Handlers.html", [
+        [ "ResourceNotFoundHandler", "d7/d96/classSimpleRest_1_1Handlers_1_1ResourceNotFoundHandler.html", "d7/d96/classSimpleRest_1_1Handlers_1_1ResourceNotFoundHandler" ],
         [ "SimpleRestApiHandler", "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html", "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler" ]
+      ] ],
+      [ "Views", "d3/da0/namespaceSimpleRest_1_1Views.html", [
+        [ "ISimpleRestView", "d8/def/interfaceSimpleRest_1_1Views_1_1ISimpleRestView.html", "d8/def/interfaceSimpleRest_1_1Views_1_1ISimpleRestView" ],
+        [ "ResourceNotFoundView", "d8/de0/classSimpleRest_1_1Views_1_1ResourceNotFoundView.html", "d8/de0/classSimpleRest_1_1Views_1_1ResourceNotFoundView" ],
+        [ "SimpleRestHomeView", "d0/dd5/classSimpleRest_1_1Views_1_1SimpleRestHomeView.html", "d0/dd5/classSimpleRest_1_1Views_1_1SimpleRestHomeView" ]
       ] ]
     ] ]
 ];

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Net;
 using Dumpify;
 using Newtonsoft.Json;
@@ -29,7 +30,8 @@ public class SimpleRestApi
     public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap>? OnApplyUriParams;
     public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap>? OnBeforeRunMiddleware;
     public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap>? OnRunMiddleware;
-
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse>? OnBeforeRequestEnd;
+    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse>? OnRequestEnd;
 
     int m_Port;
     public SimpleRestApi(int port, ISimpleRestLogger? logger = null, ISimpleRestContentTypeParser? responseParser = null, ISimpleRestUriTemplateFormatter? uriFormatter = null, ISimpleRestEndpointFormatter? endpointFormatter = null, JsonSerializerSettings? jsonSerializerSettings = null, Type? defaultIntType = null)
@@ -43,13 +45,27 @@ public class SimpleRestApi
         JsonConvert.DefaultSettings = () => jsonSerializerSettings ?? new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
         m_EndpointFormatter = endpointFormatter ?? new SimpleRestEndpointFormatter();
         m_DefaultIntType = defaultIntType ?? typeof(int);
+
+    }
+    void MapHandlers()
+    {
         foreach (ISimpleRestApiHandler handler in m_Handlers)
         {
             OnServerStart += handler.OnServerStart;
+            OnBeforeRequestCreate += handler.OnBeforeRequestCreate;
+            OnRequestCreate += handler.OnRequestCreate;
+            OnBeforeResponseCreate += handler.OnBeforeResponseCreate;
+            OnResponseCreate += handler.OnResponseCreate;
+            OnLog += handler.OnLog;
+            OnHandleRequestStack += handler.OnHandleRequestStack;
+            OnRequestMatch += handler.OnRequestMatch;
+            OnApplyUriParams += handler.OnApplyUriParams;
+            OnBeforeRunMiddleware += handler.OnBeforeRunMiddleware;
+            OnRunMiddleware += handler.OnRunMiddleware;
+            OnBeforeRequestEnd += handler.OnBeforeRequestEnd;
+            OnRequestEnd += handler.OnRequestEnd;
         }
-
     }
-
     void AddMiddleware(string endpoint, SimpleRestMethod method, ApiMiddleWare middleWare)
     {
         m_Middleware.Add(new SimpleRestMap(endpoint, method, middleWare, m_UriTemplateFormatter));
@@ -118,6 +134,8 @@ public class SimpleRestApi
         {
 
             m_Listener.Start();
+            MapHandlers();
+
             OnServerStart?.Invoke(this);
             OnStartup?.Invoke(m_Port, m_Listener.Prefixes.First().Replace("*", "localhost"));
             while (true)
@@ -135,8 +153,10 @@ public class SimpleRestApi
                     m_Logger.Log(request);
                     OnLog?.Invoke(this, request);
                     await RunMiddleWare(request, response);
-
+                    OnBeforeRequestEnd?.Invoke(this, request, response);
                     context.Response.Close();
+                    OnRequestEnd?.Invoke(this, request, response);
+
                 }
                 catch (Exception e)
                 {

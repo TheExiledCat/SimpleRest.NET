@@ -1,0 +1,9 @@
+<map id="SimpleRest.Api.SimpleRestApi.Start" name="SimpleRest.Api.SimpleRestApi.Start">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,204,77"/>
+<area shape="rect" id="Node000002" href="$d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#abca4d7085f06c43ac98030b4b887f1ef" title="Factory function creating a Request object with all http request info stored on it." alt="" coords="252,5,495,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,43,238,39,238,44,205,48"/>
+<area shape="rect" id="Node000004" href="$de/d5d/interfaceSimpleRest_1_1Api_1_1ISimpleRestLogger.html#a36c03d7ca20a63362a6e91fbea143577" title=" " alt="" coords="272,69,475,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="205,67,259,73,258,78,204,72"/>
+<area shape="rect" id="Node000003" href="$de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html#a976a52325e73e9d4612cbb80d2aecfac" title=" " alt="" coords="543,5,741,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="495,23,529,23,529,28,495,28"/>
+</map>
