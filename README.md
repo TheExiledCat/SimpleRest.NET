@@ -137,4 +137,4 @@ its also possible to add extension methods to the SimpleRestApi class to inject 
 
 ## Documentation
 
-See the [Documentation website] (https://theexiledcat.github.io/SimpleRest.NET/html/index.html)
+See the [Documentation website](https://theexiledcat.github.io/SimpleRest.NET/html/index.html)
