@@ -24,7 +24,7 @@ then add the using tag `using SimpleRest.Api`
 
 ## Basic Setup
 
-The simplest way to create an API with SimpleRest.NET is to create a new instance of `SimpleRestApi` and define your routes. The following example shows how to set up a basic API with logging enabled:
+The simplest way to create an API with SimpleRest.NET is to create a new instance of the `SimpleRest.Api.SimpleRestApi` class and define your routes. The following example shows how to set up a basic API with logging enabled:
 
 ```csharp
 using SimpleRest.Api;
@@ -52,7 +52,7 @@ api.Get("/users/{id}", async (req, res) =>
 {
     object? id = req.Params["id"];
     string? name = req.Query["name"] as string;
-    
+
     res.Send($"User ID: {id}, Name: {name ?? "Not provided"}");
 });
 
@@ -62,7 +62,7 @@ api.Get("/api/organizations/{orgId}/projects/{projectId}", async (req, res) =>
     object? orgId = req.Params["orgId"];
     object? projectId = req.Params["projectId"];
 
-    res.Send(new { 
+    res.Send(new {
         Organization = orgId,
         Project = projectId
     });
@@ -87,16 +87,16 @@ api.Post("/users", async (req, res) =>
     if (user != null)
     {
         // Response will automatically be serialized to JSON
-        res.Send(new { 
-            Success = true, 
-            Message = $"User {user.Name} created" 
+        res.Send(new {
+            Success = true,
+            Message = $"User {user.Name} created"
         });
     }
     else
     {
-        res.Send(new { 
-            Success = false, 
-            Message = "Invalid user data" 
+        res.Send(new {
+            Success = false,
+            Message = "Invalid user data"
         });
     }
 });
@@ -120,7 +120,7 @@ api.Get("/info", async (req, res) =>
 
 ## Shared Route Logic
 
-The `Map` method allows you to apply shared logic to a route regardless of the HTTP method:
+The `Map` method allows you to apply shared logic to a route regardless of the HTTP method by mapping Middleware:
 
 ```csharp
 api.Map("/api/items/{id}", async (req, res) =>
@@ -171,7 +171,7 @@ class Program
             object? projectId = req.Params["projectId"];
             string? filter = req.Query["filter"] as string;
 
-            res.Send(new { 
+            res.Send(new {
                 Organization = orgId,
                 Project = projectId,
                 Filter = filter
@@ -205,28 +205,32 @@ class User
 - **Automatic JSON Serialization**: Response objects are automatically serialized to JSON or another corresponding type
 - **URI Templates**: Following RFC 6570 specification
 - **Query Parameters**: Accessible via `req.Query["paramName"]`(TODO: remove need for manual typecast)
-- **URI Parameters**: Accessible via `req.Params["paramName"]` (TODO: remove need for manual typecast)
+- **URI Parameters**: Accessible via `req.Params["paramName"]` or `req.Params.TryGet<paramTypes>(out param1, outparam2, etc...)`
 - **Request Body Parsing**: Using `req.Body.As<T>()`
 - **Logging**: Built-in configurable logging system
 
 ## Common Usage Patterns
 
 ### Accessing Query Parameters
+
 ```csharp
 string? value = req.Query["paramName"] as string;
 ```
 
 ### Parsing Request Body
+
 ```csharp
 TBody? data = req.Body?.As<TBody>();
 ```
 
 ### Using URL Parameters
+
 ```csharp
 int? id = req.Params["id"] as int?;
 ```
 
 ### Setting Response Data
+
 ```csharp
 res.Send(new { message = "Success" });
 ```
@@ -236,6 +240,5 @@ res.Send(new { message = "Success" });
 - The framework uses URI templates following the `RFC 6570` specification
 - All handlers are async to ensure better performance
 - JSON serialization is handled automatically
-- The logging system can be configured with different levels (NONE, LOW, MEDIUM, HIGH, LONG, DEBUG), you can also create your own loger by implementing `ISimpleRestLogger`
+- The logging system can be configured with different levels (NONE, LOW, MEDIUM, HIGH, LONG, DEBUG), you can also create your own logger by implementing `ISimpleRestLogger`
 - Route parameters are strongly typed when accessed and must be manually converted from `object?` to their corresponding type
-- Framework is NativeAOT compatible

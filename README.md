@@ -5,10 +5,12 @@
 <h3 style="color:pink"> <i>The simplest Rest Api framework for .Net</i></h3>
 
 ## Introduction
-SimpleREST.Net is a lightweight, easy-to-use, and highly customizable REST API framework for .Net 
+
+SimpleREST.Net is a lightweight, easy-to-use, and highly customizable REST API framework for .Net
 intended for creating small, fast and expendable RestAPis without any larger dependencies like in ASP.NET.
 
 SimpleRest.Net was heavily based on express.js, so users familiar with express can easily migrate to .NET applications and libraries with SimpleRest.Net
+
 ## Installation 🔧
 
 <a href="https://www.nuget.org/packages/SimpleRestApi/" target="_blank"><img alt="Nuget link" src="https://img.shields.io/nuget/v/SimpleRestApi?style=for-the-badge&logo=nuget&logoSize=auto&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FSimpleRestApi%2F"></a>
@@ -96,11 +98,19 @@ To create a basic rest api and serve it on a host and port number all you need t
   });
   ```
 
+- Custom Api Handlers by inheriting from SimpleRestApiHandler
+
+```csharp
+  //example handler:
+  api.Use(new ResourceNotFoundHandler());
+  //every handler has overrides that get called by events in the api
+  //This example will return a 404 on the response object
+  //if after the middleware stack no middleware returned a response
+```
+
 - Expandable
 
   - using dependency injection(DI), Extension methods, Custom Middleware or Middleware handlers
-
-
 
 ## Planned Features
 
@@ -118,7 +128,7 @@ To create a basic rest api and serve it on a host and port number all you need t
 The SimpleRestApi Constructor allows for easy extending through dependency injection by adding your own custom implementations for things like:
 
 - Loggers `ISimpleRestLogger`
-- Formatting `ISimpleRestUriTemplateFormatter` 
+- Formatting `ISimpleRestUriTemplateFormatter`
 - Endpoint and route parsing `ISimpleRestEndpointFormatter`
 - Middleware handlers and Api Handlers `ISimpleRestApiHandler`
 - _More to come_
@@ -126,4 +136,5 @@ The SimpleRestApi Constructor allows for easy extending through dependency injec
 its also possible to add extension methods to the SimpleRestApi class to inject your own custom optional functions
 
 ## Documentation
+
 See the [Documentation website] (https://theexiledcat.github.io/SimpleRest.NET/html/index.html)
