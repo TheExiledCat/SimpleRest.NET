@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['data_0',['Setting Response Data',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md24',1,'']]],
-  ['debug_1',['DEBUG',['../df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8adc30ec20708ef7b0f641ef78b7880a15',1,'SimpleRest::Api']]],
-  ['delete_2',['DELETE',['../df/dba/namespaceSimpleRest_1_1Api.html#ada4eac4d8de31c19a9aa2abd91c5a909a32f68a60cef40faedbc6af20298c1a1e',1,'SimpleRest::Api']]],
-  ['delete_3',['Delete',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a9c2e0a6248ff7f3a9d85d6315e72346f',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['documentation_4',['Documentation',['../index.html#autotoc_md7',1,'']]]
+  ['endpoint_0',['Endpoint',['../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#a01928470a90bf7d66f076f878bd75a22',1,'SimpleRest.Api.SimpleRestMap.Endpoint'],['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a887b159a1571cc3ab9d55c15e6d04448',1,'SimpleRest.Api.SimpleRestRequest.Endpoint']]],
+  ['enums_2ecs_1',['Enums.cs',['../df/d40/Enums_8cs.html',1,'']]],
+  ['example_2',['Complete Example',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md18',1,'']]],
+  ['example_20✅_3',['Example ✅',['../index.html#autotoc_md3',1,'']]],
+  ['examples_4',['SimpleRest.NET Examples',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md12',1,'']]],
+  ['extending_5',['Extending',['../index.html#autotoc_md6',1,'']]],
+  ['extensions_2ecs_6',['Extensions.cs',['../d9/dff/Extensions_8cs.html',1,'']]]
 ];

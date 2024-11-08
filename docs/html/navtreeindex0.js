@@ -2,12 +2,8 @@ var NAVTREEINDEX0 =
 {
 "annotated.html":[3,0],
 "classes.html":[3,1],
-"d0/d58/Release_2net8_80_2SimpleRest_8GlobalUsings_8g_8cs.html":[4,0,1,4,1,0,2],
-"d0/d58/Release_2net8_80_2SimpleRest_8GlobalUsings_8g_8cs_source.html":[4,0,1,4,1,0,2],
 "d0/d5f/ISimpleRestContentTypeParser_8cs.html":[4,0,1,3,1],
 "d0/d5f/ISimpleRestContentTypeParser_8cs_source.html":[4,0,1,3,1],
-"d0/da1/Debug_2net8_80_2SimpleRest_8AssemblyInfo_8cs.html":[4,0,1,4,0,0,1],
-"d0/da1/Debug_2net8_80_2SimpleRest_8AssemblyInfo_8cs_source.html":[4,0,1,4,0,0,1],
 "d0/dd5/classSimpleRest_1_1Views_1_1SimpleRestHomeView.html":[2,0,0,3,2],
 "d0/dd5/classSimpleRest_1_1Views_1_1SimpleRestHomeView.html":[3,0,0,2,2],
 "d0/dd5/classSimpleRest_1_1Views_1_1SimpleRestHomeView.html#a457cf2f936d2e72b1c283638bcc9abf6":[2,0,0,3,2,1],
@@ -128,8 +124,6 @@ var NAVTREEINDEX0 =
 "d5/df0/SimpleRestContentTypeParser_8cs_source.html":[4,0,1,1,3],
 "d5/dfe/SimpleRestResponse_8cs.html":[4,0,1,0,4],
 "d5/dfe/SimpleRestResponse_8cs_source.html":[4,0,1,0,4],
-"d7/d3a/Debug_2net8_80_2_8NETCoreApp_00Version_0av8_80_8AssemblyAttributes_8cs.html":[4,0,1,4,0,0,0],
-"d7/d3a/Debug_2net8_80_2_8NETCoreApp_00Version_0av8_80_8AssemblyAttributes_8cs_source.html":[4,0,1,4,0,0,0],
 "d7/d86/namespaceSimpleRest.html":[2,0,0],
 "d7/d96/classSimpleRest_1_1Handlers_1_1ResourceNotFoundHandler.html":[2,0,0,2,0],
 "d7/d96/classSimpleRest_1_1Handlers_1_1ResourceNotFoundHandler.html":[3,0,0,1,0],
@@ -249,5 +243,11 @@ var NAVTREEINDEX0 =
 "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a61b4a8e23791b582b520bf82ae937f6b":[3,0,0,1,1,7],
 "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a65381809de94a2a94457a95f6101363b":[2,0,0,2,1,5],
 "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a65381809de94a2a94457a95f6101363b":[3,0,0,1,1,5],
-"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a766f9e827470426d8dda0d8873f00804":[2,0,0,2,1,3]
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a766f9e827470426d8dda0d8873f00804":[2,0,0,2,1,3],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a766f9e827470426d8dda0d8873f00804":[3,0,0,1,1,3],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a9a360bf31c75fbb542d33fc339fcf1f0":[2,0,0,2,1,6],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a9a360bf31c75fbb542d33fc339fcf1f0":[3,0,0,1,1,6],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a9cd93828114bb43a75b55163e3cd7375":[2,0,0,2,1,9],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a9cd93828114bb43a75b55163e3cd7375":[3,0,0,1,1,9],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a9f0ed2f6672c2113ff87fdebfaa20951":[2,0,0,2,1,0]
 };
