@@ -1,10 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net8.0;net7.0;net6.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <!-- <PublishAot>true</PublishAot> -->
+    <Nullable>enable</Nullable><!-- <PublishAot>true</PublishAot> -->
     <PackageId>SimpleRestApi</PackageId>
     <Version>0.0.1.01</Version>
     <Authors>Amano Rosuko</Authors>
@@ -16,9 +15,9 @@
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Dumpify" Version="0.6.6" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <None Include="../README.md" Pack="true" PackagePath="./" />
-    <PackageReference Include="UriTemplate.core" Version="1.0.2" />
+    <PackageReference Include="Dumpify" Version="0.6.6"/>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+    <None Include="../README.md" Pack="true" PackagePath="./"/>
+    <PackageReference Include="UriTemplate.core" Version="1.0.2"/>
   </ItemGroup>
 </Project>

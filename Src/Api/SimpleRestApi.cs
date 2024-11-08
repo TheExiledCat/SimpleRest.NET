@@ -17,11 +17,11 @@ public class SimpleRestApi
     ISimpleRestContentTypeParser m_ResponseTypeParser;
     ISimpleRestUriTemplateFormatter m_UriTemplateFormatter;
     ISimpleRestEndpointFormatter m_EndpointFormatter;
-    List<ISimpleRestApiHandler> m_Handlers = [];
+    List<ISimpleRestApiHandler> m_Handlers = new List<ISimpleRestApiHandler>();
     HttpListener m_Listener;
     int m_Port;
 
-    List<SimpleRestMap> m_Middleware = [];
+    List<SimpleRestMap> m_Middleware = new List<SimpleRestMap>();
     Type m_DefaultIntType;
     public event Action<SimpleRestApi>? OnServerStart;
     public event Action<SimpleRestApi>? OnBeforeRequestCreate;
@@ -246,7 +246,7 @@ public class SimpleRestApi
     void ApplyUriParams(UriTemplateMatch match, SimpleRestRequest request)
     {
         match.Dump();
-        Dictionary<string, object?> paramsToAdd = [];
+        Dictionary<string, object?> paramsToAdd = new Dictionary<string, object?>();
         foreach (string key in match.Bindings.Keys)
         {
             paramsToAdd.Add(key, match.Bindings[key].Value);
