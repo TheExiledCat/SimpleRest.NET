@@ -112,12 +112,6 @@ var NAVTREEINDEX0 =
 "d3/d69/classSimpleRest_1_1Api_1_1SimpleRestRequestBody.html#af0dbc5601eeb626a4d8e8c0c7be46308":[3,0,0,0,13,1],
 "d3/d69/classSimpleRest_1_1Api_1_1SimpleRestRequestBody.html#af0dbc5601eeb626a4d8e8c0c7be46308":[4,0,0,0,13,1],
 "d3/da0/namespaceSimpleRest_1_1Views.html":[3,0,0,3],
-"d3/dc9/namespaceTryGet.html":[3,0,1],
-"d3/dc9/namespaceTryGet.html#a14778086c54e210abdc0bbae81f3e0fc":[3,0,1,3],
-"d3/dc9/namespaceTryGet.html#a369d7749802a753f3a02aa318b9c4da4":[3,0,1,0],
-"d3/dc9/namespaceTryGet.html#a7bf0405a94542aba7cf6824b6f5b060d":[3,0,1,1],
-"d3/dc9/namespaceTryGet.html#a84023e370fc1ca2e18816ec80c85c09f":[3,0,1,2],
-"d3/dc9/namespaceTryGet.html#abb450b6c8d4e18d8f5c48c7294ed3cbb":[3,0,1,4],
 "d4/d40/md_CHANGELOG.html":[2],
 "d4/d40/md_CHANGELOG.html#autotoc_md27":[2,0],
 "d4/d40/md_CHANGELOG.html#autotoc_md28":[2,0,0],
@@ -249,5 +243,11 @@ var NAVTREEINDEX0 =
 "d8/de0/classSimpleRest_1_1Views_1_1ResourceNotFoundView.html#af8b47bb6a46f2ff8eea038edc38d61f0":[3,0,0,3,1,1],
 "d8/de0/classSimpleRest_1_1Views_1_1ResourceNotFoundView.html#af8b47bb6a46f2ff8eea038edc38d61f0":[4,0,0,2,1,1],
 "d8/def/interfaceSimpleRest_1_1Views_1_1ISimpleRestView.html":[3,0,0,3,0],
-"d8/def/interfaceSimpleRest_1_1Views_1_1ISimpleRestView.html":[4,0,0,2,0]
+"d8/def/interfaceSimpleRest_1_1Views_1_1ISimpleRestView.html":[4,0,0,2,0],
+"d8/def/interfaceSimpleRest_1_1Views_1_1ISimpleRestView.html#a567b43de119e4f82ee433bf163973a78":[3,0,0,3,0,0],
+"d8/def/interfaceSimpleRest_1_1Views_1_1ISimpleRestView.html#a567b43de119e4f82ee433bf163973a78":[4,0,0,2,0,0],
+"d8/def/interfaceSimpleRest_1_1Views_1_1ISimpleRestView.html#a775d9a2cb5789927a7dd4d2d648b7066":[3,0,0,3,0,1],
+"d8/def/interfaceSimpleRest_1_1Views_1_1ISimpleRestView.html#a775d9a2cb5789927a7dd4d2d648b7066":[4,0,0,2,0,1],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html":[3,0,0,2,1],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html":[4,0,0,1,1]
 };
