@@ -166,8 +166,7 @@ class Program
         // Route with multiple parameters and query string
         api.Get("/api/organizations/{orgId}/projects/{projectId}", async (req, res) =>
         {
-            object? orgId = req.Params["orgId"];
-            object? projectId = req.Params["projectId"];
+            req.Params.TryGet(out int orgId, out int projectId);
             string? filter = req.Query["filter"] as string;
 
             res.Send(new {

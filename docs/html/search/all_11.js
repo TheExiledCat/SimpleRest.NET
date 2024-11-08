@@ -1,16 +1,5 @@
 var searchData=
 [
-  ['readme_2emd_0',['README.md',['../da/ddd/README_8md.html',1,'']]],
-  ['request_20body_1',['Parsing Request Body',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md22',1,'']]],
-  ['request_20information_2',['Request Information',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md16',1,'']]],
-  ['request_20response_20handling_3',['JSON Request/Response Handling',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md15',1,'']]],
-  ['resourcenotfoundhandler_4',['ResourceNotFoundHandler',['../d7/d96/classSimpleRest_1_1Handlers_1_1ResourceNotFoundHandler.html',1,'SimpleRest::Handlers']]],
-  ['resourcenotfoundhandler_2ecs_5',['ResourceNotFoundHandler.cs',['../d5/da4/ResourceNotFoundHandler_8cs.html',1,'']]],
-  ['resourcenotfoundview_6',['ResourceNotFoundView',['../d8/de0/classSimpleRest_1_1Views_1_1ResourceNotFoundView.html',1,'SimpleRest::Views']]],
-  ['resourcenotfoundview_2ecs_7',['ResourceNotFoundView.cs',['../d5/dd7/ResourceNotFoundView_8cs.html',1,'']]],
-  ['response_8',['Response',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a9801537d19f71dc18580f13a13c9f6c6',1,'SimpleRest::Api::SimpleRestResponse']]],
-  ['response_20data_9',['Setting Response Data',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md24',1,'']]],
-  ['response_20handling_10',['JSON Request/Response Handling',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md15',1,'']]],
-  ['result_11',['Result',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a9633bca41e4d89c56765a944e6a9780b',1,'SimpleRest::Api::SimpleRestResponse']]],
-  ['route_20logic_12',['Shared Route Logic',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md17',1,'']]]
+  ['query_0',['Query',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a0ad66807922596fcefd9eff3a34df02b',1,'SimpleRest.Api.SimpleRestRequest.Query'],['../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html#ac3efc083439da9d1e9ac55ac3b5d0456',1,'SimpleRest.Api.SimpleRestQuery.Query'],['../da/d93/interfaceSimpleRest_1_1Api_1_1ISimpleRestQuery.html#aa2fb6f3a778137e0fcad4b8aa4de668a',1,'SimpleRest.Api.ISimpleRestQuery.Query']]],
+  ['query_20parameters_1',['Accessing Query Parameters',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md21',1,'']]]
 ];

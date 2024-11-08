@@ -207,14 +207,13 @@ Features ⤵️</h2>
 <div class="line">  User? user = req.Body.As&lt;User&gt;()</div>
 <div class="line">});</div>
 </div><!-- fragment --></li>
-<li>Custom Api Handlers by inheriting from <code>SimpleRest.Api.SimpleRestApiHandler</code></li>
-</ul>
+<li><p class="startli">Custom Api Handlers by inheriting from <code>SimpleRest.Api.SimpleRestApiHandler</code></p>
 <div class="fragment"><div class="line"><span class="comment">//example handler:</span></div>
 <div class="line">api.Use(<span class="keyword">new</span> ResourceNotFoundHandler());</div>
 <div class="line"><span class="comment">//every handler has overrides that get called by events in the api</span></div>
 <div class="line"><span class="comment">//This example will return a 404 on the response object</span></div>
 <div class="line"><span class="comment">//if after the middleware stack no middleware returned a response</span></div>
-</div><!-- fragment --><ul>
+</div><!-- fragment --></li>
 <li>Expandable<ul>
 <li>using dependency injection(DI), Extension methods, Custom Middleware or Middleware handlers</li>
 </ul>

@@ -100,13 +100,13 @@ To create a basic rest api and serve it on a host and port number all you need t
 
 - Custom Api Handlers by inheriting from `SimpleRest.Api.SimpleRestApiHandler`
 
-```csharp
-  //example handler:
-  api.Use(new ResourceNotFoundHandler());
-  //every handler has overrides that get called by events in the api
-  //This example will return a 404 on the response object
-  //if after the middleware stack no middleware returned a response
-```
+  ```csharp
+    //example handler:
+    api.Use(new ResourceNotFoundHandler());
+    //every handler has overrides that get called by events in the api
+    //This example will return a 404 on the response object
+    //if after the middleware stack no middleware returned a response
+  ```
 
 - Expandable
 

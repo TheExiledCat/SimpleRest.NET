@@ -9,7 +9,7 @@ var searchData=
   ['simplerestmap_6',['SimpleRestMap',['../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html',1,'SimpleRest::Api']]],
   ['simplerestquery_7',['SimpleRestQuery',['../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html',1,'SimpleRest::Api']]],
   ['simplerestrequest_8',['SimpleRestRequest',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html',1,'SimpleRest::Api']]],
-  ['simplerestrequestbody_9',['SimpleRestRequestBody',['../dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1SimpleRestRequestBody.html',1,'SimpleRest::Api::SimpleRestRequest']]],
+  ['simplerestrequestbody_9',['SimpleRestRequestBody',['../d3/d69/classSimpleRest_1_1Api_1_1SimpleRestRequestBody.html',1,'SimpleRest::Api']]],
   ['simplerestresponse_10',['SimpleRestResponse',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html',1,'SimpleRest::Api']]],
   ['simpleresturitemplatehandler_11',['SimpleRestUriTemplateHandler',['../d5/d6b/classSimpleRest_1_1Api_1_1SimpleRestUriTemplateHandler.html',1,'SimpleRest::Api']]]
 ];

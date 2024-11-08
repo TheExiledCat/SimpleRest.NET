@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['n_0',['n',['../d3/dc9/namespaceTryGet.html#abb450b6c8d4e18d8f5c48c7294ed3cbb',1,'TryGet']]],
-  ['nativeextensions_2ecs_1',['NativeExtensions.cs',['../d2/d53/NativeExtensions_8cs.html',1,'']]],
-  ['net_2',['SimpleREST.NET',['../index.html',1,'']]],
-  ['net_3',['SimpleREST.Net',['../index.html#autotoc_md0',1,'']]],
-  ['net_20examples_4',['SimpleRest.NET Examples',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md12',1,'']]],
-  ['none_5',['NONE',['../df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8ab50339a10e1de285ac99d4c3990b8693',1,'SimpleRest::Api']]],
-  ['notes_6',['Notes',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md25',1,'']]],
-  ['nuget_3a_7',['Using NuGet:',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md10',1,'']]]
+  ['map_0',['Map',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a0e70e5629089887d23a2d21ae42074ac',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['medium_1',['MEDIUM',['../df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8ac87f3be66ffc3c0d4249f1c2cc5f3cce',1,'SimpleRest::Api']]],
+  ['method_2',['Method',['../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#aa67549aec1dfbf8de9b9fcab93a45668',1,'SimpleRest.Api.SimpleRestMap.Method'],['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#aea3f4b64f3db73d6b46f2ae57cc4d89b',1,'SimpleRest.Api.SimpleRestRequest.Method']]],
+  ['middleware_3',['Middleware',['../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#a83bb42d7aae71924adb8e388b6693d62',1,'SimpleRest::Api::SimpleRestMap']]]
 ];

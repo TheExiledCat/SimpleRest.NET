@@ -1,9 +1,16 @@
 var searchData=
 [
-  ['handling_0',['JSON Request/Response Handling',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md15',1,'']]],
-  ['hascompleted_1',['HasCompleted',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#ad70801b4a0e5d9815fe23449a745a19b',1,'SimpleRest::Api::SimpleRestResponse']]],
-  ['head_2',['HEAD',['../df/dba/namespaceSimpleRest_1_1Api.html#ada4eac4d8de31c19a9aa2abd91c5a909ae15e216fc1c639f787b1231ecdfa1bf8',1,'SimpleRest::Api']]],
-  ['head_3',['Head',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a4f468b38d7bd34fdb0382a8cdeeecf11',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['headers_4',['Headers',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a17a7f4fcc4e9b52d7a54d4a4a0d80fbe',1,'SimpleRest::Api::SimpleRestRequest']]],
-  ['high_5',['HIGH',['../df/dba/namespaceSimpleRest_1_1Api.html#a213e4074609286d386cb9de95b93bac8ab89de3b4b81c4facfac906edf29aec8c',1,'SimpleRest::Api']]]
+  ['generate_5fcs_5fscript_0',['generate_cs_script',['../d3/dc9/namespaceTryGet.html#a369d7749802a753f3a02aa318b9c4da4',1,'TryGet']]],
+  ['get_1',['GET',['../df/dba/namespaceSimpleRest_1_1Api.html#ada4eac4d8de31c19a9aa2abd91c5a909a7528035a93ee69cedb1dbddb2f0bfcc8',1,'SimpleRest::Api']]],
+  ['get_2',['Get',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c',1,'SimpleRest::Api::SimpleRestApi']]],
+  ['getbytes_3',['GetBytes',['../d8/de0/classSimpleRest_1_1Views_1_1ResourceNotFoundView.html#a40e250edc2729ad67c90735887fa9644',1,'SimpleRest.Views.ResourceNotFoundView.GetBytes()'],['../d0/dd5/classSimpleRest_1_1Views_1_1SimpleRestHomeView.html#afa0b65cdb79bebb1dc023e4fc30df6a2',1,'SimpleRest.Views.SimpleRestHomeView.GetBytes()'],['../d8/def/interfaceSimpleRest_1_1Views_1_1ISimpleRestView.html#a567b43de119e4f82ee433bf163973a78',1,'SimpleRest.Views.ISimpleRestView.GetBytes()']]],
+  ['getcontent_3c_20tbody_20_3e_4',['GetContent&lt; TBody &gt;',['../d3/d69/classSimpleRest_1_1Api_1_1SimpleRestRequestBody.html#a871e3ffec25bb5fb6a90b2dccf63135f',1,'SimpleRest::Api::SimpleRestRequestBody']]],
+  ['getendpoint_5',['GetEndpoint',['../d2/d91/classSimpleRest_1_1Api_1_1SimpleRestEndpointFormatter.html#a155bcb35e64ba0caa59f702265c1cb2e',1,'SimpleRest.Api.SimpleRestEndpointFormatter.GetEndpoint()'],['../d4/dfa/interfaceSimpleRest_1_1Api_1_1ISimpleRestEndpointFormatter.html#ab3e82d7fb561ace82b3d3bb621c4fa33',1,'SimpleRest.Api.ISimpleRestEndpointFormatter.GetEndpoint()']]],
+  ['getrelativefilepath_6',['GetRelativeFilePath',['../d0/dd5/classSimpleRest_1_1Views_1_1SimpleRestHomeView.html#a457cf2f936d2e72b1c283638bcc9abf6',1,'SimpleRest::Views::SimpleRestHomeView']]],
+  ['gettemplatepattern_7',['GetTemplatePattern',['../d5/d6b/classSimpleRest_1_1Api_1_1SimpleRestUriTemplateHandler.html#acfd33ce2451f0f0f4697f137ac1d804a',1,'SimpleRest.Api.SimpleRestUriTemplateHandler.GetTemplatePattern()'],['../d1/db5/interfaceSimpleRest_1_1Api_1_1ISimpleRestUriTemplateFormatter.html#a9aafb173bd7afc702b66e264c5fa86e3',1,'SimpleRest.Api.ISimpleRestUriTemplateFormatter.GetTemplatePattern()']]],
+  ['getting_20started_8',['Getting Started',['../d1/d57/md_guides_2Getting_01Started.html',1,'']]],
+  ['getting_20started_2emd_9',['Getting Started.md',['../d4/d21/Getting_01Started_8md.html',1,'']]],
+  ['gettype_3c_20t_20_3e_10',['GetType&lt; T &gt;',['../d4/dfc/classSimpleRest_1_1Api_1_1SimpleRestContentTypeParser.html#a5b84a0d20c9c349dd19a99f75f3c0b51',1,'SimpleRest.Api.SimpleRestContentTypeParser.GetType&lt; T &gt;()'],['../da/d0d/interfaceSimpleRest_1_1Api_1_1ISimpleRestContentTypeParser.html#af71d804a247590f968049a8d6bb9be9d',1,'SimpleRest.Api.ISimpleRestContentTypeParser.GetType&lt; T &gt;()']]],
+  ['getview_11',['GetView',['../d8/de0/classSimpleRest_1_1Views_1_1ResourceNotFoundView.html#af8b47bb6a46f2ff8eea038edc38d61f0',1,'SimpleRest.Views.ResourceNotFoundView.GetView()'],['../d0/dd5/classSimpleRest_1_1Views_1_1SimpleRestHomeView.html#a9fc7f8951dcb6d79104f5c4d3db7f37f',1,'SimpleRest.Views.SimpleRestHomeView.GetView()'],['../d8/def/interfaceSimpleRest_1_1Views_1_1ISimpleRestView.html#a775d9a2cb5789927a7dd4d2d648b7066',1,'SimpleRest.Views.ISimpleRestView.GetView()']]],
+  ['git_12',['Or from source using git',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md11',1,'']]]
 ];

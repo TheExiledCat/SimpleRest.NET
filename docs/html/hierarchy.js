@@ -27,6 +27,6 @@ var hierarchy =
     [ "SimpleRest.Api.SimpleRestApi", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html", null ],
     [ "SimpleRest.Api.SimpleRestMap", "da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html", null ],
     [ "SimpleRest.Api.SimpleRestRequest", "d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html", null ],
-    [ "SimpleRest.Api.SimpleRestRequest.SimpleRestRequestBody", "dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1SimpleRestRequestBody.html", null ],
+    [ "SimpleRest.Api.SimpleRestRequestBody", "d3/d69/classSimpleRest_1_1Api_1_1SimpleRestRequestBody.html", null ],
     [ "SimpleRest.Api.SimpleRestResponse", "d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html", null ]
 ];

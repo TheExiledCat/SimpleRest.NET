@@ -1,6 +1,5 @@
 var classSimpleRest_1_1Api_1_1SimpleRestRequest =
 [
-    [ "SimpleRestRequestBody", "dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1SimpleRestRequestBody.html", "dd/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest_1_1SimpleRestRequestBody" ],
     [ "Body", "d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a97d4ebf1835dcae603cfdf14bfcc69a3", null ],
     [ "ContentLength", "d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#acef052ba5d9ab1a2404373ddf2df130f", null ],
     [ "ContentType", "d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#acc1174e742762df8375238f662a7cfc7", null ],
