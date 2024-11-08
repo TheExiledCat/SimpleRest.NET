@@ -1,4 +1,4 @@
-namespace SimpleRest.Api;
+﻿namespace SimpleRest.Api;
 public interface ISimpleRestContentTypeParser
 {
     Dictionary<Type, string> ContentTypes { get; }

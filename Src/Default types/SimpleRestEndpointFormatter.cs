@@ -1,4 +1,4 @@
-namespace SimpleRest.Api;
+﻿namespace SimpleRest.Api;
 public class SimpleRestEndpointFormatter : ISimpleRestEndpointFormatter
 {
     bool m_IgnoreTrailingSlash;

@@ -1,4 +1,4 @@
-namespace SimpleRest.Api;
+﻿namespace SimpleRest.Api;
 public interface ISimpleRestLogger
 {
     public void Log(string customMessage, SimpleRestLogLevel? logLevel = null);

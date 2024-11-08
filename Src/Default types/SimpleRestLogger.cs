@@ -1,4 +1,4 @@
-using Dumpify;
+﻿using Dumpify;
 namespace SimpleRest.Api;
 
 public class SimpleRestLogger : ISimpleRestLogger

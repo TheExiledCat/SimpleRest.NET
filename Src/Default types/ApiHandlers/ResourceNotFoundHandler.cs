@@ -1,4 +1,4 @@
-using SimpleRest.Api;
+﻿using SimpleRest.Api;
 
 namespace SimpleRest.Handlers;
 using SimpleRest.Views;

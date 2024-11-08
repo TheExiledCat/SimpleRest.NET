@@ -1,4 +1,4 @@
-namespace SimpleRest.Views;
+﻿namespace SimpleRest.Views;
 public interface ISimpleRestView
 {
     public string GetView();

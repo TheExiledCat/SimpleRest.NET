@@ -1,4 +1,4 @@
-namespace SimpleRest.Api;
+﻿namespace SimpleRest.Api;
 public class SimpleRestUriTemplateHandler : ISimpleRestUriTemplateFormatter
 {
     public string GetTemplatePattern(string originalTemplatePattern)

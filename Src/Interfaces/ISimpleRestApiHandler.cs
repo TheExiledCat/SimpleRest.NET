@@ -1,4 +1,4 @@
-using UriTemplate.Core;
+﻿using UriTemplate.Core;
 
 namespace SimpleRest.Api;
 public interface ISimpleRestApiHandler

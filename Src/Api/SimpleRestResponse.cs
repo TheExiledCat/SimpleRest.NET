@@ -1,7 +1,8 @@
-using System.Net;
+﻿using System.Net;
 using System.Text;
 using Newtonsoft.Json;
 using SimpleRest.Views;
+
 namespace SimpleRest.Api;
 
 public class SimpleRestResponse
@@ -15,7 +16,8 @@ public class SimpleRestResponse
     ushort statusCode = 200;
     public ushort StatusCode
     {
-        get => statusCode; set
+        get => statusCode;
+        set
         {
             if (value.ToString().Length == 3)
             {
@@ -23,11 +25,13 @@ public class SimpleRestResponse
             }
         }
     }
+
     public SimpleRestResponse(HttpListenerResponse response, ISimpleRestContentTypeParser parser)
     {
         Response = response;
         m_TypeParser = parser;
     }
+
     public void Send<T>(T result)
     {
         if (result == null)
@@ -45,11 +49,10 @@ public class SimpleRestResponse
         Response?.Close();
         HasCompleted = true;
         OnSend?.Invoke(finalOutput);
-
     }
+
     public void View(string content, string contentType = "text/html; charset=urf-8")
     {
-
         ContentType = contentType;
         byte[] buffer = Encoding.UTF8.GetBytes(content);
         Response.ContentLength64 = buffer.Length;
@@ -60,11 +63,10 @@ public class SimpleRestResponse
         Response?.Close();
         HasCompleted = true;
         OnSend?.Invoke(content);
-
     }
+
     public void View(ISimpleRestView view, string contentType = "text/html; charset=urf-8")
     {
-
         ContentType = contentType;
         byte[] buffer = Encoding.UTF8.GetBytes(view.GetView());
         Response.ContentLength64 = buffer.Length;
@@ -75,6 +77,5 @@ public class SimpleRestResponse
         Response?.Close();
         HasCompleted = true;
         OnSend?.Invoke(view.GetView());
-
     }
 }

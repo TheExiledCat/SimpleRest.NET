@@ -1,4 +1,4 @@
-
+﻿
 namespace SimpleRest.Api;
 public interface ISimpleRestEndpointFormatter
 {

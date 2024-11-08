@@ -1,4 +1,4 @@
-using SimpleRest.Api;
+﻿using SimpleRest.Api;
 
 namespace SimpleRest.Views;
 public class ResourceNotFoundView : ISimpleRestView

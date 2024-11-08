@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Net;
 using Dumpify;
 using Newtonsoft.Json;
@@ -6,17 +6,21 @@ using Newtonsoft.Json.Serialization;
 using SimpleRest.Extensions;
 using UriTemplate.Core;
 using Uri = UriTemplate.Core;
+
 namespace SimpleRest.Api;
+
 public delegate Task ApiMiddleWare(SimpleRestRequest request, SimpleRestResponse response);
+
 public class SimpleRestApi
 {
-
     ISimpleRestLogger m_Logger;
     ISimpleRestContentTypeParser m_ResponseTypeParser;
     ISimpleRestUriTemplateFormatter m_UriTemplateFormatter;
     ISimpleRestEndpointFormatter m_EndpointFormatter;
     List<ISimpleRestApiHandler> m_Handlers = [];
     HttpListener m_Listener;
+    int m_Port;
+
     List<SimpleRestMap> m_Middleware = [];
     Type m_DefaultIntType;
     public event Action<SimpleRestApi>? OnServerStart;
@@ -25,16 +29,52 @@ public class SimpleRestApi
     public event Action<SimpleRestApi, SimpleRestRequest>? OnBeforeResponseCreate;
     public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse>? OnResponseCreate;
     public event Action<SimpleRestApi, SimpleRestRequest>? OnLog;
-    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, Dictionary<UriTemplateMatch, SimpleRestMap>>? OnHandleRequestStack;
-    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap>? OnRequestMatch;
-    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap>? OnApplyUriParams;
-    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap>? OnBeforeRunMiddleware;
-    public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse, UriTemplateMatch, SimpleRestMap>? OnRunMiddleware;
+    public event Action<
+        SimpleRestApi,
+        SimpleRestRequest,
+        SimpleRestResponse,
+        Dictionary<UriTemplateMatch, SimpleRestMap>
+    >? OnHandleRequestStack;
+    public event Action<
+        SimpleRestApi,
+        SimpleRestRequest,
+        SimpleRestResponse,
+        UriTemplateMatch,
+        SimpleRestMap
+    >? OnRequestMatch;
+    public event Action<
+        SimpleRestApi,
+        SimpleRestRequest,
+        SimpleRestResponse,
+        UriTemplateMatch,
+        SimpleRestMap
+    >? OnApplyUriParams;
+    public event Action<
+        SimpleRestApi,
+        SimpleRestRequest,
+        SimpleRestResponse,
+        UriTemplateMatch,
+        SimpleRestMap
+    >? OnBeforeRunMiddleware;
+    public event Action<
+        SimpleRestApi,
+        SimpleRestRequest,
+        SimpleRestResponse,
+        UriTemplateMatch,
+        SimpleRestMap
+    >? OnRunMiddleware;
     public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse>? OnBeforeRequestEnd;
     public event Action<SimpleRestApi, SimpleRestRequest, SimpleRestResponse>? OnRequestEnd;
 
-    int m_Port;
-    public SimpleRestApi(int port, ISimpleRestLogger? logger = null, ISimpleRestContentTypeParser? responseParser = null, ISimpleRestUriTemplateFormatter? uriFormatter = null, ISimpleRestEndpointFormatter? endpointFormatter = null, JsonSerializerSettings? jsonSerializerSettings = null, Type? defaultIntType = null)
+    public SimpleRestApi(
+        int port,
+        ISimpleRestLogger? logger = null,
+        ISimpleRestContentTypeParser? responseParser = null,
+        ISimpleRestUriTemplateFormatter? uriFormatter = null,
+        ISimpleRestEndpointFormatter? endpointFormatter = null,
+        JsonSerializerSettings? jsonSerializerSettings = null,
+        Type? defaultIntType = null
+    )
     {
         m_Logger = logger ?? new SimpleRestLogger();
         m_ResponseTypeParser = responseParser ?? new SimpleRestContentTypeParser();
@@ -42,11 +82,16 @@ public class SimpleRestApi
         m_UriTemplateFormatter = uriFormatter ?? new SimpleRestUriTemplateHandler();
         m_Port = port;
         m_Listener.Prefixes.Add("http://*:" + port + "/");
-        JsonConvert.DefaultSettings = () => jsonSerializerSettings ?? new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+        JsonConvert.DefaultSettings = () =>
+            jsonSerializerSettings
+            ?? new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+            };
         m_EndpointFormatter = endpointFormatter ?? new SimpleRestEndpointFormatter();
         m_DefaultIntType = defaultIntType ?? typeof(int);
-
     }
+
     void MapHandlers()
     {
         foreach (ISimpleRestApiHandler handler in m_Handlers)
@@ -66,65 +111,54 @@ public class SimpleRestApi
             OnRequestEnd += handler.OnRequestEnd;
         }
     }
+
     void AddMiddleware(string endpoint, SimpleRestMethod method, ApiMiddleWare middleWare)
     {
         m_Middleware.Add(new SimpleRestMap(endpoint, method, middleWare, m_UriTemplateFormatter));
-
     }
+
     public void Use(ISimpleRestApiHandler customHandler)
     {
         m_Handlers.Add(customHandler);
     }
+
     public void Map(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.ANY, middleWare);
     }
 
-
-
     public void Get(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.GET, middleWare);
-
-
     }
+
     public void Post(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.POST, middleWare);
-
-
-
     }
+
     public void Put(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.PUT, middleWare);
-
-
-
     }
+
     public void Patch(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.PATCH, middleWare);
-
-
-
     }
+
     public void Delete(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.DELETE, middleWare);
-
-
-
     }
+
     public void Head(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.HEAD, middleWare);
-
-
-
     }
+
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="OnStartup"></param>
     /// <returns></returns>
@@ -132,7 +166,6 @@ public class SimpleRestApi
     {
         try
         {
-
             m_Listener.Start();
             MapHandlers();
 
@@ -144,10 +177,16 @@ public class SimpleRestApi
                 {
                     HttpListenerContext context = await m_Listener.GetContextAsync();
                     OnBeforeRequestCreate?.Invoke(this);
-                    SimpleRestRequest request = SimpleRestRequest.FromHttpListenerContext(context, m_EndpointFormatter);
+                    SimpleRestRequest request = SimpleRestRequest.FromHttpListenerContext(
+                        context,
+                        m_EndpointFormatter
+                    );
                     OnRequestCreate?.Invoke(this, request);
                     OnBeforeResponseCreate?.Invoke(this, request);
-                    SimpleRestResponse response = new SimpleRestResponse(context.Response, m_ResponseTypeParser);
+                    SimpleRestResponse response = new SimpleRestResponse(
+                        context.Response,
+                        m_ResponseTypeParser
+                    );
                     OnResponseCreate?.Invoke(this, request, response);
 
                     m_Logger.Log(request);
@@ -156,33 +195,34 @@ public class SimpleRestApi
                     OnBeforeRequestEnd?.Invoke(this, request, response);
                     context.Response.Close();
                     OnRequestEnd?.Invoke(this, request, response);
-
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Something went wrong while getting request: " + e.Message + " " + e.StackTrace);
+                    Console.WriteLine(
+                        "Something went wrong while getting request: "
+                            + e.Message
+                            + " "
+                            + e.StackTrace
+                    );
                 }
             }
-
         }
         catch (Exception e)
         {
             Console.WriteLine("Failure to open server: " + e.Message);
         }
-
     }
+
     async Task RunMiddleWare(SimpleRestRequest request, SimpleRestResponse response)
     {
         Dictionary<UriTemplateMatch, SimpleRestMap> matches = m_Middleware
-        .Where(
-            m => m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative)) != null
-            )
-        .ToDictionary(
-            m => m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative)), m => m
+            .Where(m => m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative)) != null)
+            .ToDictionary(
+                m => m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative)),
+                m => m
             );
         matches.Values.ToList().Dump();
         OnHandleRequestStack?.Invoke(this, request, response, matches);
-
 
         foreach (KeyValuePair<UriTemplateMatch, SimpleRestMap> match in matches)
         {
@@ -199,15 +239,10 @@ public class SimpleRestApi
                 OnBeforeRunMiddleware?.Invoke(this, request, response, uriTemplateMatch, map);
                 await map.Middleware.Invoke(request, response);
                 OnRunMiddleware?.Invoke(this, request, response, uriTemplateMatch, map);
-
-
-
-
             }
-
         }
-
     }
+
     void ApplyUriParams(UriTemplateMatch match, SimpleRestRequest request)
     {
         match.Dump();
@@ -218,39 +253,40 @@ public class SimpleRestApi
             object? converted = null;
             try
             {
-                converted = JsonConvert.DeserializeObject(match.Bindings[key].Value.ToString() ?? "null");
+                converted = JsonConvert.DeserializeObject(
+                    match.Bindings[key].Value.ToString() ?? "null"
+                );
             }
             catch (JsonException je)
             {
                 string stringifiedObject = $"\"{match.Bindings[key].Value.ToString()}\"";
                 converted = JsonConvert.DeserializeObject(stringifiedObject ?? "null");
-
             }
             converted = ApplyIntType(converted);
             paramsToAdd[key] = converted;
         }
         request.Params.NonDistructiveUnion(paramsToAdd);
         request.Params.Dump();
-
     }
 
     object? ApplyIntType(object? value)
     {
-        if (value != null && value is short
+        if (
+            value != null && value is short
             || value is ushort
             || value is int
             || value is uint
             || value is long
-            || value is ulong)
+            || value is ulong
+        )
         {
             return Convert.ChangeType(value, m_DefaultIntType);
         }
         return value;
-
     }
+
     public void Stop()
     {
         m_Listener.Close();
     }
-
 }

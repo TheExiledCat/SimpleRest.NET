@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Uri = UriTemplate.Core;
 namespace SimpleRest.Extensions;
 public static class SimpleRestExtensions

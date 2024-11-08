@@ -1,4 +1,4 @@
-namespace SimpleRest.Extensions.Native;
+﻿namespace SimpleRest.Extensions.Native;
 
 public static partial class NativeExtensions
 {
