@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- added changelog ([448db93](https://theexiledcat/TheExiledCat/SimpleRest.Net/commit/448db93709c1cc6dd371103d73358e0a50d9fca0) by TheExiledCat).
 - added editorconfigs, updated readme, changed project from .net8 to .net >=6.0 and updated collection initializers to match ([0db8b98](https://theexiledcat/TheExiledCat/SimpleRest.Net/commit/0db8b98c6e35b63d5eea7ab36056338e3ae43a8c) by TheExiledCat).
 - added editorconfig rules ([4d7cfb1](https://theexiledcat/TheExiledCat/SimpleRest.Net/commit/4d7cfb1c99dddb87cd9d38188401e28f4c2f28eb) by TheExiledCat).
 - added basic 404 handler and fixed readme ([6d8fbe7](https://theexiledcat/TheExiledCat/SimpleRest.Net/commit/6d8fbe7c983df085a989f09d3c1a8c39b087cb18) by armando-codecafe).
