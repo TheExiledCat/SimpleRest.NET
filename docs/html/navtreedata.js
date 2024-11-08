@@ -56,6 +56,13 @@ var NAVTREE =
         [ "Notes", "d1/d57/md_guides_2Getting_01Started.html#autotoc_md25", null ]
       ] ]
     ] ],
+    [ "Changelog", "d4/d40/md_CHANGELOG.html", [
+      [ "Unreleased", "d4/d40/md_CHANGELOG.html#autotoc_md27", [
+        [ "Added", "d4/d40/md_CHANGELOG.html#autotoc_md28", null ],
+        [ "Fixed", "d4/d40/md_CHANGELOG.html#autotoc_md29", null ],
+        [ "Removed", "d4/d40/md_CHANGELOG.html#autotoc_md30", null ]
+      ] ]
+    ] ],
     [ "Packages", "namespaces.html", [
       [ "Package List", "namespaces.html", "namespaces_dup" ],
       [ "Package Members", "namespacemembers.html", [
@@ -89,7 +96,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html"
+"d8/def/interfaceSimpleRest_1_1Views_1_1ISimpleRestView.html#a567b43de119e4f82ee433bf163973a78"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
