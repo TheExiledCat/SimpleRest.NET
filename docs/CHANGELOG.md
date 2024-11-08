@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- added proper links to commit messages ([4934cf7](https://github.com/TheExiledCat/SimpleRest.NET/commit/4934cf79f51fceee964824f1c298dc9b3766b227) by TheExiledCat).
 - added templating structure ([f15fd19](https://github.com/TheExiledCat/SimpleRest.NET/commit/f15fd19cdf0c9e1f1d9eb59667672964a7c6a7d7) by TheExiledCat).
 - added changelog ([448db93](https://github.com/TheExiledCat/SimpleRest.NET/commit/448db93709c1cc6dd371103d73358e0a50d9fca0) by TheExiledCat).
 - added editorconfigs, updated readme, changed project from .net8 to .net >=6.0 and updated collection initializers to match ([0db8b98](https://github.com/TheExiledCat/SimpleRest.NET/commit/0db8b98c6e35b63d5eea7ab36056338e3ae43a8c) by TheExiledCat).

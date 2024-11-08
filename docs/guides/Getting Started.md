@@ -15,7 +15,7 @@ dotnet add package SimpleREST
 ## Or from source using git
 
 ```git
-git clone https://theexiledcat.github.io/SimpleRest.NET/
+git clone https://github.com/TheExiledCat/SimpleRest.NET
 ```
 
 then add the using tag `using SimpleRest.Api`
