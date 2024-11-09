@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['method_0',['Method',['../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#aa67549aec1dfbf8de9b9fcab93a45668',1,'SimpleRest.Api.SimpleRestMap.Method'],['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#aea3f4b64f3db73d6b46f2ae57cc4d89b',1,'SimpleRest.Api.SimpleRestRequest.Method']]],
-  ['middleware_1',['Middleware',['../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#a83bb42d7aae71924adb8e388b6693d62',1,'SimpleRest::Api::SimpleRestMap']]]
+  ['keys_0',['Keys',['../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html#aa5cb03ba7d682b0b950d2b642b5cc89e',1,'SimpleRest.Api.SimpleRestQuery.Keys'],['../da/d93/interfaceSimpleRest_1_1Api_1_1ISimpleRestQuery.html#aaa96e62bf341143184ecf5a5b938c0ab',1,'SimpleRest.Api.ISimpleRestQuery.Keys']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['endpoint_0',['Endpoint',['../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#a01928470a90bf7d66f076f878bd75a22',1,'SimpleRest.Api.SimpleRestMap.Endpoint'],['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a887b159a1571cc3ab9d55c15e6d04448',1,'SimpleRest.Api.SimpleRestRequest.Endpoint']]]
+  ['disposed_0',['Disposed',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a2d944b93e323b206968b147112771bb0',1,'SimpleRest::Api::SimpleRestApi']]]
 ];

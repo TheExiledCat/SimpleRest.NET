@@ -74,6 +74,7 @@ var menudata={children:[
 {text:"Properties",url:"functions_prop.html",children:[
 {text:"b",url:"functions_prop.html#index_b"},
 {text:"c",url:"functions_prop.html#index_c"},
+{text:"d",url:"functions_prop.html#index_d"},
 {text:"e",url:"functions_prop.html#index_e"},
 {text:"h",url:"functions_prop.html#index_h"},
 {text:"k",url:"functions_prop.html#index_k"},

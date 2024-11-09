@@ -2,6 +2,7 @@ var classSimpleRest_1_1Api_1_1SimpleRestApi =
 [
     [ "SimpleRestApi", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a2768d8d46caeda29a9c65a194ea798d2", null ],
     [ "Delete", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a9c2e0a6248ff7f3a9d85d6315e72346f", null ],
+    [ "Dispose", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a20516048a808763837e18e864b2dd319", null ],
     [ "Get", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c", null ],
     [ "Head", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a4f468b38d7bd34fdb0382a8cdeeecf11", null ],
     [ "Map", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a0e70e5629089887d23a2d21ae42074ac", null ],
@@ -11,6 +12,8 @@ var classSimpleRest_1_1Api_1_1SimpleRestApi =
     [ "Start", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a06d0610c7b18b8e680262bd5e0fb73e2", null ],
     [ "Stop", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8", null ],
     [ "Use", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a918e13d24e11b5234c9344fd9c9135bf", null ],
+    [ "Disposed", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a2d944b93e323b206968b147112771bb0", null ],
+    [ "HasStarted", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#afdbf06e5b1a4c238b07d67aedd3f813d", null ],
     [ "OnApplyUriParams", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a5205ee5d964a0a676e84c6f6befd53ca", null ],
     [ "OnBeforeRequestCreate", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a1165adac3ccd0061233cd52f64ca3915", null ],
     [ "OnBeforeRequestEnd", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a3119404845993ce7b900d4b557551fe5", null ],

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['query_0',['Query',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a0ad66807922596fcefd9eff3a34df02b',1,'SimpleRest.Api.SimpleRestRequest.Query'],['../de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html#ac3efc083439da9d1e9ac55ac3b5d0456',1,'SimpleRest.Api.SimpleRestQuery.Query'],['../da/d93/interfaceSimpleRest_1_1Api_1_1ISimpleRestQuery.html#aa2fb6f3a778137e0fcad4b8aa4de668a',1,'SimpleRest.Api.ISimpleRestQuery.Query']]]
+  ['params_0',['Params',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a2e3c9637b64eeeac18126b7850073993',1,'SimpleRest::Api::SimpleRestRequest']]],
+  ['path_1',['Path',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a67f4d4d0493aca00bbfc101430bbb9ea',1,'SimpleRest::Api::SimpleRestRequest']]],
+  ['pattern_2',['Pattern',['../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#a569f4d8b95700c0006b63b19344764af',1,'SimpleRest::Api::SimpleRestMap']]]
 ];

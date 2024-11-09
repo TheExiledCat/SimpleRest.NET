@@ -1,6 +1,6 @@
 cd docs
 echo "Generating changelog"
-# export GIT_CHANGELOG_REMOTE=https://github.com/TheExiledCat/SimpleRest.NET.git 
+export GIT_CHANGELOG_REMOTE=origin2
 # echo $GIT_CHANGELOG_REMOTE;
 git-changelog -io CHANGELOG.md 
 doxygen Doxyfile

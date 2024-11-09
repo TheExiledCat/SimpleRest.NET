@@ -1,5 +1,12 @@
 var NAVTREEINDEX1 =
 {
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a15e1ee364d05416d583d8f22a65dd932":[4,0,0,1,1,2],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a23ed2b17238157ef546523cfbde11e6d":[3,0,0,2,1,4],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a23ed2b17238157ef546523cfbde11e6d":[4,0,0,1,1,4],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a270bf00ca2d5b0f43999e4b6b4b82615":[3,0,0,2,1,11],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a270bf00ca2d5b0f43999e4b6b4b82615":[4,0,0,1,1,11],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a5cc6714284c4f1c4f35171461af3d4fa":[3,0,0,2,1,8],
+"d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a5cc6714284c4f1c4f35171461af3d4fa":[4,0,0,1,1,8],
 "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a61b4a8e23791b582b520bf82ae937f6b":[3,0,0,2,1,7],
 "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a61b4a8e23791b582b520bf82ae937f6b":[4,0,0,1,1,7],
 "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html#a65381809de94a2a94457a95f6101363b":[3,0,0,2,1,5],

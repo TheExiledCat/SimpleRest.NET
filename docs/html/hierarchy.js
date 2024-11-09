@@ -1,5 +1,8 @@
 var hierarchy =
 [
+    [ "IDisposable", null, [
+      [ "SimpleRest.Api.SimpleRestApi", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html", null ]
+    ] ],
     [ "SimpleRest.Api.ISimpleRestApiHandler", "d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html", [
       [ "SimpleRest.Handlers.SimpleRestApiHandler", "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html", [
         [ "SimpleRest.Handlers.ResourceNotFoundHandler", "d7/d96/classSimpleRest_1_1Handlers_1_1ResourceNotFoundHandler.html", null ]
@@ -24,7 +27,6 @@ var hierarchy =
       [ "SimpleRest.Views.ResourceNotFoundView", "d8/de0/classSimpleRest_1_1Views_1_1ResourceNotFoundView.html", null ],
       [ "SimpleRest.Views.SimpleRestHomeView", "d0/dd5/classSimpleRest_1_1Views_1_1SimpleRestHomeView.html", null ]
     ] ],
-    [ "SimpleRest.Api.SimpleRestApi", "d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html", null ],
     [ "SimpleRest.Api.SimpleRestMap", "da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html", null ],
     [ "SimpleRest.Api.SimpleRestRequest", "d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html", null ],
     [ "SimpleRest.Api.SimpleRestRequestBody", "d3/d69/classSimpleRest_1_1Api_1_1SimpleRestRequestBody.html", null ],

@@ -44,6 +44,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fixed empty routes ([160fd5a](https://github.com/TheExiledCat/SimpleRest.NET/commit/160fd5aea266f7838f31a2e200f6716522bac86a) by TheExiledCat).
 - fixed instalatiion readme syntax error ([a030024](https://github.com/TheExiledCat/SimpleRest.NET/commit/a030024b9cd252435eca4712508d198f29023073) by TheExiledCat).
 
+### Changed
+
+- changed api handler code a bit and updated empty template ([fb8011b](https://github.com/TheExiledCat/SimpleRest.NET/commit/fb8011b931aca3c65839b33ab601a83249a3c0f0) by TheExiledCat).
+
 ### Removed
 
 - removed Program from namespace api ([2b3a39a](https://github.com/TheExiledCat/SimpleRest.NET/commit/2b3a39ad0e6215a1b957cb4e53fdc8539ee645d1) by TheExiledCat).
