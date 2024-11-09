@@ -13,6 +13,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/TheExiledCat/SimpleRest.NET</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <NoWarn>$(NoWarn);CS4014</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Dumpify" Version="0.6.6"/>

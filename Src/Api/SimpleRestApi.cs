@@ -177,6 +177,7 @@ public class SimpleRestApi
                 {
                     HttpListenerContext context = await m_Listener.GetContextAsync();
                     OnBeforeRequestCreate?.Invoke(this);
+
                     SimpleRestRequest request = SimpleRestRequest.FromHttpListenerContext(
                         context,
                         m_EndpointFormatter
@@ -192,6 +193,7 @@ public class SimpleRestApi
                     m_Logger.Log(request);
                     OnLog?.Invoke(this, request);
                     await RunMiddleWare(request, response);
+
                     OnBeforeRequestEnd?.Invoke(this, request, response);
                     context.Response.Close();
                     OnRequestEnd?.Invoke(this, request, response);
