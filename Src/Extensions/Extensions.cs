@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Uri = UriTemplate.Core;
+
 namespace SimpleRest.Extensions;
+
 public static class SimpleRestExtensions
 {
     public static object? SafeDeserialize(this string json, object fallbackValue)
@@ -9,16 +11,22 @@ public static class SimpleRestExtensions
         {
             return JsonConvert.DeserializeObject(json);
         }
-        catch (JsonException je)
+        catch (JsonException)
         {
             return fallbackValue;
         }
     }
+
     public static Uri.UriTemplate IgnoreTrailingSlash(this Uri.UriTemplate uriTemplate)
     {
         return new Uri.UriTemplate(uriTemplate.Template.TrimEnd('/'));
     }
-    public static void Merge<Tkey, TValue>(this Dictionary<Tkey, TValue> dictionary, Dictionary<Tkey, TValue> dictionaryToMerge) where Tkey : notnull
+
+    public static void Merge<Tkey, TValue>(
+        this Dictionary<Tkey, TValue> dictionary,
+        Dictionary<Tkey, TValue> dictionaryToMerge
+    )
+        where Tkey : notnull
     {
         foreach (var kvp in dictionaryToMerge)
         {
@@ -26,13 +34,16 @@ public static class SimpleRestExtensions
             dictionary[kvp.Key] = kvp.Value;
         }
     }
+
     /// <summary>
     /// Adds key-value pairs from the source dictionary to the target dictionary
     /// only if the key does not already exist in the target dictionary.
     /// </summary>
     public static void NonDistructiveUnion<TKey, TValue>(
         this Dictionary<TKey, TValue> target,
-        Dictionary<TKey, TValue> source)
+        Dictionary<TKey, TValue> source
+    )
+        where TKey : notnull
     {
         foreach (var kvp in source)
         {
@@ -43,5 +54,4 @@ public static class SimpleRestExtensions
             }
         }
     }
-
 }

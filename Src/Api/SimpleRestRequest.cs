@@ -58,12 +58,21 @@ public class SimpleRestRequest
         HttpListenerRequest contextRequest = listenerContext.Request;
 
         SimpleRestRequest request = new SimpleRestRequest();
-        request.Query = SimpleRestQuery.FromDictionary(
-            contextRequest.QueryString.AllKeys.ToDictionary(
-                k => k,
-                k => contextRequest.QueryString[k].SafeDeserialize(contextRequest.QueryString[k])
-            )
-        );
+        if (contextRequest.QueryString.Count > 0)
+        {
+            request.Query = SimpleRestQuery.FromDictionary(
+                contextRequest.QueryString.AllKeys.ToDictionary(
+                    k => k ?? "",
+                    k =>
+                        contextRequest.QueryString[k].SafeDeserialize(contextRequest.QueryString[k])
+                )
+            );
+        }
+        else
+        {
+            request.Query = SimpleRestQuery.FromDictionary(new Dictionary<string, object?>());
+        }
+
         request.Body = new SimpleRestRequestBody(contextRequest);
         request.Headers = contextRequest.Headers?.AllKeys.ToDictionary(
             k => k,

@@ -11,7 +11,7 @@ namespace SimpleRest.Api;
 
 public delegate Task ApiMiddleWare(SimpleRestRequest request, SimpleRestResponse response);
 
-public class SimpleRestApi
+public class SimpleRestApi : IDisposable
 {
     ISimpleRestLogger m_Logger;
     ISimpleRestContentTypeParser m_ResponseTypeParser;
@@ -23,6 +23,8 @@ public class SimpleRestApi
 
     List<SimpleRestMap> m_Middleware = new List<SimpleRestMap>();
     Type m_DefaultIntType;
+    public bool HasStarted { get; private set; } = false;
+    public bool Disposed { get; private set; } = false;
     public event Action<SimpleRestApi>? OnServerStart;
     public event Action<SimpleRestApi>? OnBeforeRequestCreate;
     public event Action<SimpleRestApi, SimpleRestRequest>? OnRequestCreate;
@@ -171,7 +173,9 @@ public class SimpleRestApi
 
             OnServerStart?.Invoke(this);
             OnStartup?.Invoke(m_Port, m_Listener.Prefixes.First().Replace("*", "localhost"));
-            while (true)
+            HasStarted = true;
+            Disposed = false;
+            while (!Disposed)
             {
                 try
                 {
@@ -197,6 +201,12 @@ public class SimpleRestApi
                     OnBeforeRequestEnd?.Invoke(this, request, response);
                     context.Response.Close();
                     OnRequestEnd?.Invoke(this, request, response);
+                }
+                catch (ObjectDisposedException ode)
+                {
+                    Console.WriteLine("Stopping server due to dead listener");
+                    Stop();
+                    break;
                 }
                 catch (Exception e)
                 {
@@ -289,6 +299,12 @@ public class SimpleRestApi
 
     public void Stop()
     {
-        m_Listener.Close();
+        m_Listener?.Close();
+        Disposed = true;
+    }
+
+    public void Dispose()
+    {
+        Stop();
     }
 }
