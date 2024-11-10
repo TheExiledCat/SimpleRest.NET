@@ -196,11 +196,18 @@ public class SimpleRestApi : IDisposable
 
                     m_Logger.Log(request);
                     OnLog?.Invoke(this, request);
-                    await RunMiddleWare(request, response);
+                    if (request.Method == SimpleRestMethod.OPTIONS)
+                    {
+                        //TODO handle options request
+                    }
+                    else
+                    {
+                        await RunMiddleWare(request, response);
 
-                    OnBeforeRequestEnd?.Invoke(this, request, response);
-                    context.Response.Close();
-                    OnRequestEnd?.Invoke(this, request, response);
+                        OnBeforeRequestEnd?.Invoke(this, request, response);
+                        context.Response.Close();
+                        OnRequestEnd?.Invoke(this, request, response);
+                    }
                 }
                 catch (ObjectDisposedException ode)
                 {

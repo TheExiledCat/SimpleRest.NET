@@ -20,14 +20,14 @@ namespace SimpleRest.Api;
 /// </example>
 /// </summary>
 
-public class SimpleRestRequest
+public class SimpleRestRequest : ISimpleRestHttpObject
 {
     public string Endpoint { get; private set; } = "";
     public object[]? Path { get; private set; }
     public SimpleRestQuery Query { get; private set; } = new SimpleRestQuery();
     public Dictionary<string, object?> Params { get; set; } = new Dictionary<string, object?>();
 
-    public SimpleRestRequestBody Body { get; private set; }
+    public SimpleRestBody Body { get; private set; }
     public Dictionary<string, string>? Headers { get; private set; }
     public string? ContentType { get; private set; }
     public long ContentLength { get; private set; }
@@ -73,7 +73,7 @@ public class SimpleRestRequest
             request.Query = SimpleRestQuery.FromDictionary(new Dictionary<string, object?>());
         }
 
-        request.Body = new SimpleRestRequestBody(contextRequest);
+        request.Body = new SimpleRestBody(contextRequest);
         request.Headers = contextRequest.Headers?.AllKeys.ToDictionary(
             k => k,
             k => contextRequest.Headers[k]
@@ -105,13 +105,20 @@ public class SimpleRestRequest
 /// This class encapsulates the content of an HTTP request body, providing access to both raw byte data and
 /// deserialized content.
 /// </summary>
-public class SimpleRestRequestBody
+public class SimpleRestBody
 {
+    public SimpleRestBody(string contents)
+    {
+        Bytes = Encoding.UTF8.GetBytes(contents);
+
+        Content = contents
+    }
+
     /// <summary>
-    /// Initializes a new instance of the <see cref="SimpleRestRequestBody"/> class using the specified <see cref="HttpListenerRequest"/>.
+    /// Initializes a new instance of the <see cref="SimpleRestBody"/> class using the specified <see cref="HttpListenerRequest"/>.
     /// </summary>
     /// <param name="request">The <see cref="HttpListenerRequest"/> from which to read the body content.</param>
-    public SimpleRestRequestBody(HttpListenerRequest request)
+    public SimpleRestBody(HttpListenerRequest request)
     {
         using (var memoryStream = new MemoryStream())
         {

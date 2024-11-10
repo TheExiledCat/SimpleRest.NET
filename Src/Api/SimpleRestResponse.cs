@@ -5,7 +5,7 @@ using SimpleRest.Views;
 
 namespace SimpleRest.Api;
 
-public class SimpleRestResponse
+public class SimpleRestResponse : ISimpleRestHttpObject
 {
     public delegate void Result(string result);
     public HttpListenerResponse Response { get; private set; }
@@ -13,23 +13,32 @@ public class SimpleRestResponse
     public string? ContentType { get; private set; }
     public event Result? OnSend;
     public bool HasCompleted { get; private set; }
-    ushort statusCode = 200;
+    ushort m_StatusCode = 200;
     public ushort StatusCode
     {
-        get => statusCode;
+        get => m_StatusCode;
         set
         {
             if (value.ToString().Length == 3)
             {
-                statusCode = value;
+                m_StatusCode = value;
             }
         }
     }
+
+    public SimpleRestBody Body { get; private set; }
+
+    public Dictionary<string, string>? Headers { get; set; }
+
+    public long ContentLength { get; private set; }
+
+    public string? UserAgent { get; private set; }
 
     public SimpleRestResponse(HttpListenerResponse response, ISimpleRestContentTypeParser parser)
     {
         Response = response;
         m_TypeParser = parser;
+        Body = new SimpleRestBody("");
     }
 
     public void Send<T>(T result)
