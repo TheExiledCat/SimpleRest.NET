@@ -7,7 +7,7 @@ namespace SimpleRest.Api;
 
 public class SimpleRestResponse : ISimpleRestHttpObject
 {
-    public delegate void Result(string result);
+    public delegate void Result(string result = "");
     public HttpListenerResponse Response { get; private set; }
     ISimpleRestContentTypeParser m_TypeParser;
     public string? ContentType { get; private set; }
@@ -28,7 +28,7 @@ public class SimpleRestResponse : ISimpleRestHttpObject
 
     public SimpleRestBody Body { get; private set; }
 
-    public Dictionary<string, string>? Headers { get; set; }
+    public WebHeaderCollection Headers { get; set; } = new WebHeaderCollection();
 
     public long ContentLength { get; private set; }
 
@@ -41,9 +41,25 @@ public class SimpleRestResponse : ISimpleRestHttpObject
         Body = new SimpleRestBody("");
     }
 
+    public void Return()
+    {
+        if (!HasCompleted)
+        {
+            Response.StatusCode = 500;
+        }
+
+        Response.ContentLength64 = 0;
+        Response.ContentType = null;
+        Response.StatusCode = 204;
+        Response.Headers = Headers;
+        Response?.Close();
+        HasCompleted = true;
+        OnSend?.Invoke();
+    }
+
     public void Send<T>(T result)
     {
-        if (result == null)
+        if (result == null && !HasCompleted)
         {
             Response.StatusCode = 500;
         }
@@ -53,7 +69,7 @@ public class SimpleRestResponse : ISimpleRestHttpObject
         Response.ContentLength64 = buffer.Length;
         Response.ContentType = ContentType;
         Response.StatusCode = StatusCode;
-
+        Response.Headers = Headers;
         Response.OutputStream.Write(buffer, 0, buffer.Length);
         Response?.Close();
         HasCompleted = true;
@@ -65,6 +81,7 @@ public class SimpleRestResponse : ISimpleRestHttpObject
         ContentType = contentType;
         byte[] buffer = Encoding.UTF8.GetBytes(content);
         Response.ContentLength64 = buffer.Length;
+        Response.Headers = Headers;
         Response.StatusCode = StatusCode;
         Response.ContentType = ContentType;
         Response.OutputStream.Write(buffer, 0, buffer.Length);
@@ -80,6 +97,7 @@ public class SimpleRestResponse : ISimpleRestHttpObject
         byte[] buffer = Encoding.UTF8.GetBytes(view.GetView());
         Response.ContentLength64 = buffer.Length;
         Response.StatusCode = StatusCode;
+        Response.Headers = Headers;
         Response.ContentType = ContentType;
         Response.OutputStream.Write(buffer, 0, buffer.Length);
 

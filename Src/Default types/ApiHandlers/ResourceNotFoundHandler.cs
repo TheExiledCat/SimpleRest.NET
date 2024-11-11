@@ -13,6 +13,7 @@ public class ResourceNotFoundHandler : SimpleRestApiHandler
     )
     {
         base.OnBeforeRequestEnd(api, request, response);
-        response.View(new ResourceNotFoundView());
+        if (request.Method != SimpleRestMethod.OPTIONS)
+            response.View(new ResourceNotFoundView());
     }
 }

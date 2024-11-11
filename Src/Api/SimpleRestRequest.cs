@@ -28,7 +28,7 @@ public class SimpleRestRequest : ISimpleRestHttpObject
     public Dictionary<string, object?> Params { get; set; } = new Dictionary<string, object?>();
 
     public SimpleRestBody Body { get; private set; }
-    public Dictionary<string, string>? Headers { get; private set; }
+    public WebHeaderCollection Headers { get; private set; } = new WebHeaderCollection();
     public string? ContentType { get; private set; }
     public long ContentLength { get; private set; }
     public SimpleRestMethod Method { get; private set; }
@@ -74,10 +74,9 @@ public class SimpleRestRequest : ISimpleRestHttpObject
         }
 
         request.Body = new SimpleRestBody(contextRequest);
-        request.Headers = contextRequest.Headers?.AllKeys.ToDictionary(
-            k => k,
-            k => contextRequest.Headers[k]
-        );
+        request.Headers = contextRequest
+            .Headers?.AllKeys.ToDictionary(k => k, k => contextRequest.Headers[k])
+            .ToWebHeaderCollection();
         request.ContentType = contextRequest.ContentType;
         request.ContentLength = contextRequest.ContentLength64;
         string pathAndQuery = contextRequest.Url?.PathAndQuery ?? "/";

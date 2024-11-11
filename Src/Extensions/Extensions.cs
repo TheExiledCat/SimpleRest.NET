@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net;
+using Newtonsoft.Json;
 using Uri = UriTemplate.Core;
 
 namespace SimpleRest.Extensions;
@@ -20,6 +21,18 @@ public static class SimpleRestExtensions
     public static Uri.UriTemplate IgnoreTrailingSlash(this Uri.UriTemplate uriTemplate)
     {
         return new Uri.UriTemplate(uriTemplate.Template.TrimEnd('/'));
+    }
+
+    public static WebHeaderCollection ToWebHeaderCollection(
+        this Dictionary<string, string> dictionary
+    )
+    {
+        WebHeaderCollection webHeaderCollection = new WebHeaderCollection();
+        foreach (KeyValuePair<string, string> kvp in dictionary)
+        {
+            webHeaderCollection.Add(kvp.Key, kvp.Value);
+        }
+        return webHeaderCollection;
     }
 
     public static void Merge<Tkey, TValue>(

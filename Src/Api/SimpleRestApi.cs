@@ -139,9 +139,19 @@ public class SimpleRestApi : IDisposable
         AddMiddleware("/*", SimpleRestMethod.OPTIONS, middleWare);
     }
 
+    public void Options(string endpoint, ApiMiddleWare middleWare)
+    {
+        AddMiddleware(endpoint, SimpleRestMethod.OPTIONS, middleWare);
+    }
+
     public void Get(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.GET, middleWare);
+    }
+
+    public void Get(ApiMiddleWare middleWare)
+    {
+        AddMiddleware("/*", SimpleRestMethod.GET, middleWare);
     }
 
     public void Post(string endpoint, ApiMiddleWare middleWare)
@@ -149,9 +159,19 @@ public class SimpleRestApi : IDisposable
         AddMiddleware(endpoint, SimpleRestMethod.POST, middleWare);
     }
 
+    public void Post(ApiMiddleWare middleWare)
+    {
+        AddMiddleware("/*", SimpleRestMethod.POST, middleWare);
+    }
+
     public void Put(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.PUT, middleWare);
+    }
+
+    public void Put(ApiMiddleWare middleWare)
+    {
+        AddMiddleware("/*", SimpleRestMethod.PUT, middleWare);
     }
 
     public void Patch(string endpoint, ApiMiddleWare middleWare)
@@ -159,14 +179,29 @@ public class SimpleRestApi : IDisposable
         AddMiddleware(endpoint, SimpleRestMethod.PATCH, middleWare);
     }
 
+    public void Patch(ApiMiddleWare middleWare)
+    {
+        AddMiddleware("/*", SimpleRestMethod.PATCH, middleWare);
+    }
+
     public void Delete(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.DELETE, middleWare);
     }
 
+    public void Delete(ApiMiddleWare middleWare)
+    {
+        AddMiddleware("/*", SimpleRestMethod.DELETE, middleWare);
+    }
+
     public void Head(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.HEAD, middleWare);
+    }
+
+    public void Head(ApiMiddleWare middleWare)
+    {
+        AddMiddleware("/*", SimpleRestMethod.HEAD, middleWare);
     }
 
     /// <summary>
@@ -210,7 +245,7 @@ public class SimpleRestApi : IDisposable
                     await RunMiddleWare(request, response);
 
                     OnBeforeRequestEnd?.Invoke(this, request, response);
-                    context.Response.Close();
+                    response.Return();
                     OnRequestEnd?.Invoke(this, request, response);
                 }
                 catch (ObjectDisposedException ode) { }
