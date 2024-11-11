@@ -25,6 +25,12 @@ jobs:
         run: |
           chmod +x ./gendocs.sh  # Make the script executable
           ./gendocs.sh           # Run the script
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        id: github-pages
+        with:
+          # Upload entire repository
+          path: "docs/"
   deploy:
     environment:
       name: github-pages
@@ -36,11 +42,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: "docs/"
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

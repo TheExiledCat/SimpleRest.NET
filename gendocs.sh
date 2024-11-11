@@ -1,3 +1,4 @@
+#do not run this script, just meant for github actions
 cd docs
 echo "Generating changelog"
 export GIT_CHANGELOG_REMOTE=origin2
