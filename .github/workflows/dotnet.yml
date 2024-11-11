@@ -34,7 +34,7 @@ jobs:
           path: docs/
   deploy:
     # Add a dependency to the build job
-    needs: run-bash-script
+    needs: create-artifact
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
