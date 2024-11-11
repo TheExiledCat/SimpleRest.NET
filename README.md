@@ -121,6 +121,8 @@ To create a basic rest api and serve it on a host and port number all you need t
 - [ ] Custom Error Handling and validation
 - [ ] Route forwarding to move to a different route before sending result (like the express next() function)
 - [ ] NativeAOT Compatibility (by migrating to System.Text.Json and source generation)
+- [ ] Write Unit tests
+- [ ] Write more extensive documentation
 - and more...
 
 ## Extending

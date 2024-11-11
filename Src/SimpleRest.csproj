@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable><!-- <PublishAot>true</PublishAot> -->
     <PackageId>SimpleRestApi</PackageId>
-    <Version>0.0.1.01</Version>
+    <Version>0.0.1.10</Version>
     <Authors>Amano Rosuko</Authors>
     <Company>Amano Rosuko</Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

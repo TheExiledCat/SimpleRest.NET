@@ -32,7 +32,7 @@ public class CorsHandler : SimpleRestApiHandler
             {
                 api.Options(
                     route,
-                    async (req, rest) =>
+                    async (req, res) =>
                     {
                         res.Headers["Access-Control-Allow-Origin"] = m_AllowedOrigins;
                     }
