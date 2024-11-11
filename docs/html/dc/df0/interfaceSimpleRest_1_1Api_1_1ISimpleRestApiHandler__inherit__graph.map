@@ -1,9 +1,0 @@
-<map id="SimpleRest.Api.ISimpleRestApiHandler" name="SimpleRest.Api.ISimpleRestApiHandler">
-<area shape="rect" id="Node000001" title=" " alt="" coords="114,5,317,45"/>
-<area shape="rect" id="Node000002" href="$d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html" title=" " alt="" coords="112,93,319,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,59,218,93,213,93,213,59"/>
-<area shape="rect" id="Node000003" href="$d4/d92/classSimpleRest_1_1Handlers_1_1CorsHandler.html" title=" " alt="" coords="5,181,196,221"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="181,144,128,183,124,179,177,140"/>
-<area shape="rect" id="Node000004" href="$d7/d96/classSimpleRest_1_1Handlers_1_1ResourceNotFoundHandler.html" title=" " alt="" coords="220,181,443,221"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="254,140,307,179,304,183,250,144"/>
-</map>
