@@ -96,7 +96,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d8/de0/classSimpleRest_1_1Views_1_1ResourceNotFoundView.html"
+"d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html#a2c029b79f1d898eb5e24c361577a6def"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -12,6 +12,7 @@ var searchData=
   ['response_9',['Response',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a9801537d19f71dc18580f13a13c9f6c6',1,'SimpleRest::Api::SimpleRestResponse']]],
   ['response_20data_10',['Setting Response Data',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md24',1,'']]],
   ['response_20handling_11',['JSON Request/Response Handling',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md15',1,'']]],
-  ['result_12',['Result',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a9633bca41e4d89c56765a944e6a9780b',1,'SimpleRest::Api::SimpleRestResponse']]],
-  ['route_20logic_13',['Shared Route Logic',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md17',1,'']]]
+  ['result_12',['Result',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#aa5c25051f5bf31a4f68a11efd8208607',1,'SimpleRest::Api::SimpleRestResponse']]],
+  ['return_13',['Return',['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a7afc5965c997d526cf7d9f90ec085efb',1,'SimpleRest::Api::SimpleRestResponse']]],
+  ['route_20logic_14',['Shared Route Logic',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md17',1,'']]]
 ];
