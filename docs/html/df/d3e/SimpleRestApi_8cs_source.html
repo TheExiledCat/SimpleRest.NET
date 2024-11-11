@@ -317,123 +317,130 @@ $(function(){initNavTree('df/d3e/SimpleRestApi_8cs_source.html','../../'); initR
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                    m_Logger.<a class="code hl_function" href="../../de/d5d/interfaceSimpleRest_1_1Api_1_1ISimpleRestLogger.html#a36c03d7ca20a63362a6e91fbea143577">Log</a>(request);</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                    <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a760adba2d3b431102e57fb8ad5b3f247">OnLog</a>?.Invoke(<span class="keyword">this</span>, request);</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                    await RunMiddleWare(request, response);</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                    <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a3119404845993ce7b900d4b557551fe5">OnBeforeRequestEnd</a>?.Invoke(<span class="keyword">this</span>, request, response);</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                    context.Response.Close();</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                    <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a517a79dcccc7803dbf4c2255277aa70c">OnRequestEnd</a>?.Invoke(<span class="keyword">this</span>, request, response);</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                }</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                <span class="keywordflow">catch</span> (ObjectDisposedException ode)</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                {</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                    Console.WriteLine(<span class="stringliteral">&quot;Stopping server due to dead listener&quot;</span>);</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                    <a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8">Stop</a>();</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                }</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                <span class="keywordflow">catch</span> (Exception e)</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                {</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                    Console.WriteLine(</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                        <span class="stringliteral">&quot;Something went wrong while getting request: &quot;</span></div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                            + e.Message</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                            + <span class="stringliteral">&quot; &quot;</span></div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                            + e.StackTrace</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                    );</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                }</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>            }</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        }</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keywordflow">catch</span> (Exception e)</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        {</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            Console.WriteLine(<span class="stringliteral">&quot;Failure to open server: &quot;</span> + e.Message);</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        }</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    }</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                    <span class="keywordflow">if</span> (request.<a class="code hl_property" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#aea3f4b64f3db73d6b46f2ae57cc4d89b">Method</a> == <a class="code hl_enumeration" href="../../df/dba/namespaceSimpleRest_1_1Api.html#ada4eac4d8de31c19a9aa2abd91c5a909">SimpleRestMethod</a>.OPTIONS)</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>                    {</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                        <span class="comment">//TODO handle options request</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                    }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                    {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                        await RunMiddleWare(request, response);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                        <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a3119404845993ce7b900d4b557551fe5">OnBeforeRequestEnd</a>?.Invoke(<span class="keyword">this</span>, request, response);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                        context.Response.Close();</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                        <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a517a79dcccc7803dbf4c2255277aa70c">OnRequestEnd</a>?.Invoke(<span class="keyword">this</span>, request, response);</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                    }</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                }</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                <span class="keywordflow">catch</span> (ObjectDisposedException ode)</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                    Console.WriteLine(<span class="stringliteral">&quot;Stopping server due to dead listener&quot;</span>);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                    <a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8">Stop</a>();</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                <span class="keywordflow">catch</span> (Exception e)</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                    Console.WriteLine(</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                        <span class="stringliteral">&quot;Something went wrong while getting request: &quot;</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                            + e.Message</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                            + <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                            + e.StackTrace</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                    );</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                }</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>            }</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        }</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keywordflow">catch</span> (Exception e)</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            Console.WriteLine(<span class="stringliteral">&quot;Failure to open server: &quot;</span> + e.Message);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    }</div>
 </div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    async Task RunMiddleWare(<a class="code hl_class" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html">SimpleRestRequest</a> request, <a class="code hl_class" href="../../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html">SimpleRestResponse</a> response)</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    {</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        Dictionary&lt;UriTemplateMatch, SimpleRestMap&gt; matches = m_Middleware</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            .Where(m =&gt; m.Pattern.Match(<span class="keyword">new</span> System.Uri(request.<a class="code hl_property" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a887b159a1571cc3ab9d55c15e6d04448">Endpoint</a>, UriKind.Relative)) != <span class="keyword">null</span>)</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>            .ToDictionary(</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                m =&gt; m.Pattern.Match(<span class="keyword">new</span> System.Uri(request.<a class="code hl_property" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a887b159a1571cc3ab9d55c15e6d04448">Endpoint</a>, UriKind.Relative)),</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                m =&gt; m</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            );</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        matches.Values.ToList().Dump();</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a9678dd5baea89a182c9053fd97b71d4a">OnHandleRequestStack</a>?.Invoke(<span class="keyword">this</span>, request, response, matches);</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        <span class="keywordflow">foreach</span> (KeyValuePair&lt;UriTemplateMatch, SimpleRestMap&gt; match <span class="keywordflow">in</span> matches)</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        {</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            <span class="keywordflow">if</span> (response.<a class="code hl_property" href="../../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#ad70801b4a0e5d9815fe23449a745a19b">HasCompleted</a>)</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            <a class="code hl_class" href="../../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html">SimpleRestMap</a> map = match.Value;</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            UriTemplateMatch uriTemplateMatch = match.Key;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    async Task RunMiddleWare(<a class="code hl_class" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html">SimpleRestRequest</a> request, <a class="code hl_class" href="../../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html">SimpleRestResponse</a> response)</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    {</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        Dictionary&lt;UriTemplateMatch, SimpleRestMap&gt; matches = m_Middleware</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            .Where(m =&gt; m.Pattern.Match(<span class="keyword">new</span> System.Uri(request.<a class="code hl_property" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a887b159a1571cc3ab9d55c15e6d04448">Endpoint</a>, UriKind.Relative)) != <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            .ToDictionary(</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                m =&gt; m.Pattern.Match(<span class="keyword">new</span> System.Uri(request.<a class="code hl_property" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a887b159a1571cc3ab9d55c15e6d04448">Endpoint</a>, UriKind.Relative)),</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                m =&gt; m</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            );</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        matches.Values.ToList().Dump();</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a9678dd5baea89a182c9053fd97b71d4a">OnHandleRequestStack</a>?.Invoke(<span class="keyword">this</span>, request, response, matches);</div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>            <span class="keywordflow">if</span> (map.<a class="code hl_property" href="../../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#aa67549aec1dfbf8de9b9fcab93a45668">Method</a> == <a class="code hl_enumeration" href="../../df/dba/namespaceSimpleRest_1_1Api.html#ada4eac4d8de31c19a9aa2abd91c5a909">SimpleRestMethod</a>.ANY || map.<a class="code hl_property" href="../../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#aa67549aec1dfbf8de9b9fcab93a45668">Method</a> == request.<a class="code hl_property" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#aea3f4b64f3db73d6b46f2ae57cc4d89b">Method</a>)</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>            {</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a8ae3173f5616b26dd419e6c98a061603">OnRequestMatch</a>?.Invoke(<span class="keyword">this</span>, request, response, uriTemplateMatch, map);</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                ApplyUriParams(uriTemplateMatch, request);</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>                <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a5205ee5d964a0a676e84c6f6befd53ca">OnApplyUriParams</a>?.Invoke(<span class="keyword">this</span>, request, response, uriTemplateMatch, map);</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a5b90d170f8021a65699248aa0a1a0ea8">OnBeforeRunMiddleware</a>?.Invoke(<span class="keyword">this</span>, request, response, uriTemplateMatch, map);</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                await map.<a class="code hl_property" href="../../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#a83bb42d7aae71924adb8e388b6693d62">Middleware</a>.Invoke(request, response);</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a887663b52fb1adec5f788b7ed29baaaa">OnRunMiddleware</a>?.Invoke(<span class="keyword">this</span>, request, response, uriTemplateMatch, map);</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            }</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        }</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    }</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="keywordtype">void</span> ApplyUriParams(UriTemplateMatch match, SimpleRestRequest request)</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    {</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        match.Dump();</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        Dictionary&lt;string, object?&gt; paramsToAdd = <span class="keyword">new</span> Dictionary&lt;string, object?&gt;();</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> key <span class="keywordflow">in</span> match.Bindings.Keys)</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        {</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            paramsToAdd.Add(key, match.Bindings[key].Value);</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="keywordtype">object</span>? converted = <span class="keyword">null</span>;</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            <span class="keywordflow">try</span></div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            {</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                converted = JsonConvert.DeserializeObject(</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                    match.Bindings[key].Value.ToString() ?? <span class="stringliteral">&quot;null&quot;</span></div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>                );</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>            }</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            <span class="keywordflow">catch</span> (JsonException je)</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            {</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>                <span class="keywordtype">string</span> stringifiedObject = $<span class="stringliteral">&quot;\&quot;{match.Bindings[key].Value.ToString()}\&quot;&quot;</span>;</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>                converted = JsonConvert.DeserializeObject(stringifiedObject ?? <span class="stringliteral">&quot;null&quot;</span>);</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            }</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>            converted = ApplyIntType(converted);</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            paramsToAdd[key] = converted;</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        }</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        request.Params.NonDistructiveUnion(paramsToAdd);</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        request.Params.Dump();</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    }</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <span class="keywordtype">object</span>? ApplyIntType(<span class="keywordtype">object</span>? value)</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    {</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        <span class="keywordflow">if</span> (</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            value != <span class="keyword">null</span> &amp;&amp; value is <span class="keywordtype">short</span></div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            || value is ushort</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            || value is <span class="keywordtype">int</span></div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            || value is uint</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            || value is <span class="keywordtype">long</span></div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>            || value is ulong</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        )</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        {</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>            <span class="keywordflow">return</span> Convert.ChangeType(value, m_DefaultIntType);</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        }</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        <span class="keywordflow">return</span> value;</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    }</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
-<div class="foldopen" id="foldopen00300" data-start="{" data-end="}">
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8">  300</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8">Stop</a>()</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    {</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        m_Listener?.Close();</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <a class="code hl_property" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a2d944b93e323b206968b147112771bb0">Disposed</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    }</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <span class="keywordflow">foreach</span> (KeyValuePair&lt;UriTemplateMatch, SimpleRestMap&gt; match <span class="keywordflow">in</span> matches)</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            <span class="keywordflow">if</span> (response.<a class="code hl_property" href="../../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#ad70801b4a0e5d9815fe23449a745a19b">HasCompleted</a>)</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            <a class="code hl_class" href="../../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html">SimpleRestMap</a> map = match.Value;</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>            UriTemplateMatch uriTemplateMatch = match.Key;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            <span class="keywordflow">if</span> (map.<a class="code hl_property" href="../../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#aa67549aec1dfbf8de9b9fcab93a45668">Method</a> == <a class="code hl_enumeration" href="../../df/dba/namespaceSimpleRest_1_1Api.html#ada4eac4d8de31c19a9aa2abd91c5a909">SimpleRestMethod</a>.ANY || map.<a class="code hl_property" href="../../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#aa67549aec1dfbf8de9b9fcab93a45668">Method</a> == request.<a class="code hl_property" href="../../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#aea3f4b64f3db73d6b46f2ae57cc4d89b">Method</a>)</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            {</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a8ae3173f5616b26dd419e6c98a061603">OnRequestMatch</a>?.Invoke(<span class="keyword">this</span>, request, response, uriTemplateMatch, map);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>                ApplyUriParams(uriTemplateMatch, request);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>                <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a5205ee5d964a0a676e84c6f6befd53ca">OnApplyUriParams</a>?.Invoke(<span class="keyword">this</span>, request, response, uriTemplateMatch, map);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a5b90d170f8021a65699248aa0a1a0ea8">OnBeforeRunMiddleware</a>?.Invoke(<span class="keyword">this</span>, request, response, uriTemplateMatch, map);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                await map.<a class="code hl_property" href="../../da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html#a83bb42d7aae71924adb8e388b6693d62">Middleware</a>.Invoke(request, response);</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>                <a class="code hl_event" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a887663b52fb1adec5f788b7ed29baaaa">OnRunMiddleware</a>?.Invoke(<span class="keyword">this</span>, request, response, uriTemplateMatch, map);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        }</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    }</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keywordtype">void</span> ApplyUriParams(UriTemplateMatch match, SimpleRestRequest request)</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    {</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        match.Dump();</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        Dictionary&lt;string, object?&gt; paramsToAdd = <span class="keyword">new</span> Dictionary&lt;string, object?&gt;();</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> key <span class="keywordflow">in</span> match.Bindings.Keys)</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        {</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>            paramsToAdd.Add(key, match.Bindings[key].Value);</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            <span class="keywordtype">object</span>? converted = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            {</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>                converted = JsonConvert.DeserializeObject(</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>                    match.Bindings[key].Value.ToString() ?? <span class="stringliteral">&quot;null&quot;</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>                );</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            }</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>            <span class="keywordflow">catch</span> (JsonException je)</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>            {</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>                <span class="keywordtype">string</span> stringifiedObject = $<span class="stringliteral">&quot;\&quot;{match.Bindings[key].Value.ToString()}\&quot;&quot;</span>;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                converted = JsonConvert.DeserializeObject(stringifiedObject ?? <span class="stringliteral">&quot;null&quot;</span>);</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            }</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            converted = ApplyIntType(converted);</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>            paramsToAdd[key] = converted;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        }</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        request.Params.NonDistructiveUnion(paramsToAdd);</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        request.Params.Dump();</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    }</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keywordtype">object</span>? ApplyIntType(<span class="keywordtype">object</span>? value)</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    {</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="keywordflow">if</span> (</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            value != <span class="keyword">null</span> &amp;&amp; value is <span class="keywordtype">short</span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>            || value is ushort</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>            || value is <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>            || value is uint</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>            || value is <span class="keywordtype">long</span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            || value is ulong</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        )</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        {</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            <span class="keywordflow">return</span> Convert.ChangeType(value, m_DefaultIntType);</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        }</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        <span class="keywordflow">return</span> value;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    }</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
+<div class="foldopen" id="foldopen00307" data-start="{" data-end="}">
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno"><a class="line" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8">  307</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8">Stop</a>()</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    {</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        m_Listener?.Close();</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        <a class="code hl_property" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a2d944b93e323b206968b147112771bb0">Disposed</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    }</div>
 </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
-<div class="foldopen" id="foldopen00306" data-start="{" data-end="}">
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a20516048a808763837e18e864b2dd319">  306</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a20516048a808763837e18e864b2dd319">Dispose</a>()</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    {</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8">Stop</a>();</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    }</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="foldopen" id="foldopen00313" data-start="{" data-end="}">
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno"><a class="line" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a20516048a808763837e18e864b2dd319">  313</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a20516048a808763837e18e864b2dd319">Dispose</a>()</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    {</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <a class="code hl_function" href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8">Stop</a>();</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    }</div>
 </div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>}</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>}</div>
 </div>
 <div class="ttc" id="aSimpleRestApi_8cs_html_a5158d4f8b5feef33d67a88180c9472a7"><div class="ttname"><a href="../../df/d3e/SimpleRestApi_8cs.html#a5158d4f8b5feef33d67a88180c9472a7">Uri</a></div><div class="ttdeci">UriTemplate.Core Uri</div><div class="ttdef"><b>Definition</b> <a href="#l00008">SimpleRestApi.cs:8</a></div></div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html">SimpleRest.Api.SimpleRestApi</a></div><div class="ttdef"><b>Definition</b> <a href="#l00014">SimpleRestApi.cs:15</a></div></div>
@@ -441,7 +448,7 @@ $(function(){initNavTree('df/d3e/SimpleRestApi_8cs_source.html','../../'); initR
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a06d0610c7b18b8e680262bd5e0fb73e2"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a06d0610c7b18b8e680262bd5e0fb73e2">SimpleRest.Api.SimpleRestApi.Start</a></div><div class="ttdeci">async Task Start(Action&lt; int, string &gt;? OnStartup=null)</div><div class="ttdef"><b>Definition</b> <a href="#l00167">SimpleRestApi.cs:167</a></div></div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a0e70e5629089887d23a2d21ae42074ac"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a0e70e5629089887d23a2d21ae42074ac">SimpleRest.Api.SimpleRestApi.Map</a></div><div class="ttdeci">void Map(string endpoint, ApiMiddleWare middleWare)</div><div class="ttdef"><b>Definition</b> <a href="#l00127">SimpleRestApi.cs:127</a></div></div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a1165adac3ccd0061233cd52f64ca3915"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a1165adac3ccd0061233cd52f64ca3915">SimpleRest.Api.SimpleRestApi.OnBeforeRequestCreate</a></div><div class="ttdeci">Action&lt; SimpleRestApi &gt;? OnBeforeRequestCreate</div><div class="ttdef"><b>Definition</b> <a href="#l00029">SimpleRestApi.cs:29</a></div></div>
-<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a20516048a808763837e18e864b2dd319"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a20516048a808763837e18e864b2dd319">SimpleRest.Api.SimpleRestApi.Dispose</a></div><div class="ttdeci">void Dispose()</div><div class="ttdef"><b>Definition</b> <a href="#l00306">SimpleRestApi.cs:306</a></div></div>
+<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a20516048a808763837e18e864b2dd319"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a20516048a808763837e18e864b2dd319">SimpleRest.Api.SimpleRestApi.Dispose</a></div><div class="ttdeci">void Dispose()</div><div class="ttdef"><b>Definition</b> <a href="#l00313">SimpleRestApi.cs:313</a></div></div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a237fc8068e75e79b7fba21ec9a15d8c1"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a237fc8068e75e79b7fba21ec9a15d8c1">SimpleRest.Api.SimpleRestApi.Post</a></div><div class="ttdeci">void Post(string endpoint, ApiMiddleWare middleWare)</div><div class="ttdef"><b>Definition</b> <a href="#l00137">SimpleRestApi.cs:137</a></div></div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a2768d8d46caeda29a9c65a194ea798d2"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a2768d8d46caeda29a9c65a194ea798d2">SimpleRest.Api.SimpleRestApi.SimpleRestApi</a></div><div class="ttdeci">SimpleRestApi(int port, ISimpleRestLogger? logger=null, ISimpleRestContentTypeParser? responseParser=null, ISimpleRestUriTemplateFormatter? uriFormatter=null, ISimpleRestEndpointFormatter? endpointFormatter=null, JsonSerializerSettings? jsonSerializerSettings=null, Type? defaultIntType=null)</div><div class="ttdef"><b>Definition</b> <a href="#l00071">SimpleRestApi.cs:71</a></div></div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a2d944b93e323b206968b147112771bb0"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a2d944b93e323b206968b147112771bb0">SimpleRest.Api.SimpleRestApi.Disposed</a></div><div class="ttdeci">bool Disposed</div><div class="ttdef"><b>Definition</b> <a href="#l00027">SimpleRestApi.cs:27</a></div></div>
@@ -462,7 +469,7 @@ $(function(){initNavTree('df/d3e/SimpleRestApi_8cs_source.html','../../'); initR
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a9678dd5baea89a182c9053fd97b71d4a"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a9678dd5baea89a182c9053fd97b71d4a">SimpleRest.Api.SimpleRestApi.OnHandleRequestStack</a></div><div class="ttdeci">Action&lt; SimpleRestApi, SimpleRestRequest, SimpleRestResponse, Dictionary&lt; UriTemplateMatch, SimpleRestMap &gt; &gt;? OnHandleRequestStack</div><div class="ttdef"><b>Definition</b> <a href="#l00039">SimpleRestApi.cs:34</a></div></div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a986b5492f24e3e9d81a4a3608c92847c"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a986b5492f24e3e9d81a4a3608c92847c">SimpleRest.Api.SimpleRestApi.Get</a></div><div class="ttdeci">void Get(string endpoint, ApiMiddleWare middleWare)</div><div class="ttdef"><b>Definition</b> <a href="#l00132">SimpleRestApi.cs:132</a></div></div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_a9c2e0a6248ff7f3a9d85d6315e72346f"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a9c2e0a6248ff7f3a9d85d6315e72346f">SimpleRest.Api.SimpleRestApi.Delete</a></div><div class="ttdeci">void Delete(string endpoint, ApiMiddleWare middleWare)</div><div class="ttdef"><b>Definition</b> <a href="#l00152">SimpleRestApi.cs:152</a></div></div>
-<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_af6cfaf3317468003340f968e8a60d9f8"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8">SimpleRest.Api.SimpleRestApi.Stop</a></div><div class="ttdeci">void Stop()</div><div class="ttdef"><b>Definition</b> <a href="#l00300">SimpleRestApi.cs:300</a></div></div>
+<div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_af6cfaf3317468003340f968e8a60d9f8"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#af6cfaf3317468003340f968e8a60d9f8">SimpleRest.Api.SimpleRestApi.Stop</a></div><div class="ttdeci">void Stop()</div><div class="ttdef"><b>Definition</b> <a href="#l00307">SimpleRestApi.cs:307</a></div></div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestApi_html_afdbf06e5b1a4c238b07d67aedd3f813d"><div class="ttname"><a href="../../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#afdbf06e5b1a4c238b07d67aedd3f813d">SimpleRest.Api.SimpleRestApi.HasStarted</a></div><div class="ttdeci">bool HasStarted</div><div class="ttdef"><b>Definition</b> <a href="#l00026">SimpleRestApi.cs:26</a></div></div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestContentTypeParser_html"><div class="ttname"><a href="../../d4/dfc/classSimpleRest_1_1Api_1_1SimpleRestContentTypeParser.html">SimpleRest.Api.SimpleRestContentTypeParser</a></div><div class="ttdef"><b>Definition</b> <a href="../../d5/df0/SimpleRestContentTypeParser_8cs_source.html#l00003">SimpleRestContentTypeParser.cs:4</a></div></div>
 <div class="ttc" id="aclassSimpleRest_1_1Api_1_1SimpleRestEndpointFormatter_html"><div class="ttname"><a href="../../d2/d91/classSimpleRest_1_1Api_1_1SimpleRestEndpointFormatter.html">SimpleRest.Api.SimpleRestEndpointFormatter</a></div><div class="ttdef"><b>Definition</b> <a href="../../d5/de9/SimpleRestEndpointFormatter_8cs_source.html#l00002">SimpleRestEndpointFormatter.cs:3</a></div></div>

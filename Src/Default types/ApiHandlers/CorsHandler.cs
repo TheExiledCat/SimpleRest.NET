@@ -12,13 +12,14 @@ public class CorsHandler : SimpleRestApiHandler
         m_AllowedOrigins = allowedOrigins;
     }
 
-    public override void OnResponseCreate(
-        SimpleRestApi api,
-        SimpleRestRequest request,
-        SimpleRestResponse response
-    )
+    public override void OnServerStart(SimpleRestApi api)
     {
-        base.OnResponseCreate(api, request, response);
-        response.Headers?.Add("Access-Control-Allow-Origin", m_AllowedOrigins);
+        base.OnServerStart(api);
+        api.Options(
+            async (req, res) =>
+            {
+                res.Headers?.Add("Access-Control-Allow-Origin", m_AllowedOrigins);
+            }
+        );
     }
 }

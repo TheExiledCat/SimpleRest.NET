@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$d1/db5/interfaceSimpleRest_1_1Api_1_1ISimpleRestUriTemplateFormatter.html" title=" " alt="" coords="5,5,208,45"/>
-<area shape="rect" id="Node000001" href="$d5/d6b/classSimpleRest_1_1Api_1_1SimpleRestUriTemplateHandler.html" title=" " alt="" coords="256,5,455,45"/>
-<area shape="poly" id="edge8_Node000000_Node000001" title=" " alt="" coords="221,23,256,23,256,28,221,28"/>
+<area shape="rect" id="Node000000" href="$da/d93/interfaceSimpleRest_1_1Api_1_1ISimpleRestQuery.html" title=" " alt="" coords="5,5,208,45"/>
+<area shape="rect" id="Node000001" href="$de/db5/classSimpleRest_1_1Api_1_1SimpleRestQuery.html" title=" " alt="" coords="256,5,455,45"/>
+<area shape="poly" id="edge10_Node000000_Node000001" title=" " alt="" coords="221,23,256,23,256,28,221,28"/>
 </map>

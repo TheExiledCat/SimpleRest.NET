@@ -6,7 +6,7 @@ var searchData=
   ['url_20parameters_3',['Using URL Parameters',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md23',1,'']]],
   ['usage_20patterns_4',['Common Usage Patterns',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md20',1,'']]],
   ['use_5',['Use',['../d7/d9c/classSimpleRest_1_1Api_1_1SimpleRestApi.html#a918e13d24e11b5234c9344fd9c9135bf',1,'SimpleRest::Api::SimpleRestApi']]],
-  ['useragent_6',['UserAgent',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a34c034e17d01e86438b7a238a8c21b61',1,'SimpleRest::Api::SimpleRestRequest']]],
+  ['useragent_6',['UserAgent',['../d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html#a34c034e17d01e86438b7a238a8c21b61',1,'SimpleRest.Api.SimpleRestRequest.UserAgent'],['../d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html#a396ec1f7406efd83f8fd523c1b762dc8',1,'SimpleRest.Api.SimpleRestResponse.UserAgent'],['../db/dbd/interfaceSimpleRest_1_1Api_1_1ISimpleRestHttpObject.html#a437d8d5fad73d495338abee72b646bfe',1,'SimpleRest.Api.ISimpleRestHttpObject.UserAgent']]],
   ['using_20git_7',['Or from source using git',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md11',1,'']]],
   ['using_20nuget_3a_8',['Using NuGet:',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md10',1,'']]],
   ['using_20url_20parameters_9',['Using URL Parameters',['../d1/d57/md_guides_2Getting_01Started.html#autotoc_md23',1,'']]]

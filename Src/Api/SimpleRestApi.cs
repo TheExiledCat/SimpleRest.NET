@@ -129,6 +129,16 @@ public class SimpleRestApi : IDisposable
         AddMiddleware(endpoint, SimpleRestMethod.ANY, middleWare);
     }
 
+    public void All(ApiMiddleWare middleWare)
+    {
+        AddMiddleware("/*", SimpleRestMethod.ANY, middleWare);
+    }
+
+    public void Options(ApiMiddleWare middleWare)
+    {
+        AddMiddleware("/*", SimpleRestMethod.OPTIONS, middleWare);
+    }
+
     public void Get(string endpoint, ApiMiddleWare middleWare)
     {
         AddMiddleware(endpoint, SimpleRestMethod.GET, middleWare);
@@ -196,25 +206,14 @@ public class SimpleRestApi : IDisposable
 
                     m_Logger.Log(request);
                     OnLog?.Invoke(this, request);
-                    if (request.Method == SimpleRestMethod.OPTIONS)
-                    {
-                        //TODO handle options request
-                    }
-                    else
-                    {
-                        await RunMiddleWare(request, response);
 
-                        OnBeforeRequestEnd?.Invoke(this, request, response);
-                        context.Response.Close();
-                        OnRequestEnd?.Invoke(this, request, response);
-                    }
+                    await RunMiddleWare(request, response);
+
+                    OnBeforeRequestEnd?.Invoke(this, request, response);
+                    context.Response.Close();
+                    OnRequestEnd?.Invoke(this, request, response);
                 }
-                catch (ObjectDisposedException ode)
-                {
-                    Console.WriteLine("Stopping server due to dead listener");
-                    Stop();
-                    break;
-                }
+                catch (ObjectDisposedException ode) { }
                 catch (Exception e)
                 {
                     Console.WriteLine(
@@ -234,10 +233,16 @@ public class SimpleRestApi : IDisposable
 
     async Task RunMiddleWare(SimpleRestRequest request, SimpleRestResponse response)
     {
+        m_Middleware.Select(m => m.Pattern).ToList().Dump();
         Dictionary<UriTemplateMatch, SimpleRestMap> matches = m_Middleware
-            .Where(m => m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative)) != null)
+            .Where(m =>
+                m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative)) != null
+                || m.Endpoint == "/*"
+            )
             .ToDictionary(
-                m => m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative)),
+                m =>
+                    m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative))
+                    ?? new Uri.UriTemplate("/*").Match(new System.Uri("/*")),
                 m => m
             );
         matches.Values.ToList().Dump();

@@ -111,7 +111,7 @@ public class SimpleRestBody
     {
         Bytes = Encoding.UTF8.GetBytes(contents);
 
-        Content = contents
+        Content = contents;
     }
 
     /// <summary>

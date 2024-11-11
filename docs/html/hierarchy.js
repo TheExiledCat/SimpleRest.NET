@@ -5,6 +5,7 @@ var hierarchy =
     ] ],
     [ "SimpleRest.Api.ISimpleRestApiHandler", "d8/dd0/interfaceSimpleRest_1_1Api_1_1ISimpleRestApiHandler.html", [
       [ "SimpleRest.Handlers.SimpleRestApiHandler", "d9/d08/classSimpleRest_1_1Handlers_1_1SimpleRestApiHandler.html", [
+        [ "SimpleRest.Handlers.CorsHandler", "d4/d92/classSimpleRest_1_1Handlers_1_1CorsHandler.html", null ],
         [ "SimpleRest.Handlers.ResourceNotFoundHandler", "d7/d96/classSimpleRest_1_1Handlers_1_1ResourceNotFoundHandler.html", null ]
       ] ]
     ] ],
@@ -13,6 +14,10 @@ var hierarchy =
     ] ],
     [ "SimpleRest.Api.ISimpleRestEndpointFormatter", "d4/dfa/interfaceSimpleRest_1_1Api_1_1ISimpleRestEndpointFormatter.html", [
       [ "SimpleRest.Api.SimpleRestEndpointFormatter", "d2/d91/classSimpleRest_1_1Api_1_1SimpleRestEndpointFormatter.html", null ]
+    ] ],
+    [ "SimpleRest.Api.ISimpleRestHttpObject", "db/dbd/interfaceSimpleRest_1_1Api_1_1ISimpleRestHttpObject.html", [
+      [ "SimpleRest.Api.SimpleRestRequest", "d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html", null ],
+      [ "SimpleRest.Api.SimpleRestResponse", "d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html", null ]
     ] ],
     [ "SimpleRest.Api.ISimpleRestLogger", "de/d5d/interfaceSimpleRest_1_1Api_1_1ISimpleRestLogger.html", [
       [ "SimpleRest.Api.SimpleRestLogger", "da/d6b/classSimpleRest_1_1Api_1_1SimpleRestLogger.html", null ]
@@ -27,8 +32,6 @@ var hierarchy =
       [ "SimpleRest.Views.ResourceNotFoundView", "d8/de0/classSimpleRest_1_1Views_1_1ResourceNotFoundView.html", null ],
       [ "SimpleRest.Views.SimpleRestHomeView", "d0/dd5/classSimpleRest_1_1Views_1_1SimpleRestHomeView.html", null ]
     ] ],
-    [ "SimpleRest.Api.SimpleRestMap", "da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html", null ],
-    [ "SimpleRest.Api.SimpleRestRequest", "d3/d48/classSimpleRest_1_1Api_1_1SimpleRestRequest.html", null ],
-    [ "SimpleRest.Api.SimpleRestRequestBody", "d3/d69/classSimpleRest_1_1Api_1_1SimpleRestRequestBody.html", null ],
-    [ "SimpleRest.Api.SimpleRestResponse", "d1/d42/classSimpleRest_1_1Api_1_1SimpleRestResponse.html", null ]
+    [ "SimpleRest.Api.SimpleRestBody", "d3/d91/classSimpleRest_1_1Api_1_1SimpleRestBody.html", null ],
+    [ "SimpleRest.Api.SimpleRestMap", "da/d05/classSimpleRest_1_1Api_1_1SimpleRestMap.html", null ]
 ];
