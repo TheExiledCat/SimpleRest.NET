@@ -17,9 +17,9 @@
     <NoWarn>$(NoWarn);CS1998</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Dumpify" Version="0.6.6"/>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-    <None Include="../README.md" Pack="true" PackagePath="./"/>
-    <PackageReference Include="UriTemplate.core" Version="1.0.2"/>
+    <PackageReference Include="Dumpify" Version="0.6.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <None Include="../README.md" Pack="true" PackagePath="./" />
+    <PackageReference Include="UriTemplate.core" Version="1.0.2" />
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 using System.Text;
 using Newtonsoft.Json;
 using SimpleRest.Views;
+using Spectre.Console;
 
 namespace SimpleRest.Api;
 
@@ -13,13 +14,13 @@ public class SimpleRestResponse : ISimpleRestHttpObject
     public string? ContentType { get; private set; }
     public event Result? OnSend;
     public bool HasCompleted { get; private set; }
-    ushort m_StatusCode = 200;
-    public ushort StatusCode
+    StatusCode m_StatusCode = StatusCode.Success;
+    public StatusCode StatusCode
     {
         get => m_StatusCode;
         set
         {
-            if (value.ToString().Length == 3)
+            if (value.Code.ToString().Length == 3)
             {
                 m_StatusCode = value;
             }
@@ -45,64 +46,76 @@ public class SimpleRestResponse : ISimpleRestHttpObject
     {
         if (!HasCompleted)
         {
-            Response.StatusCode = 500;
+            Response.StatusCode = StatusCode.InternalServerError.Code;
         }
 
-        Response.ContentLength64 = 0;
-        Response.ContentType = null;
-        Response.StatusCode = 204;
-        Response.Headers = Headers;
-        Response?.Close();
-        HasCompleted = true;
-        OnSend?.Invoke();
+        ContentLength = 0;
+        ContentType = null;
+        StatusCode = new StatusCode(204, "No Resource");
+        SetHeaders();
+        WriteResponse(null);
     }
 
     public void Send<T>(T result)
     {
         if (result == null && !HasCompleted)
         {
-            Response.StatusCode = 500;
+            Response.StatusCode = StatusCode.InternalServerError.Code;
         }
         string finalOutput = JsonConvert.SerializeObject(result);
         ContentType = m_TypeParser.GetType<T>();
-        byte[] buffer = Encoding.UTF8.GetBytes(finalOutput);
-        Response.ContentLength64 = buffer.Length;
-        Response.ContentType = ContentType;
-        Response.StatusCode = StatusCode;
-        Response.Headers = Headers;
-        Response.OutputStream.Write(buffer, 0, buffer.Length);
-        Response?.Close();
-        HasCompleted = true;
-        OnSend?.Invoke(finalOutput);
+
+        SetHeaders();
+        WriteResponse(finalOutput);
     }
 
-    public void View(string content, string contentType = "text/html; charset=urf-8")
+    public void View(string content, string contentType = "text/html; charset=utf-8")
     {
         ContentType = contentType;
-        byte[] buffer = Encoding.UTF8.GetBytes(content);
-        Response.ContentLength64 = buffer.Length;
-        Response.Headers = Headers;
-        Response.StatusCode = StatusCode;
-        Response.ContentType = ContentType;
-        Response.OutputStream.Write(buffer, 0, buffer.Length);
 
-        Response?.Close();
-        HasCompleted = true;
-        OnSend?.Invoke(content);
+        SetHeaders();
+        WriteResponse(content);
     }
 
     public void View(ISimpleRestView view, string contentType = "text/html; charset=urf-8")
     {
         ContentType = contentType;
-        byte[] buffer = Encoding.UTF8.GetBytes(view.GetView());
-        Response.ContentLength64 = buffer.Length;
-        Response.StatusCode = StatusCode;
+
+        SetHeaders();
+        WriteResponse(view.GetView());
+    }
+
+    public void Redirect(string location, RedirectCode? redirectCode = null)
+    {
+        redirectCode = redirectCode ?? RedirectCode.TemporaryRedirect;
+        Response.StatusCode = redirectCode.Code;
+        Response.StatusDescription = redirectCode.Name;
+        SetHeaders();
+        Response.Headers["Location"] = location;
+        WriteResponse(redirectCode.ToString());
+    }
+
+    void SetHeaders()
+    {
         Response.Headers = Headers;
         Response.ContentType = ContentType;
-        Response.OutputStream.Write(buffer, 0, buffer.Length);
+        Response.ContentLength64 = ContentLength;
+        Response.StatusCode = StatusCode.Code;
+    }
 
+    void WriteResponse(string? response)
+    {
+        if (response != null)
+        {
+            byte[] buffer = Encoding.UTF8.GetBytes(response);
+            Response.OutputStream.Write(buffer, 0, buffer.Length);
+            Response?.Close();
+            HasCompleted = true;
+            OnSend?.Invoke(Encoding.UTF8.GetString(buffer));
+            return;
+        }
         Response?.Close();
         HasCompleted = true;
-        OnSend?.Invoke(view.GetView());
+        OnSend?.Invoke();
     }
 }

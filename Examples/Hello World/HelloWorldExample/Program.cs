@@ -16,6 +16,20 @@ public class Program
                 res.Send("HelloWorld");
             }
         );
+        api.Post(
+            "/users",
+            async (req, res) =>
+            {
+                res.Send("POSTT");
+            }
+        );
+        api.Post(
+            "/",
+            async (req, res) =>
+            {
+                res.Redirect("www.google.com", RedirectCode.TemporaryRedirect);
+            }
+        );
         await api.Start(
             (port, url) =>
             {

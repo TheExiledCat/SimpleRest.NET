@@ -268,7 +268,6 @@ public class SimpleRestApi : IDisposable
 
     async Task RunMiddleWare(SimpleRestRequest request, SimpleRestResponse response)
     {
-        m_Middleware.Select(m => m.Pattern).ToList().Dump();
         Dictionary<UriTemplateMatch, SimpleRestMap> matches = m_Middleware
             .Where(m =>
                 m.Pattern.Match(new System.Uri(request.Endpoint, UriKind.Relative)) != null
@@ -280,7 +279,6 @@ public class SimpleRestApi : IDisposable
                     ?? new Uri.UriTemplate("/*").Match(new System.Uri("/*")),
                 m => m
             );
-        matches.Values.ToList().Dump();
         OnHandleRequestStack?.Invoke(this, request, response, matches);
 
         foreach (KeyValuePair<UriTemplateMatch, SimpleRestMap> match in matches)
@@ -304,7 +302,6 @@ public class SimpleRestApi : IDisposable
 
     void ApplyUriParams(UriTemplateMatch match, SimpleRestRequest request)
     {
-        match.Dump();
         Dictionary<string, object?> paramsToAdd = new Dictionary<string, object?>();
         foreach (string key in match.Bindings.Keys)
         {
@@ -325,7 +322,6 @@ public class SimpleRestApi : IDisposable
             paramsToAdd[key] = converted;
         }
         request.Params.NonDistructiveUnion(paramsToAdd);
-        request.Params.Dump();
     }
 
     object? ApplyIntType(object? value)

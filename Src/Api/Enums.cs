@@ -1,4 +1,5 @@
 ﻿namespace SimpleRest.Api;
+
 public enum SimpleRestLogLevel
 {
     NONE,
@@ -6,8 +7,9 @@ public enum SimpleRestLogLevel
     MEDIUM,
     HIGH,
     LONG,
-    DEBUG
+    DEBUG,
 }
+
 public enum SimpleRestMethod
 {
     GET,
@@ -18,6 +20,5 @@ public enum SimpleRestMethod
     DELETE,
     OPTIONS,
     OTHER,
-    ANY
-
+    ANY,
 }
