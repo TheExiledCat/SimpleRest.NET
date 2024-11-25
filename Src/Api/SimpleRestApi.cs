@@ -94,7 +94,7 @@ public class SimpleRestApi : IDisposable
         m_DefaultIntType = defaultIntType ?? typeof(int);
     }
 
-    void MapHandlers()
+    void MapApiHandlers()
     {
         foreach (ISimpleRestApiHandler handler in m_Handlers)
         {
@@ -114,9 +114,30 @@ public class SimpleRestApi : IDisposable
         }
     }
 
-    void AddMiddleware(string endpoint, SimpleRestMethod method, ApiMiddleWare middleWare)
+    // void MapRouteHandlers()
+    // {
+    //     foreach (SimpleRestMap map in m_Middleware)
+    //     {
+    //         map.RouteHandlers.ToList()
+    //             .ForEach(h =>
+    //             {
+    //                 OnRequestCreate += h.OnRequest;
+    //                 OnResponseCreate += h.OnResponseCreate;
+    //                 OnRequestEnd += h.OnResponse;
+    //             });
+    //     }
+    // }
+
+    void AddMiddleware(
+        string endpoint,
+        SimpleRestMethod method,
+        ApiMiddleWare middleWare,
+        ISimpleRestRouteHandler[]? routeHandlers = null
+    )
     {
-        m_Middleware.Add(new SimpleRestMap(endpoint, method, middleWare, m_UriTemplateFormatter));
+        m_Middleware.Add(
+            new SimpleRestMap(endpoint, method, middleWare, m_UriTemplateFormatter, routeHandlers)
+        );
     }
 
     public void Use(ISimpleRestApiHandler customHandler)
@@ -124,84 +145,116 @@ public class SimpleRestApi : IDisposable
         m_Handlers.Add(customHandler);
     }
 
-    public void Map(string endpoint, ApiMiddleWare middleWare)
+    public void Map(
+        string endpoint,
+        ApiMiddleWare middleWare,
+        params ISimpleRestRouteHandler[] routeHandlers
+    )
     {
-        AddMiddleware(endpoint, SimpleRestMethod.ANY, middleWare);
+        AddMiddleware(endpoint, SimpleRestMethod.ANY, middleWare, routeHandlers);
     }
 
-    public void All(ApiMiddleWare middleWare)
+    public void All(ApiMiddleWare middleWare, params ISimpleRestRouteHandler[] routeHandlers)
     {
-        AddMiddleware("/*", SimpleRestMethod.ANY, middleWare);
+        AddMiddleware("/*", SimpleRestMethod.ANY, middleWare, routeHandlers);
     }
 
-    public void Options(ApiMiddleWare middleWare)
+    public void Options(ApiMiddleWare middleWare, params ISimpleRestRouteHandler[] routeHandlers)
     {
-        AddMiddleware("/*", SimpleRestMethod.OPTIONS, middleWare);
+        AddMiddleware("/*", SimpleRestMethod.OPTIONS, middleWare, routeHandlers);
     }
 
-    public void Options(string endpoint, ApiMiddleWare middleWare)
+    public void Options(
+        string endpoint,
+        ApiMiddleWare middleWare,
+        params ISimpleRestRouteHandler[] routeHandlers
+    )
     {
-        AddMiddleware(endpoint, SimpleRestMethod.OPTIONS, middleWare);
+        AddMiddleware(endpoint, SimpleRestMethod.OPTIONS, middleWare, routeHandlers);
     }
 
-    public void Get(string endpoint, ApiMiddleWare middleWare)
+    public void Get(
+        string endpoint,
+        ApiMiddleWare middleWare,
+        params ISimpleRestRouteHandler[] routeHandlers
+    )
     {
-        AddMiddleware(endpoint, SimpleRestMethod.GET, middleWare);
+        AddMiddleware(endpoint, SimpleRestMethod.GET, middleWare, routeHandlers);
     }
 
-    public void Get(ApiMiddleWare middleWare)
+    public void Get(ApiMiddleWare middleWare, params ISimpleRestRouteHandler[] routeHandlers)
     {
-        AddMiddleware("/*", SimpleRestMethod.GET, middleWare);
+        AddMiddleware("/*", SimpleRestMethod.GET, middleWare, routeHandlers);
     }
 
-    public void Post(string endpoint, ApiMiddleWare middleWare)
+    public void Post(
+        string endpoint,
+        ApiMiddleWare middleWare,
+        params ISimpleRestRouteHandler[] routeHandlers
+    )
     {
-        AddMiddleware(endpoint, SimpleRestMethod.POST, middleWare);
+        AddMiddleware(endpoint, SimpleRestMethod.POST, middleWare, routeHandlers);
     }
 
-    public void Post(ApiMiddleWare middleWare)
+    public void Post(ApiMiddleWare middleWare, params ISimpleRestRouteHandler[] routeHandlers)
     {
-        AddMiddleware("/*", SimpleRestMethod.POST, middleWare);
+        AddMiddleware("/*", SimpleRestMethod.POST, middleWare, routeHandlers);
     }
 
-    public void Put(string endpoint, ApiMiddleWare middleWare)
+    public void Put(
+        string endpoint,
+        ApiMiddleWare middleWare,
+        params ISimpleRestRouteHandler[] routeHandlers
+    )
     {
-        AddMiddleware(endpoint, SimpleRestMethod.PUT, middleWare);
+        AddMiddleware(endpoint, SimpleRestMethod.PUT, middleWare, routeHandlers);
     }
 
-    public void Put(ApiMiddleWare middleWare)
+    public void Put(ApiMiddleWare middleWare, params ISimpleRestRouteHandler[] routeHandlers)
     {
-        AddMiddleware("/*", SimpleRestMethod.PUT, middleWare);
+        AddMiddleware("/*", SimpleRestMethod.PUT, middleWare, routeHandlers);
     }
 
-    public void Patch(string endpoint, ApiMiddleWare middleWare)
+    public void Patch(
+        string endpoint,
+        ApiMiddleWare middleWare,
+        params ISimpleRestRouteHandler[] routeHandlers
+    )
     {
-        AddMiddleware(endpoint, SimpleRestMethod.PATCH, middleWare);
+        AddMiddleware(endpoint, SimpleRestMethod.PATCH, middleWare, routeHandlers);
     }
 
-    public void Patch(ApiMiddleWare middleWare)
+    public void Patch(ApiMiddleWare middleWare, params ISimpleRestRouteHandler[] routeHandlers)
     {
-        AddMiddleware("/*", SimpleRestMethod.PATCH, middleWare);
+        AddMiddleware("/*", SimpleRestMethod.PATCH, middleWare, routeHandlers);
     }
 
-    public void Delete(string endpoint, ApiMiddleWare middleWare)
+    public void Delete(
+        string endpoint,
+        ApiMiddleWare middleWare,
+        params ISimpleRestRouteHandler[] routeHandlers
+    )
     {
-        AddMiddleware(endpoint, SimpleRestMethod.DELETE, middleWare);
+        AddMiddleware(endpoint, SimpleRestMethod.DELETE, middleWare, routeHandlers);
     }
 
-    public void Delete(ApiMiddleWare middleWare)
+    public void Delete(ApiMiddleWare middleWare, params ISimpleRestRouteHandler[] routeHandlers)
     {
-        AddMiddleware("/*", SimpleRestMethod.DELETE, middleWare);
+        AddMiddleware("/*", SimpleRestMethod.DELETE, middleWare, routeHandlers);
     }
 
-    public void Head(string endpoint, ApiMiddleWare middleWare)
+    public void Head(
+        string endpoint,
+        ApiMiddleWare middleWare,
+        params ISimpleRestRouteHandler[] routeHandlers
+    )
     {
-        AddMiddleware(endpoint, SimpleRestMethod.HEAD, middleWare);
+        AddMiddleware(endpoint, SimpleRestMethod.HEAD, middleWare, routeHandlers);
     }
 
-    public void Head(ApiMiddleWare middleWare)
+    public void Head(ApiMiddleWare middleWare, params ISimpleRestRouteHandler[] routeHandlers)
     {
-        AddMiddleware("/*", SimpleRestMethod.HEAD, middleWare);
+        AddMiddleware("/*", SimpleRestMethod.HEAD, middleWare, routeHandlers);
     }
 
     /// <summary>
@@ -214,8 +267,9 @@ public class SimpleRestApi : IDisposable
         try
         {
             m_Listener.Start();
-            MapHandlers();
-
+            MapApiHandlers();
+            // MapRouteHandlers();
+            m_Middleware.Dump();
             OnServerStart?.Invoke(this);
             OnStartup?.Invoke(m_Port, m_Listener.Prefixes.First().Replace("*", "localhost"));
             HasStarted = true;
@@ -243,12 +297,16 @@ public class SimpleRestApi : IDisposable
                     OnLog?.Invoke(this, request);
 
                     await RunMiddleWare(request, response);
-
+                    if (response.HasCompleted)
+                        continue;
                     OnBeforeRequestEnd?.Invoke(this, request, response);
                     response.Return();
                     OnRequestEnd?.Invoke(this, request, response);
                 }
-                catch (ObjectDisposedException ode) { }
+                catch (ObjectDisposedException ode)
+                {
+                    return;
+                }
                 catch (Exception e)
                 {
                     Console.WriteLine(
@@ -290,9 +348,20 @@ public class SimpleRestApi : IDisposable
 
             if (map.Method == SimpleRestMethod.ANY || map.Method == request.Method)
             {
+
                 OnRequestMatch?.Invoke(this, request, response, uriTemplateMatch, map);
                 ApplyUriParams(uriTemplateMatch, request);
                 OnApplyUriParams?.Invoke(this, request, response, uriTemplateMatch, map);
+                map.RouteHandlers?.ToList()
+                    .ForEach(h =>
+                    {
+                        h.OnRequest(this, request, response);
+                        response.OnSend += (result) =>
+                        {
+                            h.OnResponse(this, request, response);
+                        };
+                    });
+
                 OnBeforeRunMiddleware?.Invoke(this, request, response, uriTemplateMatch, map);
                 await map.Middleware.Invoke(request, response);
                 OnRunMiddleware?.Invoke(this, request, response, uriTemplateMatch, map);
@@ -341,9 +410,12 @@ public class SimpleRestApi : IDisposable
     }
 
     public void Stop()
+
+
     {
-        m_Listener?.Close();
         Disposed = true;
+
+        m_Listener.Stop();
     }
 
     public void Dispose()

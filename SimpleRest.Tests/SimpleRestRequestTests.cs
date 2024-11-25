@@ -365,5 +365,6 @@ public class SimpleRestRequestTests : IDisposable
     {
         // Restore the original output
         Console.SetOut(_originalOutput);
+
     }
 }

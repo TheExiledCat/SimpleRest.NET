@@ -1,4 +1,6 @@
-﻿using SimpleRest.Api;
+﻿using Dumpify;
+using Newtonsoft.Json;
+using SimpleRest.Api;
 using SimpleRest.Handlers;
 
 public class Program
@@ -6,8 +8,8 @@ public class Program
     static async Task Main()
     {
         SimpleRestApi api = new SimpleRestApi(3000, new SimpleRestLogger(SimpleRestLogLevel.DEBUG));
-        api.Use(new CorsHandler());
-        api.Use(new ResourceNotFoundHandler());
+        // api.Use(new CorsHandler());
+        // api.Use(new ResourceNotFoundHandler());
 
         api.Get(
             "/",
@@ -21,7 +23,8 @@ public class Program
             async (req, res) =>
             {
                 res.Send("POSTT");
-            }
+            },
+            new BodyHandler<User>()
         );
         api.Post(
             "/",
@@ -37,4 +40,10 @@ public class Program
             }
         );
     }
+}
+[JsonObject(ItemRequired = Required.Always)]
+public class User
+{
+    public string Username { get; set; }
+    public int Age { get; set; }
 }

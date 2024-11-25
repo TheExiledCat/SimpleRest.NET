@@ -145,7 +145,6 @@ public class SimpleRestBody
     /// An instance of type <typeparamref name="T"/>, or <c>null</c> if the conversion fails.
     /// </returns>
     public T? As<T>()
-        where T : class
     {
         return GetContent<T>();
     }

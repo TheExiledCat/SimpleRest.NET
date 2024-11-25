@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Text;
+using Dumpify;
 using Newtonsoft.Json;
 using SimpleRest.Views;
 using Spectre.Console;
@@ -44,45 +45,41 @@ public class SimpleRestResponse : ISimpleRestHttpObject
 
     public void Return()
     {
-        if (!HasCompleted)
-        {
-            Response.StatusCode = StatusCode.InternalServerError.Code;
-        }
+
 
         ContentLength = 0;
         ContentType = null;
         StatusCode = new StatusCode(204, "No Resource");
         SetHeaders();
-        WriteResponse(null);
+        WriteResponse();
     }
 
     public void Send<T>(T result)
     {
-        if (result == null && !HasCompleted)
-        {
-            Response.StatusCode = StatusCode.InternalServerError.Code;
-        }
+
+        Response.StatusCode = StatusCode.InternalServerError.Code;
+
         string finalOutput = JsonConvert.SerializeObject(result);
         ContentType = m_TypeParser.GetType<T>();
-
+        Body = new SimpleRestBody(finalOutput);
         SetHeaders();
-        WriteResponse(finalOutput);
+        WriteResponse();
     }
 
     public void View(string content, string contentType = "text/html; charset=utf-8")
     {
         ContentType = contentType;
-
+        Body = new SimpleRestBody(content);
         SetHeaders();
-        WriteResponse(content);
+        WriteResponse();
     }
 
     public void View(ISimpleRestView view, string contentType = "text/html; charset=urf-8")
     {
         ContentType = contentType;
-
+        Body = new SimpleRestBody(view.GetView());
         SetHeaders();
-        WriteResponse(view.GetView());
+        WriteResponse();
     }
 
     public void Redirect(string location, RedirectCode? redirectCode = null)
@@ -90,32 +87,39 @@ public class SimpleRestResponse : ISimpleRestHttpObject
         redirectCode = redirectCode ?? RedirectCode.TemporaryRedirect;
         Response.StatusCode = redirectCode.Code;
         Response.StatusDescription = redirectCode.Name;
+        Body = new SimpleRestBody(redirectCode.ToString());
         SetHeaders();
         Response.Headers["Location"] = location;
-        WriteResponse(redirectCode.ToString());
+
     }
 
     void SetHeaders()
     {
+        ContentLength = Body.Bytes.Length;
         Response.Headers = Headers;
         Response.ContentType = ContentType;
         Response.ContentLength64 = ContentLength;
         Response.StatusCode = StatusCode.Code;
     }
 
-    void WriteResponse(string? response)
+    void WriteResponse()
     {
-        if (response != null)
-        {
-            byte[] buffer = Encoding.UTF8.GetBytes(response);
-            Response.OutputStream.Write(buffer, 0, buffer.Length);
-            Response?.Close();
-            HasCompleted = true;
-            OnSend?.Invoke(Encoding.UTF8.GetString(buffer));
-            return;
-        }
-        Response?.Close();
+
+        byte[] buffer = Body.Bytes;
+        Response.OutputStream.Write(buffer, 0, buffer.Length);
+
+        Response.Close();
         HasCompleted = true;
-        OnSend?.Invoke();
+        // OnSend?.Invoke(Body.Content);
+
+    }
+
+    public void Error(StatusCode? statusCode = null)
+    {
+        Console.WriteLine("ERROR");
+        statusCode ??= m_StatusCode;
+        m_StatusCode = statusCode;
+        SetHeaders();
+        WriteResponse();
     }
 }
