@@ -116,9 +116,9 @@ public class SimpleRestResponse : ISimpleRestHttpObject
 
     public void Error(StatusCode? statusCode = null)
     {
-        Console.WriteLine("ERROR");
         statusCode ??= m_StatusCode;
         m_StatusCode = statusCode;
+        Body = new SimpleRestBody(m_StatusCode.Message);
         SetHeaders();
         WriteResponse();
     }

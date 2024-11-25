@@ -4,6 +4,7 @@ using Dumpify;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using SimpleRest.Extensions;
+using Spectre.Console;
 using UriTemplate.Core;
 using Uri = UriTemplate.Core;
 
@@ -305,6 +306,8 @@ public class SimpleRestApi : IDisposable
                 }
                 catch (ObjectDisposedException ode)
                 {
+                    Console.WriteLine("Server disposed");
+                    AnsiConsole.WriteException(ode);
                     return;
                 }
                 catch (Exception e)

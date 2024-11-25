@@ -20,12 +20,13 @@ public class BodyHandler<T> : SimpleRestRouteHandler
         catch (JsonException je)
         {
             response.Error(
-                       response.StatusCode = new StatusCode(
+                       new StatusCode(
                            422,
                            "Unprocessable entity",
                            je.Message
                        )
                    );
+
         }
 
 
