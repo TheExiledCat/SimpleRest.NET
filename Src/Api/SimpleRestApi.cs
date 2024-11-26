@@ -1,8 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Net;
 using Dumpify;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Text.Json;
 using SimpleRest.Extensions;
 using Spectre.Console;
 using UriTemplate.Core;
@@ -24,6 +23,7 @@ public class SimpleRestApi : IDisposable
 
     List<SimpleRestMap> m_Middleware = new List<SimpleRestMap>();
     Type m_DefaultIntType;
+    JsonSerializerOptions m_SerializerOptions;
     public bool HasStarted { get; private set; } = false;
     public bool Disposed { get; private set; } = false;
     public event Action<SimpleRestApi>? OnServerStart;
@@ -75,7 +75,7 @@ public class SimpleRestApi : IDisposable
         ISimpleRestContentTypeParser? responseParser = null,
         ISimpleRestUriTemplateFormatter? uriFormatter = null,
         ISimpleRestEndpointFormatter? endpointFormatter = null,
-        JsonSerializerSettings? jsonSerializerSettings = null,
+        JsonSerializerOptions? jsonSerializerOptions = null,
         Type? defaultIntType = null
     )
     {
@@ -85,11 +85,12 @@ public class SimpleRestApi : IDisposable
         m_UriTemplateFormatter = uriFormatter ?? new SimpleRestUriTemplateHandler();
         m_Port = port;
         m_Listener.Prefixes.Add("http://*:" + port + "/");
-        JsonConvert.DefaultSettings = () =>
-            jsonSerializerSettings
-            ?? new JsonSerializerSettings
+        m_SerializerOptions =
+            jsonSerializerOptions
+            ?? new JsonSerializerOptions
             {
-                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                PropertyNameCaseInsensitive = true,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         m_EndpointFormatter = endpointFormatter ?? new SimpleRestEndpointFormatter();
         m_DefaultIntType = defaultIntType ?? typeof(int);
@@ -284,13 +285,13 @@ public class SimpleRestApi : IDisposable
 
                     SimpleRestRequest request = SimpleRestRequest.FromHttpListenerContext(
                         context,
-                        m_EndpointFormatter
+                        m_SerializerOptions, m_EndpointFormatter
                     );
                     OnRequestCreate?.Invoke(this, request);
                     OnBeforeResponseCreate?.Invoke(this, request);
                     SimpleRestResponse response = new SimpleRestResponse(
                         context.Response,
-                        m_ResponseTypeParser
+                        m_ResponseTypeParser, m_SerializerOptions
                     );
                     OnResponseCreate?.Invoke(this, request, response);
 
@@ -381,14 +382,14 @@ public class SimpleRestApi : IDisposable
             object? converted = null;
             try
             {
-                converted = JsonConvert.DeserializeObject(
+                converted = JsonSerializer.Deserialize<object?>(
                     match.Bindings[key].Value.ToString() ?? "null"
                 );
             }
             catch (JsonException je)
             {
                 string stringifiedObject = $"\"{match.Bindings[key].Value.ToString()}\"";
-                converted = JsonConvert.DeserializeObject(stringifiedObject ?? "null");
+                converted = JsonSerializer.Deserialize<object?>(stringifiedObject ?? "null");
             }
             converted = ApplyIntType(converted);
             paramsToAdd[key] = converted;

@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Text;
+using System.Text.Json;
 using Dumpify;
 using Newtonsoft.Json;
 using SimpleRest.Views;
@@ -16,6 +17,7 @@ public class SimpleRestResponse : ISimpleRestHttpObject
     public event Result? OnSend;
     public bool HasCompleted { get; private set; }
     StatusCode m_StatusCode = StatusCode.Success;
+    JsonSerializerOptions m_SerializerOptions;
     public StatusCode StatusCode
     {
         get => m_StatusCode;
@@ -36,11 +38,12 @@ public class SimpleRestResponse : ISimpleRestHttpObject
 
     public string? UserAgent { get; private set; }
 
-    public SimpleRestResponse(HttpListenerResponse response, ISimpleRestContentTypeParser parser)
+    public SimpleRestResponse(HttpListenerResponse response, ISimpleRestContentTypeParser parser, JsonSerializerOptions jsonSerializerOptions)
     {
         Response = response;
         m_TypeParser = parser;
-        Body = new SimpleRestBody("");
+        Body = new SimpleRestBody("", jsonSerializerOptions);
+        m_SerializerOptions = jsonSerializerOptions;
     }
 
     public void Return()
@@ -61,7 +64,7 @@ public class SimpleRestResponse : ISimpleRestHttpObject
 
         string finalOutput = JsonConvert.SerializeObject(result);
         ContentType = m_TypeParser.GetType<T>();
-        Body = new SimpleRestBody(finalOutput);
+        Body = new SimpleRestBody(finalOutput, m_SerializerOptions);
         SetHeaders();
         WriteResponse();
     }
@@ -69,7 +72,7 @@ public class SimpleRestResponse : ISimpleRestHttpObject
     public void View(string content, string contentType = "text/html; charset=utf-8")
     {
         ContentType = contentType;
-        Body = new SimpleRestBody(content);
+        Body = new SimpleRestBody(content, m_SerializerOptions);
         SetHeaders();
         WriteResponse();
     }
@@ -77,7 +80,7 @@ public class SimpleRestResponse : ISimpleRestHttpObject
     public void View(ISimpleRestView view, string contentType = "text/html; charset=urf-8")
     {
         ContentType = contentType;
-        Body = new SimpleRestBody(view.GetView());
+        Body = new SimpleRestBody(view.GetView(), m_SerializerOptions);
         SetHeaders();
         WriteResponse();
     }
@@ -87,7 +90,7 @@ public class SimpleRestResponse : ISimpleRestHttpObject
         redirectCode = redirectCode ?? RedirectCode.TemporaryRedirect;
         Response.StatusCode = redirectCode.Code;
         Response.StatusDescription = redirectCode.Name;
-        Body = new SimpleRestBody(redirectCode.ToString());
+        Body = new SimpleRestBody(redirectCode.ToString(), m_SerializerOptions);
         SetHeaders();
         Response.Headers["Location"] = location;
 
@@ -118,7 +121,7 @@ public class SimpleRestResponse : ISimpleRestHttpObject
     {
         statusCode ??= m_StatusCode;
         m_StatusCode = statusCode;
-        Body = new SimpleRestBody(m_StatusCode.Message);
+        Body = new SimpleRestBody(m_StatusCode.Message, m_SerializerOptions);
         SetHeaders();
         WriteResponse();
     }

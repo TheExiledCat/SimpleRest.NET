@@ -3,7 +3,9 @@ using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Text;
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 using SimpleRest.Extensions;
 
 namespace SimpleRest.Api;
@@ -24,7 +26,7 @@ public class SimpleRestRequest : ISimpleRestHttpObject
 {
     public string Endpoint { get; private set; } = "";
     public object[]? Path { get; private set; }
-    public SimpleRestQuery Query { get; private set; } = new SimpleRestQuery();
+    public Dictionary<string, object?> Query { get; private set; } = new Dictionary<string, object?>();
     public Dictionary<string, object?> Params { get; set; } = new Dictionary<string, object?>();
 
     public SimpleRestBody Body { get; private set; }
@@ -33,7 +35,7 @@ public class SimpleRestRequest : ISimpleRestHttpObject
     public long ContentLength { get; private set; }
     public SimpleRestMethod Method { get; private set; }
     public string? UserAgent { get; private set; }
-
+    JsonSerializerOptions m_SerializerOptions;
     private SimpleRestRequest() { }
 
     /// <param name="key">The url parameter from the UriTemplate</param>
@@ -51,29 +53,48 @@ public class SimpleRestRequest : ISimpleRestHttpObject
     /// <param name="endpointFormatter">An optional injectable Endpoint formatter class that can apply transformations to the url</param>
     /// <returns>The SimplerRestRequest generated from the <paramref name="listenerContext"/></returns>
     public static SimpleRestRequest FromHttpListenerContext(
-        HttpListenerContext listenerContext,
+        HttpListenerContext listenerContext, JsonSerializerOptions jsonOptions,
         ISimpleRestEndpointFormatter? endpointFormatter = null
     )
     {
         HttpListenerRequest contextRequest = listenerContext.Request;
-
         SimpleRestRequest request = new SimpleRestRequest();
+        request.m_SerializerOptions = jsonOptions;
         if (contextRequest.QueryString.Count > 0)
         {
-            request.Query = SimpleRestQuery.FromDictionary(
+            request.Query =
                 contextRequest.QueryString.AllKeys.ToDictionary(
                     k => k ?? "",
                     k =>
-                        contextRequest.QueryString[k].SafeDeserialize(contextRequest.QueryString[k])
-                )
-            );
+                    {
+                        object? value = contextRequest.QueryString[k]?.SafeDeserialize(contextRequest.QueryString[k], jsonOptions);
+                        if (value is JsonElement element)
+                        {
+                            return element.ValueKind switch
+                            {
+                                JsonValueKind.Number when element.TryGetInt32(out int intValue) => intValue, // Integer
+                                JsonValueKind.Number => element.GetDouble(), // Floating-point
+                                JsonValueKind.String => element.GetString(), // String
+                                JsonValueKind.True => true, // Boolean true
+                                JsonValueKind.False => false, // Boolean false
+                                JsonValueKind.Null => null, // Null
+                                JsonValueKind.Object => element.Deserialize<JsonObject>(jsonOptions),
+                                _ => throw new InvalidOperationException($"Unsupported JSON value: {value}"), // Handle unexpected types
+                            };
+                        }
+                        return value;
+                    }
+
+                );
+
+
         }
         else
         {
-            request.Query = SimpleRestQuery.FromDictionary(new Dictionary<string, object?>());
+            request.Query = new Dictionary<string, object?>();
         }
 
-        request.Body = new SimpleRestBody(contextRequest);
+        request.Body = new SimpleRestBody(contextRequest, request.m_SerializerOptions);
         request.Headers = contextRequest
             .Headers?.AllKeys.ToDictionary(k => k, k => contextRequest.Headers[k])
             .ToWebHeaderCollection();
@@ -106,10 +127,11 @@ public class SimpleRestRequest : ISimpleRestHttpObject
 /// </summary>
 public class SimpleRestBody
 {
-    public SimpleRestBody(string contents)
+    JsonSerializerOptions m_SerializerOptions;
+    public SimpleRestBody(string contents, JsonSerializerOptions jsonOptions)
     {
         Bytes = Encoding.UTF8.GetBytes(contents);
-
+        m_SerializerOptions = jsonOptions;
         Content = contents;
     }
 
@@ -117,13 +139,15 @@ public class SimpleRestBody
     /// Initializes a new instance of the <see cref="SimpleRestBody"/> class using the specified <see cref="HttpListenerRequest"/>.
     /// </summary>
     /// <param name="request">The <see cref="HttpListenerRequest"/> from which to read the body content.</param>
-    public SimpleRestBody(HttpListenerRequest request)
+    public SimpleRestBody(HttpListenerRequest request, JsonSerializerOptions jsonOptions)
     {
         using (var memoryStream = new MemoryStream())
         {
             request.InputStream.CopyTo(memoryStream);
             Bytes = memoryStream.ToArray();
         }
+        m_SerializerOptions = jsonOptions;
+
         Content = Encoding.UTF8.GetString(Bytes);
     }
 
@@ -159,32 +183,8 @@ public class SimpleRestBody
     /// </returns>
     public TBody? GetContent<TBody>()
     {
-        return JsonConvert.DeserializeObject<TBody>(Content);
+        return JsonSerializer.Deserialize<TBody>(Content, m_SerializerOptions);
     }
 }
 
-public class SimpleRestQuery : ISimpleRestQuery
-{
-    public static SimpleRestQuery FromDictionary(Dictionary<string, object?>? keyValuePairs)
-    {
-        SimpleRestQuery query = new SimpleRestQuery()
-        {
-            Query = new ReadOnlyDictionary<string, object?>(
-                keyValuePairs ?? new Dictionary<string, object?>()
-            ),
-        };
-        return query;
-    }
 
-    public object? this[string key]
-    {
-        get { return Query.TryGetValue(key, out object val) ? val : null; }
-    }
-
-    public string[] Keys => Query.Keys.ToArray();
-
-    public object?[] Values => Query.Values.ToArray();
-
-    public ReadOnlyDictionary<string, object?> Query { get; private set; } =
-        new ReadOnlyDictionary<string, object?>(new Dictionary<string, object?>());
-}

@@ -1,16 +1,16 @@
 ﻿using System.Net;
-using Newtonsoft.Json;
+using System.Text.Json;
 using Uri = UriTemplate.Core;
 
 namespace SimpleRest.Extensions;
 
 public static class SimpleRestExtensions
 {
-    public static object? SafeDeserialize(this string json, object fallbackValue)
+    public static object? SafeDeserialize(this string json, object fallbackValue, JsonSerializerOptions options)
     {
         try
         {
-            return JsonConvert.DeserializeObject(json);
+            return JsonSerializer.Deserialize<object?>(json);
         }
         catch (JsonException)
         {

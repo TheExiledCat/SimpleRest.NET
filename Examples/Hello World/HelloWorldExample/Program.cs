@@ -1,6 +1,7 @@
 ﻿using Dumpify;
 using Newtonsoft.Json;
 using SimpleRest.Api;
+using SimpleRest.Extensions.Native;
 using SimpleRest.Handlers;
 
 public class Program
@@ -18,6 +19,12 @@ public class Program
                 res.Send("HelloWorld");
             }
         );
+        api.Get("/users", async (req, res) =>
+        {
+            int? age = req.Query["age"] as int?;
+            res.Send(new User { Age = age });
+
+        });
         api.Post(
             "/users",
             async (req, res) =>
@@ -26,6 +33,11 @@ public class Program
             },
             new BodyHandler<User>()
         );
+        api.Post("/users/{id}", async (req, res) =>
+        {
+            req.Params.TryGet(out int id);
+            res.Send(id);
+        });
         api.Post(
             "/",
             async (req, res) =>
@@ -41,9 +53,8 @@ public class Program
         );
     }
 }
-[JsonObject(ItemRequired = Required.Always)]
 public class User
 {
     public string Username { get; set; }
-    public int Age { get; set; }
+    public int? Age { get; set; }
 }
